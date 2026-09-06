@@ -1,21 +1,60 @@
 {
-  "_comment": "Curation overrides for build/generate.mjs, keyed by repository name. Anything set here wins over the GitHub API. Use it only where the auto-derived value is genuinely wrong or ambiguous — every repo NOT listed here is fully automatic, which is the point.",
-
-  "ace-docker-simulator": { "order": 1 },
-  "device-gateway-docker": { "title": "Device Gateway", "order": 2 },
-
-  "application-mes-core-accelerator": { "title": "MES — Core Application", "order": 1 },
-  "application-mes-full-accelerator": { "title": "MES — Full Application", "order": 2 },
-  "application-wms-accelerator": { "title": "WMS — Full Application", "order": 3 },
-
-  "fuuz-mes-accelerator": { "title": "MES — Shop Floor Package", "order": 1 },
-  "fuuz-wms-accelerator": { "title": "WMS — Warehouse Package", "order": 2 },
-  "fuuz-integration-accelerator": { "title": "Cross-Tenant Integration", "order": 3 },
-  "package-mes-netsuite-accelerator": { "title": "MES to NetSuite" },
-  "package-integrated-carrier-addon-plex-accelerator": { "title": "Integrated Carrier — Plex Add-On" },
-  "package-integrated-carrier-fedex-accelerator": { "title": "Integrated Carrier — FedEx" },
-  "package-integrated-carrier-ups-accelerator": { "title": "Integrated Carrier — UPS" },
-
-  "llm-skills": { "title": "LLM Skills" },
-  "fuuz-flow-mcp-tools": { "title": "Flow MCP Tools" }
+  "_comment": "Curation overrides for build/generate.mjs, keyed by repository name. Anything set here wins over the GitHub API. Use it only where the auto-derived value is genuinely wrong or ambiguous \u2014 every repo NOT listed here is fully automatic, which is the point.",
+  "ace-docker-simulator": {
+    "order": 1
+  },
+  "application-mes-core-accelerator": {
+    "order": 1,
+    "title": "MES \u2014 Core Application"
+  },
+  "application-mes-full-accelerator": {
+    "order": 2,
+    "title": "MES \u2014 Full Application"
+  },
+  "application-wms-accelerator": {
+    "order": 3,
+    "title": "WMS \u2014 Full Application"
+  },
+  "device-gateway-docker": {
+    "order": 2,
+    "title": "Device Gateway"
+  },
+  "fuuz-dev-console": {
+    "summary": "A Chrome DevTools extension that reads a Fuuz screen's console as an execution log beside the state it produced, with trace links between the two.",
+    "title": "Fuuz Dev Console"
+  },
+  "fuuz-flow-mcp-tools": {
+    "title": "Flow MCP Tools"
+  },
+  "fuuz-integration-accelerator": {
+    "order": 3,
+    "title": "Cross-Tenant Integration"
+  },
+  "fuuz-mes-accelerator": {
+    "order": 1,
+    "title": "MES \u2014 Shop Floor Package"
+  },
+  "fuuz-vscode-extension": {
+    "summary": "Connect VS Code to a Fuuz environment over MCP: resources, ERDs, flows, data queries, installable platform skills, and UI validation in a real browser.",
+    "title": "Fuuz for VS Code"
+  },
+  "fuuz-wms-accelerator": {
+    "order": 2,
+    "title": "WMS \u2014 Warehouse Package"
+  },
+  "llm-skills": {
+    "title": "LLM Skills"
+  },
+  "package-integrated-carrier-addon-plex-accelerator": {
+    "title": "Integrated Carrier \u2014 Plex Add-On"
+  },
+  "package-integrated-carrier-fedex-accelerator": {
+    "title": "Integrated Carrier \u2014 FedEx"
+  },
+  "package-integrated-carrier-ups-accelerator": {
+    "title": "Integrated Carrier \u2014 UPS"
+  },
+  "package-mes-netsuite-accelerator": {
+    "title": "MES to NetSuite"
+  }
 }
