@@ -73,7 +73,7 @@
     enterprise can operate as one.
   </p>
   <p class="lede">
-    These are the accelerators: 34 pre-built packages and runnable simulators
+    These are the accelerators: 33 pre-built packages and runnable simulators
     you can read before you install anything. Some of them stand up on a laptop with no Fuuz tenant
     at all.
   </p>
@@ -90,6 +90,11 @@
     <h2>Newest From The Fuuz <span class="accent">Team</span></h2>
     <p class="sec-lede">The most recent accelerators to land. Everything else is below, by category.</p>
     <div class="grid">
+        <div class="card">
+          <h3><a href="fuuz-agentic-workflows/">Agentic Workflows</a><span class="tag tag-live">Site</span></h3>
+          <p>Working MCP tools built as Fuuz data flows — seven live tools an agent can call to read a tenant's models, flows and screens, plus the chat interface that drives them.</p>
+          <div class="meta">6 Sept 2026</div>
+        </div>
         <div class="card">
           <h3><a href="package-si-units/">SI Units</a><span class="tag tag-live">Site</span></h3>
           <p>SI Units of Measure Fuuz Package for Fuuz App Installations</p>
@@ -109,11 +114,6 @@
           <h3><a href="package-plex-datasource-tools-accelerator/">Plex Datasource Tools</a><span class="tag tag-live">Site</span></h3>
           <p>Plex ERP ODBC datasource management and connection health tools</p>
           <div class="meta">v2.0.0 &middot; 6 Sept 2026</div>
-        </div>
-        <div class="card">
-          <h3><a href="package-mes-netsuite-accelerator/">MES to NetSuite</a><span class="tag tag-live">Site</span></h3>
-          <p>MES-NetSuite ERP bidirectional integration — work orders, inventory, orders, BOM</p>
-          <div class="meta">v2025.4.0 &middot; 6 Sept 2026</div>
         </div>
         <div class="card">
           <h3><a href="package-mes-basic-roles-accelerator/">MES Basic Roles</a><span class="tag tag-live">Site</span></h3>
@@ -206,11 +206,6 @@
           <div class="meta"><a href="https://github.com/Fuuz-Platform/package-master-data-flow-config-accelerator/releases/tag/v1.0.1">v1.0.1</a></div>
         </div>
         <div class="card">
-          <h3><a href="package-mes-netsuite-accelerator/">MES to NetSuite</a><span class="tag tag-live">Site</span></h3>
-          <p>MES-NetSuite ERP bidirectional integration — work orders, inventory, orders, BOM</p>
-          <div class="meta"><a href="https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator/releases/tag/v2025.4.0">v2025.4.0</a></div>
-        </div>
-        <div class="card">
           <h3><a href="package-plex-datasource-tools-accelerator/">Plex Datasource Tools</a><span class="tag tag-live">Site</span></h3>
           <p>Plex ERP ODBC datasource management and connection health tools</p>
           <div class="meta"><a href="https://github.com/Fuuz-Platform/package-plex-datasource-tools-accelerator/releases/tag/v2.0.0">v2.0.0</a></div>
@@ -233,7 +228,7 @@
   <div class="wrap">
     <p class="sec-eyebrow">Tools</p>
     <h2>Tooling For Building On <span class="accent">Fuuz</span></h2>
-    <p class="sec-lede">Not accelerators — these do not install into a tenant. They are what you reach for while building one: skills that teach a model the platform, and Model Context Protocol (MCP) tools that let an agent drive it.</p>
+    <p class="sec-lede">Not accelerators — these do not install into a tenant. They are what you reach for while building one: an editor extension and a browser devtools panel.</p>
     <div class="grid" data-collapse="6">
         <div class="card">
           <h3><a href="fuuz-vscode-extension/">Fuuz for VS Code</a><span class="tag tag-live">Site</span></h3>
@@ -245,8 +240,23 @@
           <p>A Chrome DevTools extension that reads a Fuuz screen's console as an execution log beside the state it produced, with trace links between the two.</p>
           <div class="meta"><a href="https://github.com/Fuuz-Platform/fuuz-dev-console/releases/tag/v0.1.0">v0.1.0</a></div>
         </div>
+      </div>
+  </div>
+</section>
+
+<section id="ai">
+  <div class="wrap">
+    <p class="sec-eyebrow">AI Tools</p>
+    <h2>Point An Agent At Your <span class="accent">Tenant</span></h2>
+    <p class="sec-lede">Skills that teach a model the platform, Model Context Protocol (MCP) tools that let an agent read and query a tenant, and working examples of both built as Fuuz flows.</p>
+    <div class="grid" data-collapse="6">
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/llm-skills">LLM Skills</a><span class="tag">Repo</span></h3>
+          <h3><a href="fuuz-agentic-workflows/">Agentic Workflows</a><span class="tag tag-live">Site</span></h3>
+          <p>Working MCP tools built as Fuuz data flows — seven live tools an agent can call to read a tenant's models, flows and screens, plus the chat interface that drives them.</p>
+          <div class="meta">fuuz-agentic-workflows</div>
+        </div>
+        <div class="card">
+          <h3><a href="llm-skills/">LLM Skills</a><span class="tag tag-live">Site</span></h3>
           <p>LLM skills for the Fuuz Industrial Operations platform</p>
           <div class="meta">llm-skills</div>
         </div>
@@ -269,11 +279,6 @@
           <h3><a href="application-mes-core-accelerator/">MES — Core</a><span class="tag tag-live">Site</span></h3>
           <p>Core MES foundations — modules, roles, work orders, modes, sequences, seed data</p>
           <div class="meta"><a href="https://github.com/Fuuz-Platform/application-mes-core-accelerator/releases/tag/v1.0.0">v1.0.0</a></div>
-        </div>
-        <div class="card">
-          <h3><a href="application-mes-full-accelerator/">MES — Full</a><span class="tag tag-live">Site</span></h3>
-          <p>Full MES — production, inventory, scheduling, quality, maintenance, logistics</p>
-          <div class="meta"><a href="https://github.com/Fuuz-Platform/application-mes-full-accelerator/releases/tag/v2025.4.1">v2025.4.1</a></div>
         </div>
         <div class="card">
           <h3><a href="application-wms-accelerator/">WMS — Full</a><span class="tag tag-live">Site</span></h3>

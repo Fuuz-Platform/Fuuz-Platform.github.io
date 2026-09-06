@@ -39,11 +39,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://accelerators.fuuz.com/application-mes-full-accelerator/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://accelerators.fuuz.com/application-mes-core-accelerator/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
@@ -84,11 +79,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://accelerators.fuuz.com/package-mes-netsuite-accelerator/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://accelerators.fuuz.com/package-integrated-carrier-core-schema-accelerator/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
@@ -120,6 +110,11 @@
   </url>
   <url>
     <loc>https://accelerators.fuuz.com/package-confluence-data-model-docs-accelerator/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accelerators.fuuz.com/llm-skills/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
   </url>
@@ -175,6 +170,11 @@
   </url>
   <url>
     <loc>https://accelerators.fuuz.com/fuuz-dev-console/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accelerators.fuuz.com/fuuz-agentic-workflows/</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.8</priority>
   </url>

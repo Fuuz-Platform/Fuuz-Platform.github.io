@@ -446,7 +446,12 @@ const accelerators = repos
          overrides it when a real release date should win. */
       released: o.released || r.created_at,
       order: o.order ?? 100,
-      hidden: Boolean(o.hidden)
+      /* `deprecated` and `hidden` both remove an accelerator from the catalogue. They are separate
+         words because they mean different things to whoever reads this file next: hidden is "not
+         ready to show", deprecated is "superseded, do not start anything new on it". The repo
+         stays public either way — deprecating is not deleting. */
+      hidden: Boolean(o.hidden) || Boolean(o.deprecated),
+      deprecated: Boolean(o.deprecated)
     };
   })
   .filter(a => !a.hidden);

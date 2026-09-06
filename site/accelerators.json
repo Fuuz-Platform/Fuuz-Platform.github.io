@@ -5,7 +5,7 @@
   "device-gateway-docker": { "title": "Device Gateway", "order": 2 },
 
   "application-mes-core-accelerator": { "title": "MES — Core", "order": 1 },
-  "application-mes-full-accelerator": { "title": "MES — Full", "order": 2 },
+  "application-mes-full-accelerator": { "title": "MES — Full", "order": 2, "deprecated": true },
   "application-wms-accelerator": { "title": "WMS — Full", "order": 3 },
 
   "fuuz-mes-accelerator": { "title": "MES — Shop Floor Package", "order": 1 },
@@ -15,7 +15,7 @@
   "fuuz-mes-modular-accelerator": { "title": "MES — Modular Package", "order": 4 },
   "fuuz-wms-modular-accelerator": { "title": "WMS — Modular Package", "order": 5 },
   "fuuz-integration-modular-accelerator": { "title": "Integration — Modular Package", "order": 6 },
-  "package-mes-netsuite-accelerator": { "title": "MES to NetSuite" },
+  "package-mes-netsuite-accelerator": { "title": "MES to NetSuite", "deprecated": true },
   "package-integrated-carrier-addon-plex-accelerator": { "title": "Integrated Carrier — Plex Add-On" },
   "package-integrated-carrier-fedex-accelerator": { "title": "Integrated Carrier — FedEx" },
   "package-integrated-carrier-ups-accelerator": { "title": "Integrated Carrier — UPS" },
