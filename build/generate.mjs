@@ -154,6 +154,87 @@ ${urls.map((u, i) => `  <url>
 `;
 }
 
+/* ── YouTube ──────────────────────────────────────────────────────────────────────────────────
+   Pulled from the channel's Atom feed at build time rather than pasted in, for the same reason the
+   accelerator list is: a hardcoded set of videos is wrong the moment the next one is published,
+   and nobody remembers to come back here.
+
+   The feed needs no API key and no quota. Thumbnails are served by YouTube, so this adds three
+   files' worth of bytes to the page and none to the repository.
+
+   DEGRADES RATHER THAN FAILS. If the feed is unreachable the section renders with just the
+   channel link. Losing the videos is a small loss; failing the whole site build over them, when
+   they are the least important thing on the page, is a much bigger one. */
+const YT_CHANNEL_ID = 'UCJcJs6NTw3WM2tf6vgeKMbA';
+const YT_CHANNEL_URL = 'https://www.youtube.com/@FuuzPlatform';
+const YT_COUNT = 6;
+
+async function latestVideos() {
+  try {
+    const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${YT_CHANNEL_ID}`,
+      { headers: { 'user-agent': 'fuuz-accelerators-build' } });
+    if (!res.ok) throw new Error(`feed HTTP ${res.status}`);
+    const xml = await res.text();
+
+    return [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].slice(0, YT_COUNT).map(m => {
+      const e = m[1];
+      const pick = re => (e.match(re) || [])[1] || '';
+      return {
+        id: pick(/<yt:videoId>(.*?)<\/yt:videoId>/),
+        /* The <title> inside <entry> comes before <media:group>'s copy; take the first. */
+        title: decodeEntities(pick(/<title>([\s\S]*?)<\/title>/)),
+        published: pick(/<published>(\d{4}-\d{2}-\d{2})/)
+      };
+    }).filter(v => v.id && v.title);
+  } catch (err) {
+    console.warn(`YouTube feed unavailable (${err.message}) — rendering the channel link only.`);
+    return [];
+  }
+}
+
+/* The feed is XML, so titles arrive with entities escaped. They are about to be re-escaped for
+   HTML, and double-escaping is what turns an apostrophe into &amp;#39; on the page. */
+function decodeEntities(s) {
+  return s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+          .replace(/&#39;|&apos;/g, "'").replace(/&amp;/g, '&').trim();
+}
+
+function renderVideos(videos) {
+  const channelCta = `<a class="cta cta-secondary" href="${YT_CHANNEL_URL}">Visit the channel</a>`;
+  if (!videos.length) {
+    return `<section id="watch">
+  <div class="wrap">
+    <p class="sec-eyebrow">Watch</p>
+    <h2>Hear It From The People Who Built <span class="accent">It</span></h2>
+    <p class="sec-lede">Product walkthroughs, customer conversations and candid discussion of what
+      does and does not work on a plant floor.</p>
+    <div class="ctas">${channelCta}</div>
+  </div>
+</section>`;
+  }
+
+  const cards = videos.map(v => `        <a class="video" href="https://www.youtube.com/watch?v=${esc(v.id)}">
+          <div class="thumb">
+            <img src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+          </div>
+          <div class="video-title">${esc(v.title)}</div>
+          <div class="video-date">${esc(v.published)}</div>
+        </a>`).join('\n');
+
+  return `<section id="watch">
+  <div class="wrap">
+    <p class="sec-eyebrow">Watch</p>
+    <h2>Hear It From The People Who Built <span class="accent">It</span></h2>
+    <p class="sec-lede">Product walkthroughs, customer conversations and candid discussion of what
+      does and does not work on a plant floor.</p>
+    <div class="videos">
+${cards}
+    </div>
+    <div class="ctas" style="margin-top:26px">${channelCta}</div>
+  </div>
+</section>`;
+}
+
 /* ── main ─────────────────────────────────────────────────────────────────────────────────── */
 const overridePath = join(SITE, 'accelerators.json');
 const overrides = existsSync(overridePath) ? JSON.parse(readFileSync(overridePath, 'utf8')) : {};
@@ -182,9 +263,12 @@ if (!accelerators.length) {
   throw new Error(`No repositories carry the "${MARKER}" topic. Refusing to publish an empty index.`);
 }
 
+const videos = await latestVideos();
+
 const template = readFileSync(join(HERE, 'template.html'), 'utf8');
 const html = template
   .replace('<!--{{SECTIONS}}-->', renderSections(accelerators))
+  .replace('<!--{{VIDEOS}}-->', renderVideos(videos))
   .replace(/\{\{COUNT\}\}/g, String(accelerators.length));
 
 writeFileSync(join(SITE, 'index.html'), html);
