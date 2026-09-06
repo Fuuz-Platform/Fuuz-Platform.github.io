@@ -59,11 +59,7 @@ ambiguous. Every repository *not* listed there is fully automatic, which is the 
    Resource not accessible by integration`. It reads like a broken workflow rather than a missing
    permission. Repos that already have Pages are unaffected, and the call is idempotent enough to
    run blind.
-4. **Check the default branch.** The workflow triggers on `main` *and* `master`, because
-   eighteen of the accelerators default to `master`. Copied from an older revision that
-   listed only `main`, it silently never fires: the push succeeds, no run appears, and the
-   site 404s while the repository looks correct.
-5. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
+4. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
 
 The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to it automatically.
 
@@ -90,6 +86,32 @@ Videos play through a **click-to-play thumbnail facade** rather than embedded pl
 zone rejects blank-referrer requests (ordinary hotlink protection), so thumbnails load in a browser
 but not from a bare `curl`; a reader whose browser strips the referrer sees the card without its
 image, and the play control still works.
+
+## Repository standards
+
+**The default branch is `main`. Everywhere, no exceptions.**
+
+Nineteen repositories were on `master` until 2026-09-06. That is not a cosmetic
+inconsistency — the Pages workflow triggers on `branches: [main]`, so on every one of them
+the deploy **silently never ran**: the push succeeded, no workflow run appeared at all, and
+the site 404'd while the repository looked completely correct. A workflow that does not fire
+produces no error to find.
+
+All nineteen were renamed with the GitHub rename API, which retargets open pull requests and
+leaves redirects in place. The organization default for new repositories is `main`, so this
+cannot recur. Anyone holding an old clone updates it once:
+
+```bash
+git branch -m master main
+git fetch origin && git branch -u origin/main main
+git remote set-head origin -a
+```
+
+Two more standards worth stating, because both have already bitten:
+
+- **Create the Pages site before the first push** — see step 3 above.
+- **Never set a custom domain on an accelerator repository.** The domain belongs to
+  `Fuuz-Platform.github.io` and applies to every project site beneath it.
 
 ## Why the domain lives here and not on an accelerator
 
