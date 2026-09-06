@@ -26,7 +26,12 @@ A second topic picks the section:
 | `fuuz-runnable` | Run It Now — stands up on its own machine |
 | `fuuz-application` | Applications — installed into a tenant |
 | `fuuz-package` | Integration Packages |
+| `fuuz-tool` | Tools — helps you *build* on Fuuz; never installed into it |
 | *(none of those)* | More Accelerators |
+
+`fuuz-accelerator` means "publish this on the hub", not "this is an accelerator". LLM skills and
+MCP tools are not accelerators and should not be filed as though they were — they carry
+`fuuz-tool`.
 
 Whether a card links to a published site or to the source is **not** a topic — it is read from the
 repository's own GitHub Pages flag, so a card can never claim a site that is not published.

@@ -7,11 +7,13 @@
  * A generated index cannot disagree with reality, because reality is its only input.
  *
  * THE CONTRACT. A repository appears on this site when it carries the topic `fuuz-accelerator`.
- * That is the whole enrolment step. Section placement comes from a second topic:
+ * That is the whole enrolment step — the topic means "publish this on the hub", not "this is an
+ * accelerator". Section placement comes from a second topic:
  *
  *     fuuz-runnable      -> Run It Now         (stands up on its own machine)
  *     fuuz-application   -> Applications       (installed into a tenant)
  *     fuuz-package       -> Integration Packages
+ *     fuuz-tool          -> Tools              (helps you BUILD on Fuuz; not installed into it)
  *     (none of those)    -> More Accelerators
  *
  * Whether a card links to a published site or to the repository is NOT a topic, and NOT the
@@ -47,9 +49,12 @@ const SECTIONS = [
   { topic: 'fuuz-package', id: 'packages', eyebrow: 'Integration Packages',
     heading: ['Connect What You Already', 'Have'],
     lede: 'Enterprise resource planning (ERP) connectors, carrier integrations, schema keyrings and configuration packages. Each one works within the environment already on your floor.' },
+  { topic: 'fuuz-tool', id: 'tools', eyebrow: 'Tools',
+    heading: ['Tooling For Building On', 'Fuuz'],
+    lede: 'Not accelerators — these do not install into a tenant. They are what you reach for while building one: skills that teach a model the platform, and Model Context Protocol (MCP) tools that let an agent drive it.' },
   { topic: null, id: 'more', eyebrow: 'More Accelerators',
     heading: ['Everything Else We', 'Publish'],
-    lede: 'Roles, units of measure, document design templates and platform tooling.' }
+    lede: 'Roles, units of measure and document design templates.' }
 ];
 
 /* GitHub descriptions carry a house prefix that is noise once the reader is already on a page
