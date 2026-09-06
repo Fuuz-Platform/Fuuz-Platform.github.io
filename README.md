@@ -63,6 +63,30 @@ ambiguous. Every repository *not* listed there is fully automatic, which is the 
 
 The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to it automatically.
 
+## Platform demos
+
+`site/demos/` is generated from [`build/demos.json`](build/demos.json) — a **curated snapshot** of
+the public demo videos in the Fuuz Demo Share Bunny Stream library, not a live fetch.
+
+It is a snapshot on purpose. The source is the `Asset` model in the `fuuzAdministrationBuild`
+tenant, which sits behind a tenant JWT that is not scoped read-only; putting one in Actions secrets
+to save a manual step is a security decision for a human, and the demos change rarely.
+
+```bash
+FUUZ_HOST=<host> FUUZ_TENANT=<tenant> FUUZ_TOKEN=<jwt> node build/refresh-demos.mjs
+```
+
+It refreshes durations and source names, reports anything that has disappeared, and reports new
+videos in the source collections **without adding them** — publishing to the open internet should
+be a decision, not a side effect of a sync. Titles and summaries are left alone: the source names
+are raw filenames and the source descriptions are transcript-generated notes, so both are written
+by hand for publication.
+
+Videos play through a **click-to-play thumbnail facade** rather than embedded players. Bunny's pull
+zone rejects blank-referrer requests (ordinary hotlink protection), so thumbnails load in a browser
+but not from a bare `curl`; a reader whose browser strips the referrer sees the card without its
+image, and the play control still works.
+
 ## Why the domain lives here and not on an accelerator
 
 A custom domain set on an *organization* site applies to every **project** site in the same

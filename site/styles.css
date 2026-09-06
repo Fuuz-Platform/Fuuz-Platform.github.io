@@ -215,6 +215,44 @@ h2 .accent { color: var(--text-brand-on-dark); }
 .resource .url  { font-family: var(--font-mono); font-size: 12px; color: var(--text-brand-on-dark); margin-top: 4px; }
 .resource .desc { font-size: 14px; color: var(--text-secondary); margin-top: 10px; line-height: 1.55; }
 
+/* ── demo players (click to play) ──────────────────────────────────────────────────────────── */
+/* A thumbnail facade rather than seventeen embedded players: the iframe is created only for the
+   one the reader chose, which is also why it may autoplay — the click is the gesture browsers
+   require. Bunny blocks blank-referrer requests, so a browser that strips the referrer gets a 403;
+   the script hides a failed image rather than leaving a broken icon, and the card still reads. */
+.demos { display: grid; gap: 26px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.demo { min-width: 0; }
+.demo .player, .demo iframe {
+  display: block; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);
+  background: var(--surface-card); overflow: hidden;
+}
+.demo iframe { border: 1px solid var(--border-subtle); }
+.demo .player {
+  position: relative; padding: 0; cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-standard);
+}
+.demo .player img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Spring Green is action, and pressing play is the action on this page. */
+.demo .player .play {
+  position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px;
+  border-radius: var(--radius-pill); background: var(--fuuz-spring-green);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.demo .player .play::after {
+  content: ''; position: absolute; left: 21px; top: 16px;
+  border-style: solid; border-width: 12px 0 12px 19px;
+  border-color: transparent transparent transparent var(--fuuz-midnight);
+}
+.demo .player:hover { border-color: var(--fuuz-spring-green); }
+.demo .player:hover .play { transform: scale(1.06); }
+.demo h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 16.5px;
+  letter-spacing: var(--tracking-heading); color: var(--fuuz-white); margin: 15px 0 0;
+}
+.demo .demo-meta { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-muted); margin: 5px 0 0; }
+.demo p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; margin: 9px 0 0; }
+
 /* ── video previews ────────────────────────────────────────────────────────────────────────── */
 /* Thumbnails come from YouTube. hqdefault is the only size guaranteed to exist for every video,
    but it is 4:3 with letterbox bars on a 16:9 video — so the frame is forced to 16:9 and the

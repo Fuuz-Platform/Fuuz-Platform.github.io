@@ -1,0 +1,147 @@
+{
+  "_comment": "Public platform demos from the Fuuz Demo Share Bunny Stream library (id 705177). Curated snapshot, NOT auto-fetched at build time: the Asset model sits behind a tenant JWT, and putting one in CI secrets is a decision for a human. Refresh with `node build/refresh-demos.mjs` locally (needs FUUZ_HOST/FUUZ_TENANT/FUUZ_TOKEN) — it rewrites `summary` and `lengthSeconds` from the tenant and leaves `title` alone, because titles here are hand-written and the source names are raw filenames.",
+  "libraryId": 705177,
+  "thumbBase": "https://vz-0574e9ef-754.b-cdn.net",
+  "collections": [
+    {
+      "name": "Platform Demos",
+      "sourceCollection": "PreRecorded Platform Demos",
+      "blurb": "Recorded walkthroughs of the platform, start to finish.",
+      "videos": [
+        {
+          "guid": "1a4f7379-2e5b-4dd2-ba21-bfb2adf52c0d",
+          "title": "Introduction to Fuuz",
+          "sourceName": "fuuz_introduction_1_v1 (2160p).mp4",
+          "lengthSeconds": 860,
+          "summary": "Founder Craig Scott on where Fuuz came from and how it addresses IT and OT integration in manufacturing — why legacy systems break on update, and what a cloud-native platform does differently."
+        },
+        {
+          "guid": "885303c4-4095-4680-9e51-49bd74b54e8b",
+          "title": "The Mental Shift",
+          "sourceName": "part_1_fuuz_mental_shift_v1 (2160p).mp4",
+          "lengthSeconds": 362,
+          "summary": "What changes when a unified platform replaces monolithic ERP, MES and SCADA systems: one data model instead of silos, visual configuration instead of code, and continuous updates with no downtime."
+        },
+        {
+          "guid": "a85e9d75-0fa8-410d-8b9d-7bf4244b9db1",
+          "title": "Architecture You Can Touch",
+          "sourceName": "Architecture_you_can_touch.mp4",
+          "lengthSeconds": 579,
+          "summary": "The cloud platform and the edge gateway, and the path data actually takes from a CNC to the cloud over OPC UA and MQTT. Covers public, hybrid and private deployment against the same tools and APIs."
+        },
+        {
+          "guid": "7f2b1442-fbb6-437d-8344-1a2128acb325",
+          "title": "Applications In Action",
+          "sourceName": "applications_in_action_v1 (2160p).mp4",
+          "lengthSeconds": 884,
+          "summary": "How the ISA-95 framework organises the platform, and how a publish-and-subscribe model moves data between ERP, MES and machines in real time — in both directions."
+        },
+        {
+          "guid": "e93f35ed-3f4f-4a2b-a2e9-29af5aedf1c8",
+          "title": "Production Execution",
+          "sourceName": "prodexecutiondemo_v1 (2160p).mp4",
+          "lengthSeconds": 447,
+          "summary": "Shop-floor execution: barcode-driven data capture at the operator panel, full genealogy of materials and work orders, bill-of-material consumption, and the progressive path from manual steps to automated ones."
+        },
+        {
+          "guid": "1a192499-e0bf-4fe5-bed5-9cd2e4dac016",
+          "title": "Platform Session — Introduction",
+          "sourceName": "CScott_Session_2_Intro.mp4",
+          "lengthSeconds": 67,
+          "summary": "A short orientation to the session series: the core concepts and the four designer tools, ahead of the platform walkthrough."
+        }
+      ]
+    },
+    {
+      "name": "Recorded Demonstrations",
+      "sourceCollection": "Recorded Demonstrations",
+      "blurb": "Individual capabilities, demonstrated against real screens.",
+      "videos": [
+        {
+          "guid": "c54b90ab-c1fe-4300-b5df-4405a9e3e5fc",
+          "title": "Production Operations, OEE and In-Line Quality",
+          "sourceName": "ProductionOperations_Execution_OEE_InlineQC.mp4",
+          "lengthSeconds": 775,
+          "summary": "Overall equipment effectiveness calculated in real time and adjusted as equipment state changes, with drill-down by plant and work centre, schedule attainment against the ERP, and metrics you can redefine for your own environment."
+        },
+        {
+          "guid": "8746f30b-948a-46ce-ac5e-f3bd79843260",
+          "title": "Digital Twin — Batch Release and Two-Way Trace",
+          "sourceName": "DigitalTwin_BatchRelease_Bi-ModeTrace.mp4",
+          "lengthSeconds": 442,
+          "summary": "Forward and backward traceability from a serial, lot, batch or production order — linkages, equipment and storage, operator notes, quality checks and the audit trail, exportable to CSV or PDF."
+        },
+        {
+          "guid": "cea02bc4-23b6-45c3-927f-3344552ad44f",
+          "title": "Statistical Process Control",
+          "sourceName": "SPC_Characteristic Demonstration.mp4",
+          "lengthSeconds": 279,
+          "summary": "Selecting characteristics for analysis, capturing data in-line, in the lab and at inventory, and charting it as X-bar, R or Cpk with custom subgrouping — tied back to the production run, lot or serial it came from."
+        },
+        {
+          "guid": "cb64ac72-fd8f-498e-b6d3-ada5f8af504a",
+          "title": "Maintenance, Downtime and Reliability",
+          "sourceName": "2026-02-09 11-50-03",
+          "lengthSeconds": 228,
+          "summary": "Work centres linked to their assets, downtime events tracked with mean time between failures and mean time to repair, and a reliability dashboard comparing ninety days of maintenance history."
+        },
+        {
+          "guid": "6e8967df-acb9-4044-96ca-6d6ab07d5e37",
+          "title": "Campaign Management",
+          "sourceName": "CampaignManagementDemo.mp4",
+          "lengthSeconds": 212,
+          "summary": "Grouping production orders into campaigns by product attribute to cut setup and clean-in-place losses, with generated alerts on operational anomalies and role-based control over what the model may read."
+        },
+        {
+          "guid": "2aebb1fe-d2f1-48ca-9c8f-f705c915caf3",
+          "title": "Tag Subscriptions On The Edge Gateway",
+          "sourceName": "Tag Subscriptions Draft 1",
+          "lengthSeconds": 622,
+          "summary": "Standing up the edge gateway in Docker, pointing it at an OPC simulator instead of a live programmable logic controller, browsing tags, and bulk-subscribing from a filtered CSV."
+        }
+      ]
+    },
+    {
+      "name": "Short Demos",
+      "sourceCollection": "Short Demos",
+      "blurb": "One idea each, in a few minutes.",
+      "videos": [
+        {
+          "guid": "84e1c189-df2d-450e-9579-c3b920bf3039",
+          "title": "App Development In Fuuz",
+          "sourceName": "appDevelopmentFuuz",
+          "lengthSeconds": 309,
+          "summary": "Modelling data, building screens and shipping in one place — with a GraphQL API generated the moment a model is defined, and versioning, rollback and governance built into the lifecycle rather than bolted on."
+        },
+        {
+          "guid": "1288b9e1-48ea-4910-8ea4-9a1941ea0d58",
+          "title": "Automated Test Harness",
+          "sourceName": "demo_AutoTestharness",
+          "lengthSeconds": 400,
+          "summary": "End-to-end testing that correlates interface actions with backend logs, so a non-technical analyst can run a full test without writing code."
+        },
+        {
+          "guid": "8905d085-068e-4017-a149-bc5309423595",
+          "title": "Building An App With Claude",
+          "sourceName": "ClaudeBuildingAnApp.mp4",
+          "lengthSeconds": 777,
+          "summary": "Building a working application in Fuuz through a conversation with Claude, over the platform's own tooling."
+        },
+        {
+          "guid": "3375e171-80b4-4965-8ee9-a2d47b9d6871",
+          "title": "Claude Writes Fuuz Code",
+          "sourceName": "ClaudeWritesFuuzCode",
+          "lengthSeconds": 113,
+          "summary": "Claude working through the Fuuz tooling in an editor to build data capture for statistical process control — identifying the process steps, building the flow, and fixing validation errors as they surface."
+        },
+        {
+          "guid": "6693b5bc-0636-4ac8-8289-bb89ca70248b",
+          "title": "Building Apps In Fuuz",
+          "sourceName": "ClaudiaBuildsAppsInFuuz.mp4",
+          "lengthSeconds": 119,
+          "summary": "A short walkthrough of assembling an application in the platform."
+        }
+      ]
+    }
+  ]
+}
