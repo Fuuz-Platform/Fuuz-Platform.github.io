@@ -47,9 +47,19 @@ ambiguous. Every repository *not* listed there is fully automatic, which is the 
 
 1. Add a `site/` directory to the accelerator repository.
 2. Copy [`ace-docker-simulator/.github/workflows/pages.yml`](https://github.com/Fuuz-Platform/ace-docker-simulator/blob/main/.github/workflows/pages.yml)
-   in verbatim — nothing in it is repo-specific, and it self-enables Pages so the first push
-   succeeds.
-3. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
+   in verbatim — nothing in it is repo-specific.
+3. **On a brand-new repository, create the Pages site first:**
+
+   ```bash
+   gh api -X POST repos/Fuuz-Platform/<repo>/pages -f build_type=workflow
+   ```
+
+   The workflow's `enablement: true` can only *find* an existing site, not create one — a fresh
+   repository's `GITHUB_TOKEN` cannot, and the first run fails with `Create Pages site failed —
+   Resource not accessible by integration`. It reads like a broken workflow rather than a missing
+   permission. Repos that already have Pages are unaffected, and the call is idempotent enough to
+   run blind.
+4. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
 
 The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to it automatically.
 
