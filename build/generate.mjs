@@ -14,6 +14,7 @@
  *     fuuz-application   -> Applications       (installed into a tenant)
  *     fuuz-package       -> Integration Packages
  *     fuuz-tool          -> Tools              (helps you BUILD on Fuuz; not installed into it)
+ *     fuuz-ai            -> AI Tools           (skills, MCP tools and agentic examples)
  *     (none of those)    -> More Accelerators
  *
  * Whether a card links to a published site or to the repository is NOT a topic, and NOT the
@@ -48,7 +49,10 @@ const SECTIONS = [
     lede: 'Enterprise resource planning (ERP) connectors, carrier integrations, schema keyrings and configuration packages. Each one works within the environment already on your floor.' },
   { topic: 'fuuz-tool', id: 'tools', eyebrow: 'Tools',
     heading: ['Tooling For Building On', 'Fuuz'],
-    lede: 'Not accelerators — these do not install into a tenant. They are what you reach for while building one: skills that teach a model the platform, and Model Context Protocol (MCP) tools that let an agent drive it.' },
+    lede: 'Not accelerators — these do not install into a tenant. They are what you reach for while building one: an editor extension and a browser devtools panel.' },
+  { topic: 'fuuz-ai', id: 'ai', eyebrow: 'AI Tools',
+    heading: ['Point An Agent At Your', 'Tenant'],
+    lede: 'Skills that teach a model the platform, Model Context Protocol (MCP) tools that let an agent read and query a tenant, and working examples of both built as Fuuz flows.' },
   { topic: null, id: 'accelerators', eyebrow: 'Accelerators',
     heading: ['Everything Else We', 'Publish'],
     lede: 'Manufacturing execution (MES), warehouse management, machine monitoring and telemetry, alongside roles, units of measure and document design templates. Each installs into a Fuuz tenant.' }

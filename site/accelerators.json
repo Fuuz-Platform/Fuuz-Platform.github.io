@@ -30,6 +30,11 @@
     "summary": "A Chrome DevTools extension that reads a Fuuz screen's console as an execution log beside the state it produced, with trace links between the two.",
     "order": 2
   },
-  "llm-skills": { "title": "LLM Skills", "order": 3 },
-  "fuuz-flow-mcp-tools": { "title": "Flow MCP Tools", "order": 4 }
+  "llm-skills": { "title": "LLM Skills", "order": 2 },
+  "fuuz-flow-mcp-tools": { "title": "Flow MCP Tools", "order": 3 },
+  "fuuz-agentic-workflows": {
+    "title": "Agentic Workflows",
+    "summary": "Working MCP tools built as Fuuz data flows — seven live tools an agent can call to read a tenant's models, flows and screens, plus the chat interface that drives them.",
+    "order": 1
+  }
 }

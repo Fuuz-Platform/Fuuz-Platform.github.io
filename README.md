@@ -27,6 +27,7 @@ A second topic picks the section:
 | `fuuz-application` | Applications — installed into a tenant |
 | `fuuz-package` | Integration Packages |
 | `fuuz-tool` | Tools — helps you *build* on Fuuz; never installed into it |
+| `fuuz-ai` | AI Tools — skills, MCP tools and agentic examples |
 | *(none of those)* | More Accelerators |
 
 `fuuz-accelerator` means "publish this on the hub", not "this is an accelerator". LLM skills and
