@@ -59,7 +59,11 @@ ambiguous. Every repository *not* listed there is fully automatic, which is the 
    Resource not accessible by integration`. It reads like a broken workflow rather than a missing
    permission. Repos that already have Pages are unaffected, and the call is idempotent enough to
    run blind.
-4. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
+4. **Check the default branch.** The workflow triggers on `main` *and* `master`, because
+   eighteen of the accelerators default to `master`. Copied from an older revision that
+   listed only `main`, it silently never fires: the push succeeds, no run appears, and the
+   site 404s while the repository looks correct.
+5. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
 
 The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to it automatically.
 
