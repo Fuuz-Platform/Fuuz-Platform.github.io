@@ -14,9 +14,11 @@
  *     fuuz-package       -> Integration Packages
  *     (none of those)    -> More Accelerators
  *
- * Whether a card links to a published site or to the repository is NOT a topic — it is read from
- * the GitHub Pages flag on the repository itself, so it can never disagree with what is actually
- * published.
+ * Whether a card links to a published site or to the repository is NOT a topic, and NOT the
+ * repository's `has_pages` flag either. That flag only says Pages is ENABLED; it flips the moment
+ * someone runs the enable call, long before any site exists. Trusting it put eighteen cards and
+ * eighteen sitemap entries onto URLs that answered 404. The build now REQUESTS each candidate URL
+ * and believes the response, so a card cannot claim a site that is not actually serving.
  *
  * CURATION. site/accelerators.json is an optional override, keyed by repo name. Anything it sets
  * (title, summary, order, hidden) wins over the API. It exists so a bad auto-derived title can be
@@ -96,6 +98,16 @@ async function allRepos() {
     if (batch.length < 100) break;
   }
   return out;
+}
+
+/* `has_pages` is necessary but nowhere near sufficient — see the header. Ask the URL.
+   A site deployed seconds ago may not answer yet and will be listed as a repository until the next
+   build; that is the right direction to be wrong in. */
+async function isServing(url) {
+  try {
+    const res = await fetch(url, { method: 'GET', redirect: 'follow' });
+    return res.ok;
+  } catch { return false; }
 }
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -321,7 +333,8 @@ const accelerators = repos
       name: r.name,
       topics: r.topics || [],
       repoUrl: r.html_url,
-      hasSite: o.hasSite ?? Boolean(r.has_pages),
+      hasSite: false,                      // resolved below by asking the URL
+      hasPagesFlag: o.hasSite ?? Boolean(r.has_pages),
       title: o.title || titleFromName(r.name),
       summary: o.summary || cleanSummary(r.description),
       order: o.order ?? 100,
@@ -329,6 +342,17 @@ const accelerators = repos
     };
   })
   .filter(a => !a.hidden);
+
+/* Verify in parallel: ~30 requests, and only for repos whose flag is set at all. */
+await Promise.all(accelerators.map(async a => {
+  a.hasSite = a.hasPagesFlag ? await isServing(`${DOMAIN}/${a.name}/`) : false;
+}));
+const claimed = accelerators.filter(a => a.hasPagesFlag).length;
+const serving = accelerators.filter(a => a.hasSite).length;
+if (claimed !== serving) {
+  console.warn(`${claimed - serving} repo(s) have Pages enabled but are not serving a site yet; ` +
+               `linking those to their source instead.`);
+}
 
 if (!accelerators.length) {
   /* Publishing an empty catalogue would replace a working page with a page that says Fuuz has no
