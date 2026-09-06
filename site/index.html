@@ -50,6 +50,7 @@
     <span class="section">Accelerators</span>
     <nav>
       <a href="#run">Run it now</a>
+      <a href="#latest">Latest</a>
       <a href="demos/">Demos</a>
       <a href="#watch">Watch</a>
       <a href="#resources">Resources</a>
@@ -70,7 +71,7 @@
     enterprise can operate as one.
   </p>
   <p class="lede">
-    These are the accelerators: 32 pre-built packages, applications and runnable simulators
+    These are the accelerators: 34 pre-built packages, applications and runnable simulators
     you can read before you install anything. Some of them stand up on a laptop with no Fuuz tenant
     at all.
   </p>
@@ -80,12 +81,52 @@
   </div>
 </div>
 
+<section id="latest">
+  <div class="wrap">
+    <p class="sec-eyebrow">Latest releases</p>
+    <h2>Newest From The Fuuz <span class="accent">Team</span></h2>
+    <p class="sec-lede">The most recent accelerators to land. Everything else is below, by category.</p>
+    <div class="grid">
+        <div class="card">
+          <h3><a href="fuuz-dev-console/">Fuuz Dev Console</a><span class="tag tag-live">Site</span></h3>
+          <p>A Chrome DevTools extension that reads a Fuuz screen's console as an execution log beside the state it produced, with trace links between the two.</p>
+          <div class="meta">6 Sept 2026</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-integration-modular-accelerator/">Integration — Modular Package</a><span class="tag tag-live">Site</span></h3>
+          <p>Fuuz Integration Accelerator (modular) — cross-tenant and external connections, exploded to module/component</p>
+          <div class="meta">6 Sept 2026</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-wms-modular-accelerator/">WMS — Modular Package</a><span class="tag tag-live">Site</span></h3>
+          <p>Fuuz WMS Accelerator (modular) — warehouse management, exploded to module/component</p>
+          <div class="meta">6 Sept 2026</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-mes-modular-accelerator/">MES — Modular Package</a><span class="tag tag-live">Site</span></h3>
+          <p>Fuuz MES Accelerator (modular) — shop-floor production, exploded to module/component</p>
+          <div class="meta">6 Sept 2026</div>
+        </div>
+        <div class="card">
+          <h3><a href="ace-docker-simulator/">ACE Docker Simulator</a><span class="tag tag-live">Site</span></h3>
+          <p>ACE Docker Simulator — an OPC UA plant, a MongoDB time-series historian and a Fuuz-shaped GraphQL API, in one docker compose up.</p>
+          <div class="meta">6 Sept 2026</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-integration-accelerator/">Cross-Tenant Integration</a><span class="tag tag-live">Site</span></h3>
+          <p>Fuuz Integration Accelerator — cross tenant — external connections package</p>
+          <div class="meta">25 Aug 2026</div>
+        </div>
+    </div>
+  </div>
+</section>
+
 <section id="run">
   <div class="wrap">
     <p class="sec-eyebrow">Run It Now</p>
     <h2>Stand One Up On Your Own <span class="accent">Machine</span></h2>
     <p class="sec-lede">Accelerators that run on a laptop with nothing but Docker. No tenant, no account, no configuration file — read the source first and decide afterwards.</p>
-    <div class="grid">
+    <div class="grid" data-collapse="6">
         <div class="card">
           <h3><a href="ace-docker-simulator/">ACE Docker Simulator</a><span class="tag tag-live">Site</span></h3>
           <p>ACE Docker Simulator — an OPC UA plant, a MongoDB time-series historian and a Fuuz-shaped GraphQL API, in one docker compose up.</p>
@@ -105,46 +146,46 @@
     <p class="sec-eyebrow">Applications</p>
     <h2>Complete Applications For One <span class="accent">Tenant</span></h2>
     <p class="sec-lede">Whole application packages installed into a Fuuz tenant. Manufacturing execution systems (MES), warehouse management, machine monitoring and telemetry.</p>
-    <div class="grid">
+    <div class="grid" data-collapse="6">
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/application-mes-core-accelerator">MES — Core Application</a><span class="tag">Repo</span></h3>
+          <h3><a href="application-mes-core-accelerator/">MES — Core Application</a><span class="tag tag-live">Site</span></h3>
           <p>Core MES foundations — modules, roles, work orders, modes, sequences, seed data</p>
           <div class="meta">application-mes-core-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/application-mes-full-accelerator">MES — Full Application</a><span class="tag">Repo</span></h3>
+          <h3><a href="application-mes-full-accelerator/">MES — Full Application</a><span class="tag tag-live">Site</span></h3>
           <p>Full MES application — production, inventory, scheduling, quality, maintenance, logistics</p>
           <div class="meta">application-mes-full-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/application-wms-accelerator">WMS — Full Application</a><span class="tag">Repo</span></h3>
+          <h3><a href="application-wms-accelerator/">WMS — Full Application</a><span class="tag tag-live">Site</span></h3>
           <p>Warehouse Management System — receiving, put-away, picking, shipping, inventory</p>
           <div class="meta">application-wms-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="fuuz-integration-modular-accelerator/">Integration Modular</a><span class="tag tag-live">Site</span></h3>
-          <p>Fuuz Integration Accelerator (modular) — cross-tenant and external connections, exploded to module/component</p>
-          <div class="meta">fuuz-integration-modular-accelerator</div>
-        </div>
-        <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/application-machine-monitoring-accelerator">Machine Monitoring</a><span class="tag">Repo</span></h3>
-          <p>Machine monitoring application — workcenter state, downtime, OEE, IoT, alarms, shift scheduling</p>
-          <div class="meta">application-machine-monitoring-accelerator</div>
-        </div>
-        <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/application-machine-telemetry-accelerator">Machine Telemetry</a><span class="tag">Repo</span></h3>
-          <p>Machine telemetry application — IoT data collection, SPC, alarms, trend dashboards</p>
-          <div class="meta">application-machine-telemetry-accelerator</div>
-        </div>
-        <div class="card">
-          <h3><a href="fuuz-mes-modular-accelerator/">MES Modular</a><span class="tag tag-live">Site</span></h3>
+          <h3><a href="fuuz-mes-modular-accelerator/">MES — Modular Package</a><span class="tag tag-live">Site</span></h3>
           <p>Fuuz MES Accelerator (modular) — shop-floor production, exploded to module/component</p>
           <div class="meta">fuuz-mes-modular-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="fuuz-wms-modular-accelerator/">WMS Modular</a><span class="tag tag-live">Site</span></h3>
+          <h3><a href="fuuz-wms-modular-accelerator/">WMS — Modular Package</a><span class="tag tag-live">Site</span></h3>
           <p>Fuuz WMS Accelerator (modular) — warehouse management, exploded to module/component</p>
           <div class="meta">fuuz-wms-modular-accelerator</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-integration-modular-accelerator/">Integration — Modular Package</a><span class="tag tag-live">Site</span></h3>
+          <p>Fuuz Integration Accelerator (modular) — cross-tenant and external connections, exploded to module/component</p>
+          <div class="meta">fuuz-integration-modular-accelerator</div>
+        </div>
+        <div class="card">
+          <h3><a href="application-machine-monitoring-accelerator/">Machine Monitoring</a><span class="tag tag-live">Site</span></h3>
+          <p>Machine monitoring application — workcenter state, downtime, OEE, IoT, alarms, shift scheduling</p>
+          <div class="meta">application-machine-monitoring-accelerator</div>
+        </div>
+        <div class="card">
+          <h3><a href="application-machine-telemetry-accelerator/">Machine Telemetry</a><span class="tag tag-live">Site</span></h3>
+          <p>Machine telemetry application — IoT data collection, SPC, alarms, trend dashboards</p>
+          <div class="meta">application-machine-telemetry-accelerator</div>
         </div>
       </div>
   </div>
@@ -155,7 +196,7 @@
     <p class="sec-eyebrow">Integration Packages</p>
     <h2>Connect What You Already <span class="accent">Have</span></h2>
     <p class="sec-lede">Enterprise resource planning (ERP) connectors, carrier integrations, schema keyrings and configuration packages. Each one works within the environment already on your floor.</p>
-    <div class="grid">
+    <div class="grid" data-collapse="6">
         <div class="card">
           <h3><a href="fuuz-mes-accelerator/">MES — Shop Floor Package</a><span class="tag tag-live">Site</span></h3>
           <p>Fuuz Platform MES Accelerator — shop floor production Manufacturing Execution package</p>
@@ -172,52 +213,52 @@
           <div class="meta">fuuz-integration-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-confluence-data-model-docs-accelerator">Confluence Data Model Docs</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-confluence-data-model-docs-accelerator/">Confluence Data Model Docs</a><span class="tag tag-live">Site</span></h3>
           <p>Auto-generates Confluence documentation from Fuuz data model definitions</p>
           <div class="meta">package-confluence-data-model-docs-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-fedex-accelerator">Integrated Carrier — FedEx</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-integrated-carrier-fedex-accelerator/">Integrated Carrier — FedEx</a><span class="tag tag-live">Site</span></h3>
           <p>FedEx carrier integration — rate quote, label generation, void shipment</p>
           <div class="meta">package-integrated-carrier-fedex-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-addon-plex-accelerator">Integrated Carrier — Plex Add-On</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-integrated-carrier-addon-plex-accelerator/">Integrated Carrier — Plex Add-On</a><span class="tag tag-live">Site</span></h3>
           <p>Plex ERP add-on for integrated carrier shipping — browser extension overlay</p>
           <div class="meta">package-integrated-carrier-addon-plex-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-ups-accelerator">Integrated Carrier — UPS</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-integrated-carrier-ups-accelerator/">Integrated Carrier — UPS</a><span class="tag tag-live">Site</span></h3>
           <p>UPS carrier integration — rate quote, label generation, void shipment</p>
           <div class="meta">package-integrated-carrier-ups-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-flows-accelerator">Integrated Carrier Core Flows</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-integrated-carrier-core-flows-accelerator/">Integrated Carrier Core Flows</a><span class="tag tag-live">Site</span></h3>
           <p>Integrated carrier flows — router and label print flows for carrier-agnostic shipping</p>
           <div class="meta">package-integrated-carrier-core-flows-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-schema-accelerator">Integrated Carrier Core Schema</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-integrated-carrier-core-schema-accelerator/">Integrated Carrier Core Schema</a><span class="tag tag-live">Site</span></h3>
           <p>Integrated carrier schema — data models for carrier-agnostic shipping label system</p>
           <div class="meta">package-integrated-carrier-core-schema-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-screens-accelerator">Integrated Carrier Core Screens</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-integrated-carrier-core-screens-accelerator/">Integrated Carrier Core Screens</a><span class="tag tag-live">Site</span></h3>
           <p>Integrated carrier screens — shipment, carrier account, and carrier management UIs</p>
           <div class="meta">package-integrated-carrier-core-screens-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-master-data-flow-config-accelerator">Master Data Flow Config</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-master-data-flow-config-accelerator/">Master Data Flow Config</a><span class="tag tag-live">Site</span></h3>
           <p>Master data flow configuration — scheduled ERP import orchestration</p>
           <div class="meta">package-master-data-flow-config-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator">MES to NetSuite</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-mes-netsuite-accelerator/">MES to NetSuite</a><span class="tag tag-live">Site</span></h3>
           <p>MES-NetSuite ERP bidirectional integration — work orders, inventory, orders, BOM</p>
           <div class="meta">package-mes-netsuite-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-plex-datasource-tools-accelerator">Plex Datasource Tools</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-plex-datasource-tools-accelerator/">Plex Datasource Tools</a><span class="tag tag-live">Site</span></h3>
           <p>Plex ERP ODBC datasource management and connection health tools</p>
           <div class="meta">package-plex-datasource-tools-accelerator</div>
         </div>
@@ -227,9 +268,39 @@
           <div class="meta">package-plex-keyring-schema-accelerator</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-plex-odbc-master-config-accelerator">Plex ODBC Master Config</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-plex-odbc-master-config-accelerator/">Plex ODBC Master Config</a><span class="tag tag-live">Site</span></h3>
           <p>Plex ERP ODBC master configuration — 40+ numbered integration flows for master data sync</p>
           <div class="meta">package-plex-odbc-master-config-accelerator</div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <p class="sec-eyebrow">Tools</p>
+    <h2>Tooling For Building On <span class="accent">Fuuz</span></h2>
+    <p class="sec-lede">Not accelerators — these do not install into a tenant. They are what you reach for while building one: skills that teach a model the platform, and Model Context Protocol (MCP) tools that let an agent drive it.</p>
+    <div class="grid" data-collapse="6">
+        <div class="card">
+          <h3><a href="https://github.com/Fuuz-Platform/fuuz-flow-mcp-tools">Flow MCP Tools</a><span class="tag">Repo</span></h3>
+          <p>Packages containing various pre-configured MCP tools you can use with Fuuz</p>
+          <div class="meta">fuuz-flow-mcp-tools</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-dev-console/">Fuuz Dev Console</a><span class="tag tag-live">Site</span></h3>
+          <p>A Chrome DevTools extension that reads a Fuuz screen's console as an execution log beside the state it produced, with trace links between the two.</p>
+          <div class="meta">fuuz-dev-console</div>
+        </div>
+        <div class="card">
+          <h3><a href="fuuz-vscode-extension/">Fuuz for VS Code</a><span class="tag tag-live">Site</span></h3>
+          <p>Fuuz for VS Code (Open Beta) — connect VS Code to Fuuz over MCP: resources, ERDs, flows, data queries, installable platform skills, and UI validation in a real browser.</p>
+          <div class="meta">fuuz-vscode-extension</div>
+        </div>
+        <div class="card">
+          <h3><a href="https://github.com/Fuuz-Platform/llm-skills">LLM Skills</a><span class="tag">Repo</span></h3>
+          <p>LLM skills for the Fuuz Industrial Operations platform</p>
+          <div class="meta">llm-skills</div>
         </div>
       </div>
   </div>
@@ -239,22 +310,17 @@
   <div class="wrap">
     <p class="sec-eyebrow">More Accelerators</p>
     <h2>Everything Else We <span class="accent">Publish</span></h2>
-    <p class="sec-lede">Roles, units of measure, document design templates and platform tooling.</p>
-    <div class="grid">
+    <p class="sec-lede">Roles, units of measure and document design templates.</p>
+    <div class="grid" data-collapse="6">
         <div class="card">
           <h3><a href="package-all-units/">All Units</a><span class="tag tag-live">Site</span></h3>
           <p>The complete unit-of-measure library — SI and Imperial units with their conversions, for Fuuz app installations</p>
           <div class="meta">package-all-units</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-app-development-roles-accelerator">App Development Roles</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-app-development-roles-accelerator/">App Development Roles</a><span class="tag tag-live">Site</span></h3>
           <p>App development roles, policies, and groups for Fuuz platform developers</p>
           <div class="meta">package-app-development-roles-accelerator</div>
-        </div>
-        <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/fuuz-flow-mcp-tools">Flow MCP Tools</a><span class="tag">Repo</span></h3>
-          <p>Packages containing various pre-configured MCP tools you can use with Fuuz</p>
-          <div class="meta">fuuz-flow-mcp-tools</div>
         </div>
         <div class="card">
           <h3><a href="package-imperial-units/">Imperial Units</a><span class="tag tag-live">Site</span></h3>
@@ -262,12 +328,7 @@
           <div class="meta">package-imperial-units</div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/llm-skills">LLM Skills</a><span class="tag">Repo</span></h3>
-          <p>LLM skills for the Fuuz Industrial Operations platform</p>
-          <div class="meta">llm-skills</div>
-        </div>
-        <div class="card">
-          <h3><a href="https://github.com/Fuuz-Platform/package-mes-basic-roles-accelerator">MES Basic Roles</a><span class="tag">Repo</span></h3>
+          <h3><a href="package-mes-basic-roles-accelerator/">MES Basic Roles</a><span class="tag tag-live">Site</span></h3>
           <p>Basic MES roles — Factory, Production, Receiving, WMS operator access</p>
           <div class="meta">package-mes-basic-roles-accelerator</div>
         </div>
@@ -369,6 +430,36 @@
     <div class="ctas" style="margin-top:26px"><a class="cta cta-secondary" href="https://www.youtube.com/@FuuzPlatform">Visit the channel</a></div>
   </div>
 </section>
+<script>
+document.querySelectorAll('.grid[data-collapse]').forEach(function (grid) {
+  var keep = parseInt(grid.dataset.collapse, 10);
+  var cards = Array.prototype.slice.call(grid.children);
+  var extra = cards.slice(keep);
+  if (extra.length < 2) return;
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'see-more';
+  btn.setAttribute('aria-expanded', 'false');
+  var label = function (open) {
+    btn.textContent = open ? 'Show fewer' : 'See all ' + cards.length;
+  };
+
+  var apply = function (open) {
+    extra.forEach(function (el) { el.hidden = !open; });
+    btn.setAttribute('aria-expanded', String(open));
+    label(open);
+  };
+  apply(false);
+
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    apply(!open);
+    if (open) { grid.scrollIntoView({ block: 'nearest' }); }
+  });
+  grid.insertAdjacentElement('afterend', btn);
+});
+</script>
 </main>
 
 <footer>

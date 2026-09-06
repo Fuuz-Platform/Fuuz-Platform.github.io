@@ -203,6 +203,21 @@ h2 .accent { color: var(--text-brand-on-dark); }
 }
 .tag-live { background: rgba(78,37,226,.22); border-color: var(--fuuz-electric-violet); color: #C3B4FF; }
 
+/* ── see more ──────────────────────────────────────────────────────────────────────────────── */
+/* Injected by script after a collapsed grid, so it never appears without something to reveal. */
+.see-more {
+  display: inline-block; margin-top: 20px; cursor: pointer;
+  font-family: var(--font-display); font-weight: 700; font-size: 12.5px;
+  letter-spacing: var(--tracking-cta); text-transform: uppercase;
+  color: var(--text-secondary); background: transparent;
+  border: 1px solid var(--border-default); border-radius: var(--radius-sm);
+  padding: 11px 22px;
+  transition: color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              background var(--duration-fast) var(--ease-standard);
+}
+.see-more:hover { color: var(--fuuz-white); border-color: var(--fuuz-electric-violet); background: var(--surface-brand-muted); }
+
 /* ── resource strip ────────────────────────────────────────────────────────────────────────── */
 .resources { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .resource {

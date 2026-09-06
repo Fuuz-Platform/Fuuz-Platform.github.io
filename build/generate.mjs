@@ -145,13 +145,79 @@ function renderSections(accelerators) {
     <p class="sec-eyebrow">${esc(sec.eyebrow)}</p>
     <h2>${esc(sec.heading[0])} <span class="accent">${esc(sec.heading[1])}</span></h2>
     <p class="sec-lede">${esc(sec.lede)}</p>
-    <div class="grid">
+    <div class="grid" data-collapse="${COLLAPSE_AFTER}">
 ${items.map(card).join('\n')}
       </div>
   </div>
 </section>`);
   }
   return blocks.join('\n\n');
+}
+
+/* Collapse runs in the browser, not in the generator, and it runs AFTER the cards are in the DOM.
+   That ordering is the whole point: the page ships with every card present and visible, and script
+   hides the overflow. Rendering only six and revealing the rest on click would mean a reader
+   without JavaScript — or a crawler that does not run it — simply never sees twenty-six
+   accelerators. */
+const COLLAPSE_SCRIPT = `<script>
+document.querySelectorAll('.grid[data-collapse]').forEach(function (grid) {
+  var keep = parseInt(grid.dataset.collapse, 10);
+  var cards = Array.prototype.slice.call(grid.children);
+  var extra = cards.slice(keep);
+  if (extra.length < 2) return;
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'see-more';
+  btn.setAttribute('aria-expanded', 'false');
+  var label = function (open) {
+    btn.textContent = open ? 'Show fewer' : 'See all ' + cards.length;
+  };
+
+  var apply = function (open) {
+    extra.forEach(function (el) { el.hidden = !open; });
+    btn.setAttribute('aria-expanded', String(open));
+    label(open);
+  };
+  apply(false);
+
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    apply(!open);
+    if (open) { grid.scrollIntoView({ block: 'nearest' }); }
+  });
+  grid.insertAdjacentElement('afterend', btn);
+});
+</script>`;
+
+const LATEST_COUNT = 6;
+const COLLAPSE_AFTER = 6;
+
+function renderLatest(accelerators) {
+  const latest = [...accelerators]
+    .sort((a, b) => new Date(b.released) - new Date(a.released))
+    .slice(0, LATEST_COUNT);
+  if (!latest.length) return '';
+
+  const fmt = iso => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  return `<section id="latest">
+  <div class="wrap">
+    <p class="sec-eyebrow">Latest releases</p>
+    <h2>Newest From The Fuuz <span class="accent">Team</span></h2>
+    <p class="sec-lede">The most recent accelerators to land. Everything else is below, by category.</p>
+    <div class="grid">
+${latest.map(a => {
+  const href = a.hasSite ? `${a.name}/` : a.repoUrl;
+  const tag = a.hasSite ? '<span class="tag tag-live">Site</span>' : '<span class="tag">Repo</span>';
+  return `        <div class="card">
+          <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}</h3>
+          <p>${esc(a.summary)}</p>
+          <div class="meta">${esc(fmt(a.released))}</div>
+        </div>`;
+}).join('\n')}
+    </div>
+  </div>
+</section>`;
 }
 
 function sitemap(accelerators) {
@@ -342,6 +408,11 @@ const accelerators = repos
       hasPagesFlag: o.hasSite ?? Boolean(r.has_pages),
       title: o.title || titleFromName(r.name),
       summary: o.summary || cleanSummary(r.description),
+      /* `pushed_at` is useless for ordering here: enabling Pages or adding a site/ directory
+         across the org rewrites it for every repository at once, so it ranks by "last touched",
+         not by release. created_at is the honest default, and `released` in accelerators.json
+         overrides it when a real release date should win. */
+      released: o.released || r.created_at,
       order: o.order ?? 100,
       hidden: Boolean(o.hidden)
     };
@@ -369,7 +440,9 @@ const videos = await latestVideos();
 
 const template = readFileSync(join(HERE, 'template.html'), 'utf8');
 const html = template
+  .replace('<!--{{LATEST}}-->', renderLatest(accelerators))
   .replace('<!--{{SECTIONS}}-->', renderSections(accelerators))
+  .replace('<!--{{COLLAPSE_SCRIPT}}-->', COLLAPSE_SCRIPT)
   .replace('<!--{{DEMOS}}-->', renderDemoTeaser())
   .replace('<!--{{VIDEOS}}-->', renderVideos(videos))
   .replace(/\{\{COUNT\}\}/g, String(accelerators.length));
