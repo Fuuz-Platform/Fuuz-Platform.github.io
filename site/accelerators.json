@@ -1,0 +1,21 @@
+{
+  "_comment": "Curation overrides for build/generate.mjs, keyed by repository name. Anything set here wins over the GitHub API. Use it only where the auto-derived value is genuinely wrong or ambiguous — every repo NOT listed here is fully automatic, which is the point.",
+
+  "ace-docker-simulator": { "order": 1 },
+  "device-gateway-docker": { "title": "Device Gateway", "order": 2 },
+
+  "application-mes-core-accelerator": { "title": "MES — Core Application", "order": 1 },
+  "application-mes-full-accelerator": { "title": "MES — Full Application", "order": 2 },
+  "application-wms-accelerator": { "title": "WMS — Full Application", "order": 3 },
+
+  "fuuz-mes-accelerator": { "title": "MES — Shop Floor Package", "order": 1 },
+  "fuuz-wms-accelerator": { "title": "WMS — Warehouse Package", "order": 2 },
+  "fuuz-integration-accelerator": { "title": "Cross-Tenant Integration", "order": 3 },
+  "package-mes-netsuite-accelerator": { "title": "MES to NetSuite" },
+  "package-integrated-carrier-addon-plex-accelerator": { "title": "Integrated Carrier — Plex Add-On" },
+  "package-integrated-carrier-fedex-accelerator": { "title": "Integrated Carrier — FedEx" },
+  "package-integrated-carrier-ups-accelerator": { "title": "Integrated Carrier — UPS" },
+
+  "llm-skills": { "title": "LLM Skills" },
+  "fuuz-flow-mcp-tools": { "title": "Flow MCP Tools" }
+}

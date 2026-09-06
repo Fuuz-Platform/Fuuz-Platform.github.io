@@ -1,17 +1,28 @@
-# Publishes site/ to GitHub Pages.
+# Builds the accelerator index from the GitHub API, then publishes site/ to GitHub Pages.
 #
-# TEMPLATE — copy this file verbatim into any Fuuz accelerator repo that has a site/ directory.
-# Nothing in it is specific to this accelerator. The published URL is decided by the repo name and
-# by the custom domain on Fuuz-Platform.github.io, not by anything here.
+# This is the HUB's workflow and it differs from the accelerator template in one way: it runs
+# build/generate.mjs first. Accelerator repos publish a hand-written site/ and use the template at
+# https://github.com/Fuuz-Platform/ace-docker-simulator/blob/main/.github/workflows/pages.yml
+#
+# The schedule is the point. A new accelerator is enrolled by adding a topic to ITS repository —
+# nobody edits this one — so something has to notice. The daily run does, and repository_dispatch
+# makes it immediate when you do not want to wait:
+#
+#   gh api -X POST repos/Fuuz-Platform/Fuuz-Platform.github.io/dispatches -f event_type=refresh
 #
 # Requires: Settings -> Pages -> Source = "GitHub Actions".
 
-name: Deploy site to Pages
+name: Build and deploy accelerator index
 
 on:
   push:
     branches: [main]
-    paths: ['site/**', '.github/workflows/pages.yml']
+    paths: ['site/**', 'build/**', '.github/workflows/pages.yml']
+  schedule:
+    # 07:00 UTC daily. Picks up newly tagged accelerators without anyone touching this repo.
+    - cron: '0 7 * * *'
+  repository_dispatch:
+    types: [refresh]
   workflow_dispatch:
 
 permissions:
@@ -33,14 +44,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate index and sitemap
+        env:
+          # The default token reads public repository metadata across the org, which is all the
+          # generator needs. No PAT, nothing to rotate.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node build/generate.mjs
+
       # enablement: true turns Pages on if it is not already. Without it, the FIRST push to a new
       # accelerator repo fails — the workflow runs before anyone has visited Settings -> Pages —
       # and the failure reads as a broken workflow rather than a missing setting.
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
       - id: deployment
         uses: actions/deploy-pages@v4
