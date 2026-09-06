@@ -1,71 +1,35 @@
 {
   "_comment": "Curation overrides for build/generate.mjs, keyed by repository name. Anything set here wins over the GitHub API. Use it only where the auto-derived value is genuinely wrong or ambiguous — every repo NOT listed here is fully automatic, which is the point.",
-  "ace-docker-simulator": {
+
+  "ace-docker-simulator": { "order": 1 },
+  "device-gateway-docker": { "title": "Device Gateway", "order": 2 },
+
+  "application-mes-core-accelerator": { "title": "MES — Core Application", "order": 1 },
+  "application-mes-full-accelerator": { "title": "MES — Full Application", "order": 2 },
+  "application-wms-accelerator": { "title": "WMS — Full Application", "order": 3 },
+
+  "fuuz-mes-accelerator": { "title": "MES — Shop Floor Package", "order": 1 },
+  "fuuz-wms-accelerator": { "title": "WMS — Warehouse Package", "order": 2 },
+  "fuuz-integration-accelerator": { "title": "Cross-Tenant Integration", "order": 3 },
+
+  "fuuz-mes-modular-accelerator": { "title": "MES — Modular Package", "order": 4 },
+  "fuuz-wms-modular-accelerator": { "title": "WMS — Modular Package", "order": 5 },
+  "fuuz-integration-modular-accelerator": { "title": "Integration — Modular Package", "order": 6 },
+  "package-mes-netsuite-accelerator": { "title": "MES to NetSuite" },
+  "package-integrated-carrier-addon-plex-accelerator": { "title": "Integrated Carrier — Plex Add-On" },
+  "package-integrated-carrier-fedex-accelerator": { "title": "Integrated Carrier — FedEx" },
+  "package-integrated-carrier-ups-accelerator": { "title": "Integrated Carrier — UPS" },
+
+  "fuuz-vscode-extension": {
+    "title": "Fuuz for VS Code",
+    "summary": "Connect VS Code to a Fuuz environment over MCP: resources, ERDs, flows, data queries, installable platform skills, and UI validation in a real browser.",
     "order": 1
   },
-  "application-mes-core-accelerator": {
-    "order": 1,
-    "title": "MES — Core Application"
-  },
-  "application-mes-full-accelerator": {
-    "order": 2,
-    "title": "MES — Full Application"
-  },
-  "application-wms-accelerator": {
-    "order": 3,
-    "title": "WMS — Full Application"
-  },
-  "device-gateway-docker": {
-    "order": 2,
-    "title": "Device Gateway"
-  },
   "fuuz-dev-console": {
+    "title": "Fuuz Dev Console",
     "summary": "A Chrome DevTools extension that reads a Fuuz screen's console as an execution log beside the state it produced, with trace links between the two.",
-    "title": "Fuuz Dev Console"
+    "order": 2
   },
-  "fuuz-flow-mcp-tools": {
-    "title": "Flow MCP Tools"
-  },
-  "fuuz-integration-accelerator": {
-    "order": 3,
-    "title": "Cross-Tenant Integration"
-  },
-  "fuuz-mes-accelerator": {
-    "order": 1,
-    "title": "MES — Shop Floor Package"
-  },
-  "fuuz-vscode-extension": {
-    "title": "Fuuz for VS Code"
-  },
-  "fuuz-wms-accelerator": {
-    "order": 2,
-    "title": "WMS — Warehouse Package"
-  },
-  "llm-skills": {
-    "title": "LLM Skills"
-  },
-  "package-integrated-carrier-addon-plex-accelerator": {
-    "title": "Integrated Carrier — Plex Add-On"
-  },
-  "package-integrated-carrier-fedex-accelerator": {
-    "title": "Integrated Carrier — FedEx"
-  },
-  "package-integrated-carrier-ups-accelerator": {
-    "title": "Integrated Carrier — UPS"
-  },
-  "package-mes-netsuite-accelerator": {
-    "title": "MES to NetSuite"
-  },
-  "fuuz-mes-modular-accelerator": {
-    "title": "MES — Modular Package",
-    "order": 4
-  },
-  "fuuz-wms-modular-accelerator": {
-    "title": "WMS — Modular Package",
-    "order": 5
-  },
-  "fuuz-integration-modular-accelerator": {
-    "title": "Integration — Modular Package",
-    "order": 6
-  }
+  "llm-skills": { "title": "LLM Skills", "order": 3 },
+  "fuuz-flow-mcp-tools": { "title": "Flow MCP Tools", "order": 4 }
 }
