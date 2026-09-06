@@ -118,6 +118,18 @@ a:hover { color: var(--fuuz-white); }
   color: var(--text-muted); padding-left: 28px; border-left: 1px solid var(--border-subtle);
 }
 .topbar nav { margin-left: auto; display: flex; gap: 26px; font-size: 14px; }
+/* Nine links do not fit a phone. They drop by priority rather than collapsing into a menu: a
+   burger hides everything behind a tap, and on a page this shallow the anchors are reachable by
+   scrolling anyway. Every dropped link still exists in the footer or on the page itself. */
+@media (max-width: 1180px) { .topbar nav .nav-lg { display: none; } }
+@media (max-width: 900px)  { .topbar nav .nav-md { display: none; } }
+@media (max-width: 560px)  {
+  .topbar nav { gap: 16px; font-size: 13px; }
+  .topbar nav .nav-sm { display: none; }
+}
+/* A wrapped link makes the bar two rows tall and pushes the next one off the edge, so the labels
+   never wrap — they drop instead. */
+.topbar nav a { white-space: nowrap; }
 .topbar nav a { color: var(--text-secondary); }
 .topbar nav a:hover { color: var(--fuuz-white); }
 
