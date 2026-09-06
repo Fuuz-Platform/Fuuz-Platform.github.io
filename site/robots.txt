@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://accelerators.fuuz.com/sitemap.xml
