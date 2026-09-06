@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuuz Accelerators</title>
+<meta name="description" content="Open accelerators for the Fuuz Industrial Operations Platform — runnable simulators, MES and WMS applications, ERP integration packages and device tooling.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fuuz Accelerators">
+<meta property="og:title" content="Fuuz Accelerators">
+<meta property="og:description" content="Runnable accelerators for the Fuuz Industrial Operations Platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Fuuz Accelerators",
+  "description": "Open accelerators for the Fuuz Industrial Operations Platform.",
+  "publisher": { "@type": "Organization", "name": "Fuuz", "url": "https://fuuz.com" }
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./">Fuuz <span>Accelerators</span></a>
+    <nav>
+      <a href="https://github.com/Fuuz-Platform">GitHub</a>
+      <a href="https://fuuz.com">fuuz.com</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <span class="eyebrow">Fuuz Industrial Operations Platform</span>
+  <h1>Accelerators.</h1>
+  <p class="lede">
+    Pre-built packages, applications and runnable simulators for the Fuuz platform. Each one is a
+    public repository you can read before you install anything &mdash; and some of them you can run
+    on a laptop without a Fuuz tenant at all.
+  </p>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Run it now</h2>
+    <p class="sec-lede">Accelerators that stand up on their own machine, with documentation
+      published here.</p>
+    <div class="grid">
+      <div class="card">
+        <h3><a href="ace-docker-simulator/">ACE Docker Simulator</a></h3>
+        <p>An OPC UA plant, a MongoDB time-series historian and a Fuuz-shaped GraphQL API, in one
+          <code>docker compose up</code>. 88 live tags, real quality codes, injected faults.</p>
+      </div>
+      <div class="card">
+        <h3><a href="https://github.com/Fuuz-Platform/device-gateway-docker">Device Gateway</a>
+          <span class="tag">repo</span></h3>
+        <p>One-command Docker deployment for the Fuuz Device Gateway &mdash; the component that
+          connects plant equipment to the platform.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Applications</h2>
+    <p class="sec-lede">Complete application packages installed into a Fuuz tenant.</p>
+    <div class="grid">
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/application-mes-full-accelerator">MES &mdash; Full</a> <span class="tag">repo</span></h3>
+        <p>Production, inventory, scheduling, quality, maintenance and logistics.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/application-mes-core-accelerator">MES &mdash; Core</a> <span class="tag">repo</span></h3>
+        <p>The foundational module registry, roles, work orders, modes and seed data every MES build starts from.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/application-wms-accelerator">Warehouse Management</a> <span class="tag">repo</span></h3>
+        <p>Receiving, put-away, picking, shipping and inventory.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/application-machine-monitoring-accelerator">Machine Monitoring</a> <span class="tag">repo</span></h3>
+        <p>Workcenter state, downtime, OEE, IoT, alarms and shift scheduling.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/application-machine-telemetry-accelerator">Machine Telemetry</a> <span class="tag">repo</span></h3>
+        <p>IoT data collection, SPC, alarms and trend dashboards.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Integration packages</h2>
+    <p class="sec-lede">ERP connectors, carrier integrations and schema keyrings.</p>
+    <div class="grid">
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/package-plex-keyring-schema-accelerator">Plex keyring schema</a> <span class="tag">repo</span></h3>
+        <p>182 data models covering Plex's complete read surface, generated from the vendor API dictionary.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator">NetSuite integration</a> <span class="tag">repo</span></h3>
+        <p>Bidirectional MES&ndash;NetSuite: work orders, inventory, orders and BOM.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/package-integrated-carrier-core-schema-accelerator">Integrated carrier</a> <span class="tag">repo</span></h3>
+        <p>Carrier-agnostic shipping &mdash; schema, flows and screens, with FedEx and UPS add-ons.</p></div>
+      <div class="card"><h3><a href="https://github.com/Fuuz-Platform/package-plex-odbc-master-config-accelerator">Plex ODBC master config</a> <span class="tag">repo</span></h3>
+        <p>Numbered integration flows for scheduled master-data sync.</p></div>
+    </div>
+    <div class="callout">
+      Everything Fuuz publishes lives at
+      <a href="https://github.com/Fuuz-Platform">github.com/Fuuz-Platform</a>, including unit-of-measure
+      packages, document design templates, roles and policies, and LLM skills.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Fuuz Industrial Operations Platform.</span>
+    <nav>
+      <a href="https://github.com/Fuuz-Platform">GitHub</a>
+      <a href="https://fuuz.com">fuuz.com</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
