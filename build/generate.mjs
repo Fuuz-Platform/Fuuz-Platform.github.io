@@ -43,18 +43,15 @@ const SECTIONS = [
   { topic: 'fuuz-runnable', id: 'run', eyebrow: 'Run It Now',
     heading: ['Stand One Up On Your Own', 'Machine'],
     lede: 'Accelerators that run on a laptop with nothing but Docker. No tenant, no account, no configuration file — read the source first and decide afterwards.' },
-  { topic: 'fuuz-application', id: 'applications', eyebrow: 'Applications',
-    heading: ['Complete Applications For One', 'Tenant'],
-    lede: 'Whole application packages installed into a Fuuz tenant. Manufacturing execution systems (MES), warehouse management, machine monitoring and telemetry.' },
   { topic: 'fuuz-package', id: 'packages', eyebrow: 'Integration Packages',
     heading: ['Connect What You Already', 'Have'],
     lede: 'Enterprise resource planning (ERP) connectors, carrier integrations, schema keyrings and configuration packages. Each one works within the environment already on your floor.' },
   { topic: 'fuuz-tool', id: 'tools', eyebrow: 'Tools',
     heading: ['Tooling For Building On', 'Fuuz'],
     lede: 'Not accelerators — these do not install into a tenant. They are what you reach for while building one: skills that teach a model the platform, and Model Context Protocol (MCP) tools that let an agent drive it.' },
-  { topic: null, id: 'more', eyebrow: 'More Accelerators',
+  { topic: null, id: 'accelerators', eyebrow: 'Accelerators',
     heading: ['Everything Else We', 'Publish'],
-    lede: 'Roles, units of measure and document design templates.' }
+    lede: 'Manufacturing execution (MES), warehouse management, machine monitoring and telemetry, alongside roles, units of measure and document design templates. Each installs into a Fuuz tenant.' }
 ];
 
 /* GitHub descriptions carry a house prefix that is noise once the reader is already on a page
@@ -105,6 +102,25 @@ async function allRepos() {
   return out;
 }
 
+/* The latest PUBLISHED release, or null. /releases/latest already excludes drafts and
+   prereleases, and answers 404 when a repository has never released — which is most of them, so
+   404 is an ordinary answer here and not a failure. */
+async function latestRelease(name) {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${ORG}/${name}/releases/latest`, {
+      headers: {
+        accept: 'application/vnd.github+json',
+        'user-agent': 'fuuz-accelerators-build',
+        ...(process.env.GITHUB_TOKEN ? { authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {})
+      }
+    });
+    if (!res.ok) return null;                    // 404 = never released
+    const r = await res.json();
+    if (!r.tag_name || !r.published_at) return null;
+    return { tag: r.tag_name, publishedAt: r.published_at, url: r.html_url };
+  } catch { return null; }
+}
+
 /* `has_pages` is necessary but nowhere near sufficient — see the header. Ask the URL.
    A site deployed seconds ago may not answer yet and will be listed as a repository until the next
    build; that is the right direction to be wrong in. */
@@ -117,15 +133,27 @@ async function isServing(url) {
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+/* Link order: the published site, then the RELEASE, then the repository. Never a bare repo URL
+   when a release exists — that resolves to the default branch, which is a moving target. Someone
+   who reads this page today and clones tomorrow should get the same thing. */
+function linkFor(a) {
+  if (a.hasSite) return { href: `${a.name}/`, tag: '<span class="tag tag-live">Site</span>' };
+  if (a.release) return { href: a.release.url, tag: `<span class="tag tag-rel">${esc(a.release.tag)}</span>` };
+  return { href: a.repoUrl, tag: '<span class="tag">Repo</span>' };
+}
+
 function card(a) {
-  const href = a.hasSite ? `${a.name}/` : a.repoUrl;
-  const tag = a.hasSite
-    ? '<span class="tag tag-live">Site</span>'
-    : '<span class="tag">Repo</span>';
+  const { href, tag } = linkFor(a);
+  /* The version, not the repository slug. It is the more useful fact once everything is released,
+     and it keeps five repositories still named `application-*` from printing a word this
+     catalogue does not use. The slug is one click away on the card's own link. */
+  const meta = a.release
+    ? `<a href="${esc(a.release.url)}">${esc(a.release.tag)}</a>`
+    : esc(a.name);
   return `        <div class="card">
           <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}</h3>
           <p>${esc(a.summary)}</p>
-          <div class="meta">${esc(a.name)}</div>
+          <div class="meta">${meta}</div>
         </div>`;
 }
 
@@ -207,12 +235,12 @@ function renderLatest(accelerators) {
     <p class="sec-lede">The most recent accelerators to land. Everything else is below, by category.</p>
     <div class="grid">
 ${latest.map(a => {
-  const href = a.hasSite ? `${a.name}/` : a.repoUrl;
-  const tag = a.hasSite ? '<span class="tag tag-live">Site</span>' : '<span class="tag">Repo</span>';
+  const { href, tag } = linkFor(a);
+  const ver = a.release ? `${esc(a.release.tag)} &middot; ` : '';
   return `        <div class="card">
           <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}</h3>
           <p>${esc(a.summary)}</p>
-          <div class="meta">${esc(fmt(a.released))}</div>
+          <div class="meta">${ver}${esc(fmt(a.released))}</div>
         </div>`;
 }).join('\n')}
     </div>
@@ -421,8 +449,17 @@ const accelerators = repos
 
 /* Verify in parallel: ~30 requests, and only for repos whose flag is set at all. */
 await Promise.all(accelerators.map(async a => {
-  a.hasSite = a.hasPagesFlag ? await isServing(`${DOMAIN}/${a.name}/`) : false;
+  const [serving, release] = await Promise.all([
+    a.hasPagesFlag ? isServing(`${DOMAIN}/${a.name}/`) : Promise.resolve(false),
+    latestRelease(a.name)
+  ]);
+  a.hasSite = serving;
+  a.release = release;
+  /* A real release date beats both the manual override and created_at. */
+  if (release) a.released = release.publishedAt;
 }));
+const released = accelerators.filter(a => a.release).length;
+console.log(`${released} of ${accelerators.length} accelerators have a published release.`);
 const claimed = accelerators.filter(a => a.hasPagesFlag).length;
 const serving = accelerators.filter(a => a.hasSite).length;
 if (claimed !== serving) {

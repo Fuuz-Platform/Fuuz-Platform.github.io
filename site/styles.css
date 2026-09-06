@@ -202,6 +202,8 @@ h2 .accent { color: var(--text-brand-on-dark); }
   background: var(--surface-brand-muted); color: var(--fuuz-neutral-100); border: 1px solid var(--border-default);
 }
 .tag-live { background: rgba(78,37,226,.22); border-color: var(--fuuz-electric-violet); color: #C3B4FF; }
+/* A version tag is a fact about the artifact, not a status — it reads as mono, like a value. */
+.tag-rel { font-family: var(--font-mono); font-weight: 400; letter-spacing: 0; text-transform: none; background: rgba(87,121,210,.18); border-color: #3B4A73; color: #A8BEF0; }
 
 /* ── see more ──────────────────────────────────────────────────────────────────────────────── */
 /* Injected by script after a collapsed grid, so it never appears without something to reveal. */

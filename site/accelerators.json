@@ -4,9 +4,9 @@
   "ace-docker-simulator": { "order": 1 },
   "device-gateway-docker": { "title": "Device Gateway", "order": 2 },
 
-  "application-mes-core-accelerator": { "title": "MES — Core Application", "order": 1 },
-  "application-mes-full-accelerator": { "title": "MES — Full Application", "order": 2 },
-  "application-wms-accelerator": { "title": "WMS — Full Application", "order": 3 },
+  "application-mes-core-accelerator": { "title": "MES — Core", "order": 1 },
+  "application-mes-full-accelerator": { "title": "MES — Full", "order": 2 },
+  "application-wms-accelerator": { "title": "WMS — Full", "order": 3 },
 
   "fuuz-mes-accelerator": { "title": "MES — Shop Floor Package", "order": 1 },
   "fuuz-wms-accelerator": { "title": "WMS — Warehouse Package", "order": 2 },
