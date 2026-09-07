@@ -17,10 +17,9 @@
  *     fuuz-ai            -> AI Tools           (skills, MCP tools and agentic examples)
  *     (none of those)    -> More Accelerators
  *
- * ACCELERATOR OR BETA CONCEPT. `fuuz-accelerator` is an enrolment topic, not a claim — so what
+ * ACCELERATOR OR BETA. `fuuz-accelerator` is an enrolment topic, not a claim — so what
  * a card claims to BE is read from what the repository already says about itself: a card is an
- * accelerator when "accelerator" appears in its name or its description, and a beta concept
- * otherwise. Nothing published here carries a service level agreement until a Fuuz services
+ * accelerator when "accelerator" appears in its name or its description, and a beta otherwise. Nothing published here carries a service level agreement until a Fuuz services
  * professional or an approved partner has implemented it; that line is in the footer of every
  * page on the domain, including each accelerator's own.
  *
@@ -160,10 +159,10 @@ function linkFor(a) {
   return { href: a.repoUrl, tag: '<span class="tag">Repo</span>' };
 }
 
-/* Beta concepts are labelled on the card itself, not only on their own page. Somebody who reads
-   only this index should not have to click through to find out that a thing is not an
-   accelerator. */
-const betaTag = a => a.accelerator ? '' : '<span class="tag tag-beta">Beta concept</span>';
+/* A beta is labelled on the card itself, not only on its own page. Somebody who reads only this
+   index should not have to click through to find out that a thing is not an accelerator. One word,
+   not two: the tag is read as a status, and a status reads fastest as one word. */
+const betaTag = a => a.accelerator ? '' : '<span class="tag tag-beta">Beta</span>';
 
 function card(a) {
   const { href, tag } = linkFor(a);

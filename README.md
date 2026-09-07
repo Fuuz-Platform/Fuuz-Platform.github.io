@@ -69,10 +69,10 @@ ambiguous. Every repository *not* listed there is fully automatic, which is the 
 
 The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to it automatically.
 
-## Accelerator or beta concept
+## Accelerator or beta
 
 **A card is an accelerator when "accelerator" appears in the repository's name or its
-description. Everything else on the hub is a beta concept**, and is labelled as one — on its card
+description. Everything else on the hub is a beta**, and is labelled as one — on its card
 here, in its own page's eyebrow and title, and in a callout at the top of that page.
 
 This is derived, not curated, for the same reason the catalogue is: a hand-kept list of which
@@ -87,12 +87,12 @@ description is what a reader sees — or override it in `site/accelerators.json`
 
 The label is not decoration. Calling something an accelerator says it has a defined scope, a guide
 stating what is standard, configurable and custom, and a published version to install against. A
-beta concept has none of that: it is published to be read, run and learned from, it may change
+beta has none of that: it is published to be read, run and learned from, it may change
 shape between versions, and it may be withdrawn.
 
 ## Service levels
 
-**No service level agreement applies to anything published here — accelerator or beta concept.**
+**No service level agreement applies to anything published here — accelerator or beta.**
 Either becomes a supported deliverable only once it has been implemented by a Fuuz services
 professional or an approved Fuuz partner, under that engagement's terms.
 

@@ -397,12 +397,12 @@ footer .addr { font-style: normal; }
 }
 .terms strong { color: var(--text-secondary); }
 
-/* The beta-concept callout sits between the lede and the calls to action on an accelerator's own
+/* The beta callout sits between the lede and the calls to action on an accelerator's own
    page. `.callout`'s margin is asymmetric by design elsewhere, which leaves it flush there. */
 .hero .callout { margin: 26px 0 30px; }
 
-/* Amber rather than violet: a beta concept is a caveat, and reading as just another brand chip
-   next to the Site/version tag is how a caveat gets missed. */
+/* Amber rather than violet: a beta is a caveat, and reading as just another brand chip next to
+   the Site/version tag is how a caveat gets missed. */
 .tag-beta {
   background: rgba(245,166,35,.14); border-color: rgba(245,166,35,.55); color: #F3C078;
 }
