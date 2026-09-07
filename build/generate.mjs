@@ -161,8 +161,17 @@ function linkFor(a) {
 
 /* A beta is labelled on the card itself, not only on its own page. Somebody who reads only this
    index should not have to click through to find out that a thing is not an accelerator. One word,
-   not two: the tag is read as a status, and a status reads fastest as one word. */
-const betaTag = a => a.accelerator ? '' : '<span class="tag tag-beta">Beta</span>';
+   not two: the tag is read as a status, and a status reads fastest as one word.
+
+   EXCEPT in Tools and AI Tools. Both sections already open by saying these are not accelerators,
+   so the tag adds nothing there — and worse, next to a section that has said it, "Beta" is read as
+   a second and different claim: that the tool itself is pre-release. The VS Code extension is in
+   open beta and says so in its own words; the dev console and the skills are not. */
+const UNLABELLED = ['fuuz-tool', 'fuuz-ai'];
+const betaTag = a =>
+  a.accelerator || a.topics.some(t => UNLABELLED.includes(t))
+    ? ''
+    : '<span class="tag tag-beta">Beta</span>';
 
 function card(a) {
   const { href, tag } = linkFor(a);

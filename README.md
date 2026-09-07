@@ -75,6 +75,12 @@ The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to 
 description. Everything else on the hub is a beta**, and is labelled as one — on its card
 here, in its own page's eyebrow and title, and in a callout at the top of that page.
 
+**Tools and AI Tools are the exception: they carry no Beta tag.** Both sections already open by
+saying these are not accelerators, so the tag adds nothing — and beside a section that has
+already said it, "Beta" is read as a second, different claim: that the tool itself is pre-release.
+Those pages keep the callout that matters (not an accelerator, no SLA) and lose the label; their
+eyebrow and title carry the section word instead.
+
 This is derived, not curated, for the same reason the catalogue is: a hand-kept list of which
 things are "really" accelerators goes stale silently, and the failure mode is a page claiming a
 level of commitment nobody made. If the name and the description are both silent about something
