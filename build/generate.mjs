@@ -17,6 +17,13 @@
  *     fuuz-ai            -> AI Tools           (skills, MCP tools and agentic examples)
  *     (none of those)    -> More Accelerators
  *
+ * ACCELERATOR OR BETA CONCEPT. `fuuz-accelerator` is an enrolment topic, not a claim — so what
+ * a card claims to BE is read from what the repository already says about itself: a card is an
+ * accelerator when "accelerator" appears in its name or its description, and a beta concept
+ * otherwise. Nothing published here carries a service level agreement until a Fuuz services
+ * professional or an approved partner has implemented it; that line is in the footer of every
+ * page on the domain, including each accelerator's own.
+ *
  * Whether a card links to a published site or to the repository is NOT a topic, and NOT the
  * repository's `has_pages` flag either. That flag only says Pages is ENABLED; it flips the moment
  * someone runs the enable call, long before any site exists. Trusting it put eighteen cards and
@@ -71,6 +78,13 @@ function cleanSummary(text) {
      "time — series", "put-away" became "put — away". */
   s = s.replace(/\s+[-–—]\s+/g, ' — ');
   return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/* "Explicitly marked as an accelerator" is what the repository already says about itself, so that
+   the label cannot drift from the catalogue. accelerators.json can override it per repo where the
+   name and description both happen to be silent about something that genuinely is one. */
+function derivedAccelerator(name, description) {
+  return /accelerator/i.test(name) || /accelerator/i.test(description || '');
 }
 
 /* Titles come from the repository name, which is stable and unique, rather than from the first
@@ -146,6 +160,11 @@ function linkFor(a) {
   return { href: a.repoUrl, tag: '<span class="tag">Repo</span>' };
 }
 
+/* Beta concepts are labelled on the card itself, not only on their own page. Somebody who reads
+   only this index should not have to click through to find out that a thing is not an
+   accelerator. */
+const betaTag = a => a.accelerator ? '' : '<span class="tag tag-beta">Beta concept</span>';
+
 function card(a) {
   const { href, tag } = linkFor(a);
   /* The version, not the repository slug. It is the more useful fact once everything is released,
@@ -155,7 +174,7 @@ function card(a) {
     ? `<a href="${esc(a.release.url)}">${esc(a.release.tag)}</a>`
     : esc(a.name);
   return `        <div class="card">
-          <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}</h3>
+          <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}${betaTag(a)}</h3>
           <p>${esc(a.summary)}</p>
           <div class="meta">${meta}</div>
         </div>`;
@@ -242,7 +261,7 @@ ${latest.map(a => {
   const { href, tag } = linkFor(a);
   const ver = a.release ? `${esc(a.release.tag)} &middot; ` : '';
   return `        <div class="card">
-          <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}</h3>
+          <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}${betaTag(a)}</h3>
           <p>${esc(a.summary)}</p>
           <div class="meta">${ver}${esc(fmt(a.released))}</div>
         </div>`;
@@ -446,6 +465,7 @@ const accelerators = repos
          overrides it when a real release date should win. */
       released: o.released || r.created_at,
       order: o.order ?? 100,
+      accelerator: o.accelerator ?? derivedAccelerator(r.name, r.description),
       /* `deprecated` and `hidden` both remove an accelerator from the catalogue. They are separate
          words because they mean different things to whoever reads this file next: hidden is "not
          ready to show", deprecated is "superseded, do not start anything new on it". The repo
@@ -506,4 +526,4 @@ writeFileSync(join(SITE, 'demos', 'index.html'), demoHtml);
 writeFileSync(join(SITE, 'sitemap.xml'), sitemap(accelerators));
 
 console.log(`Generated ${accelerators.length} accelerators and ${DEMOS.collections.reduce((n,c)=>n+c.videos.length,0)} demos:`);
-for (const a of accelerators) console.log(`  ${a.hasSite ? 'site' : 'repo'}  ${a.name}  -> ${a.title}`);
+for (const a of accelerators) console.log(`  ${a.hasSite ? 'site' : 'repo'}  ${a.accelerator ? 'accel' : 'BETA '}  ${a.name}  -> ${a.title}`);

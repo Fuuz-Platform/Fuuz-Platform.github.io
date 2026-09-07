@@ -46,7 +46,7 @@ gh api -X POST repos/Fuuz-Platform/Fuuz-Platform.github.io/dispatches -f event_t
 ### Curation
 
 `site/accelerators.json` overrides anything the API gets wrong, keyed by repository name —
-`title`, `summary`, `order`, `hidden`. Use it only where the derived value is genuinely wrong or
+`title`, `summary`, `order`, `hidden`, `accelerator`. Use it only where the derived value is genuinely wrong or
 ambiguous. Every repository *not* listed there is fully automatic, which is the point.
 
 ### Publishing documentation alongside an accelerator
@@ -68,6 +68,51 @@ ambiguous. Every repository *not* listed there is fully automatic, which is the 
 4. Copy `site/styles.css` and `site/assets/` from this repository so the page is on-brand.
 
 The page is then served at `accelerators.fuuz.com/<repo>/` and the hub links to it automatically.
+
+## Accelerator or beta concept
+
+**A card is an accelerator when "accelerator" appears in the repository's name or its
+description. Everything else on the hub is a beta concept**, and is labelled as one — on its card
+here, in its own page's eyebrow and title, and in a callout at the top of that page.
+
+This is derived, not curated, for the same reason the catalogue is: a hand-kept list of which
+things are "really" accelerators goes stale silently, and the failure mode is a page claiming a
+level of commitment nobody made. If the name and the description are both silent about something
+that genuinely is an accelerator, either fix the description — which is the real fix, because the
+description is what a reader sees — or override it in `site/accelerators.json`:
+
+```json
+"some-repo": { "accelerator": true }
+```
+
+The label is not decoration. Calling something an accelerator says it has a defined scope, a guide
+stating what is standard, configurable and custom, and a published version to install against. A
+beta concept has none of that: it is published to be read, run and learned from, it may change
+shape between versions, and it may be withdrawn.
+
+## Service levels
+
+**No service level agreement applies to anything published here — accelerator or beta concept.**
+Either becomes a supported deliverable only once it has been implemented by a Fuuz services
+professional or an approved Fuuz partner, under that engagement's terms.
+
+That statement is in the footer of every page on this domain, including each accelerator's own
+`site/index.html`, and it is set out in full at
+[`/what-is-an-accelerator/`](https://accelerators.fuuz.com/what-is-an-accelerator/). Keep it when
+copying a page forward. An accelerator is production-ready by design, which makes it reasonable to
+read one as finished software with support behind it — the line closes that gap explicitly rather
+than leaving it to be assumed.
+
+## Provenance stays off the pages
+
+**Do not publish where an accelerator's contents came from.** Not the tenant it was exported from,
+not the customer or project it was first built for, not the standard that tenant's application
+happened to implement. A reader deciding whether to install something gains nothing from it, and
+the sentence invites questions about a third party we have no reason to answer on a public page.
+
+Describe what the thing does and what shape it carries. "Built against one MES application and
+carries its shape" is the honest caveat; "lifted from a live ISA-88 MES tenant" is provenance and
+does not belong on a page.
 
 ## Platform demos
 
