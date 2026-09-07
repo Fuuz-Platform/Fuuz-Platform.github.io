@@ -519,6 +519,9 @@ const html = template
   .replace('<!--{{COLLAPSE_SCRIPT}}-->', COLLAPSE_SCRIPT)
   .replace('<!--{{DEMOS}}-->', renderDemoTeaser())
   .replace('<!--{{VIDEOS}}-->', renderVideos(videos))
+  /* No {{COUNT}} in the template today. Kept because the count is the one number in this build
+     that cannot be written by hand without going stale, and a substitution with nothing to
+     substitute costs nothing. */
   .replace(/\{\{COUNT\}\}/g, String(accelerators.length));
 
 writeFileSync(join(SITE, 'index.html'), html);
