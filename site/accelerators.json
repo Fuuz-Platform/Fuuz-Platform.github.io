@@ -1,8 +1,14 @@
 {
   "_comment": "Curation overrides for build/generate.mjs, keyed by repository name. Anything set here wins over the GitHub API. Use it only where the auto-derived value is genuinely wrong or ambiguous — every repo NOT listed here is fully automatic, which is the point.",
 
-  "ace-docker-simulator": { "order": 1 },
+  "ace-docker-simulator": { "order": 1, "accelerator": false },
   "device-gateway-docker": { "title": "Device Gateway", "order": 2 },
+
+  "package-si-units": { "accelerator": true },
+  "package-imperial-units": { "accelerator": true },
+  "package-all-units": { "accelerator": true },
+  "package-plex-keyring-schema-accelerator": { "accelerator": false },
+  "package-sap-keyring-schema-accelerator": { "accelerator": false },
 
   "application-mes-core-accelerator": { "title": "MES — Core", "order": 1 },
   "application-mes-full-accelerator": { "title": "MES — Full", "order": 2, "deprecated": true },

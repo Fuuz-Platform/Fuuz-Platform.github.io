@@ -165,8 +165,8 @@ function linkFor(a) {
 
    EXCEPT in Tools and AI Tools. Both sections already open by saying these are not accelerators,
    so the tag adds nothing there — and worse, next to a section that has said it, "Beta" is read as
-   a second and different claim: that the tool itself is pre-release. The VS Code extension is in
-   open beta and says so in its own words; the dev console and the skills are not. */
+   a second and different claim: that the tool itself is pre-release. The VS Code extension and the
+   dev console are both in open beta and say so in their own words; the skills are not. */
 const UNLABELLED = ['fuuz-tool', 'fuuz-ai'];
 const betaTag = a =>
   a.accelerator || a.topics.some(t => UNLABELLED.includes(t))

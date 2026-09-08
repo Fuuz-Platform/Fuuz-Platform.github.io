@@ -105,9 +105,9 @@ professional or an approved Fuuz partner, under that engagement's terms.
 That statement is in the footer of every page on this domain, including each accelerator's own
 `site/index.html`, and it is set out in full at
 [`/what-is-an-accelerator/`](https://accelerators.fuuz.com/what-is-an-accelerator/). Keep it when
-copying a page forward. An accelerator is production-ready by design, which makes it reasonable to
-read one as finished software with support behind it — the line closes that gap explicitly rather
-than leaving it to be assumed.
+copying a page forward. An accelerator runs on day one, which makes it reasonable to read one as
+finished software with support behind it — the line closes that gap explicitly rather than leaving
+it to be assumed.
 
 ## Provenance stays off the pages
 
