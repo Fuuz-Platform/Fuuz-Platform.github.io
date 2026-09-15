@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edge &amp; OT Connectivity &mdash; Fuuz Accelerators</title>
+<meta name="description" content="Every PLC, SCADA, historian and industrial gateway path into Fuuz — native OPC UA, MQTT/Sparkplug B, EtherNet/IP, Modbus and SQL drivers on the Fuuz Device Gateway, plus a Fuuz module that installs inside the Ignition Gateway itself.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/edge/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://accelerators.fuuz.com/connectors/edge/">
+<meta property="og:site_name" content="Fuuz Accelerators">
+<meta property="og:title" content="Edge &amp; OT Connectivity">
+<meta property="og:description" content="Every PLC, SCADA, historian and industrial gateway path into Fuuz.">
+<link rel="icon" href="../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../prose.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Edge & OT Connectivity",
+  "url": "https://accelerators.fuuz.com/connectors/edge/",
+  "description": "Every PLC, SCADA, historian and industrial gateway path into Fuuz.",
+  "author": { "@type": "Organization", "name": "Fuuz", "url": "https://fuuz.com" },
+  "publisher": { "@type": "Organization", "name": "Fuuz", "url": "https://fuuz.com" }
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../"><img src="../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="#ignition">Ignition module</a>
+      <a href="#drivers">Native drivers</a>
+      <a class="nav-md" href="#platforms">Platforms</a>
+      <a class="nav-md" href="#bridges">Unsupported protocols</a>
+      <a href="../cloud/">IT &amp; Cloud</a>
+      <a href="../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow">Edge &amp; OT connectivity</p>
+  <h1>Every Shop-Floor Protocol, One <span class="accent">Gateway</span></h1>
+  <p class="lede">
+    The <strong>Fuuz Device Gateway</strong> is a proprietary on-premise software agent that provides
+    bidirectional communication between the Fuuz cloud and local industrial equipment &mdash; remote
+    configuration, automatic updates, and store-and-forward during network interruptions. Every major
+    MES, SCADA, historian, PLC, robot and industrial gateway platform is reachable through it, either
+    with a native driver or a validated bridge.
+  </p>
+  <div class="callout">
+    <strong>Edge vs. cloud.</strong> This page covers on-premise and shop-floor integration &mdash;
+    PLCs, SCADA, sensors, historians, on-prem databases. For cloud-based SaaS and enterprise
+    application connectivity (ERP, CRM, eCommerce, AI), see
+    <a href="../cloud/">IT &amp; Cloud Connectors</a>.
+  </div>
+</div>
+
+<section id="ignition">
+  <div class="wrap">
+    <p class="sec-eyebrow">Featured &mdash; recently added</p>
+    <h2>The Fuuz Ignition <span class="accent">Module</span></h2>
+    <p class="sec-lede">Ignition is already the best protocol match for Fuuz of any industrial
+      platform &mdash; every Fuuz driver connects to it directly over OPC&nbsp;UA, MQTT, Sparkplug&nbsp;B,
+      Modbus, HTTP and SQL. The Fuuz Ignition Module goes a step further.</p>
+    <div class="grid">
+<!--{{IGNITION}}-->
+    </div>
+  </div>
+</section>
+
+<section id="drivers">
+  <div class="wrap">
+    <p class="sec-eyebrow">The Fuuz Device Gateway</p>
+    <h2>Native <span class="accent">Drivers</span></h2>
+    <p class="sec-lede">Pluggable drivers on the gateway. Most industrial connectivity runs on
+      OPC&nbsp;UA, MQTT and EtherNet/IP; the rest cover legacy PLCs, direct database access, and
+      plain files.</p>
+<!--{{DRIVERS}}-->
+  </div>
+</section>
+
+<section id="platforms">
+  <div class="wrap">
+    <p class="sec-eyebrow">Coverage</p>
+    <h2>Key Industrial <span class="accent">Platforms</span></h2>
+    <p class="sec-lede">OPC&nbsp;UA, MQTT and EtherNet/IP form the backbone. Every major SCADA,
+      historian and MQTT platform is reachable through the drivers above.</p>
+<!--{{PLATFORMS}}-->
+
+    <p class="sec-eyebrow" style="margin-top:40px">PLC manufacturers</p>
+<!--{{PLC}}-->
+
+    <p class="sec-eyebrow" style="margin-top:40px">Robots and gateway/bridge platforms</p>
+<!--{{ROBOTS}}-->
+  </div>
+</section>
+
+<section id="bridges">
+  <div class="wrap">
+    <p class="sec-eyebrow">Where a bridge is required</p>
+    <h2>Protocols Fuuz Doesn't Speak <span class="accent">Natively</span></h2>
+    <p class="sec-lede">Real, common protocols that need a translation step before they reach a Fuuz
+      driver &mdash; usually landing on OPC UA or Modbus.</p>
+<!--{{BRIDGES}}-->
+    <div class="callout">
+      <strong>Not on this list?</strong> If a device or platform speaks OPC UA, MQTT, Sparkplug B,
+      EtherNet/IP or Modbus TCP anywhere in its stack &mdash; natively or through a vendor bridge
+      &mdash; it reaches Fuuz through a driver already on the Device Gateway.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+</body>
+</html>

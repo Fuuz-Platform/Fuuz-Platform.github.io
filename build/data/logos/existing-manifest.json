@@ -1,0 +1,23 @@
+{
+  "Windchill": "windchill.svg",
+  "Teamcenter": "teamcenter.svg",
+  "Workday": "workday.svg",
+  "ServiceNow": "servicenow.svg",
+  "SAP Ariba": "sap-ariba.svg",
+  "Aras Innovator": "aras-innovator.svg",
+  "Oracle Fusion Cloud": "oracle-fusion-cloud.svg",
+  "Anaplan": "anaplan.svg",
+  "Blue Yonder": "blue-yonder.png",
+  "IFS Cloud": "ifs-cloud.png",
+  "Coupa": "coupa.svg",
+  "Smartsheet": "smartsheet.png",
+  "Microsoft Graph": "microsoft-graph.svg",
+  "Snowflake": "snowflake.svg",
+  "Databricks": "databricks.svg",
+  "Slack": "slack.svg",
+  "Jira Cloud": "jira-cloud.svg",
+  "HubSpot": "hubspot.svg",
+  "Zendesk": "zendesk.svg",
+  "Box": "box.svg",
+  "Okta": "okta.svg"
+}

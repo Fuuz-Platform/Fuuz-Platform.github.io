@@ -406,3 +406,41 @@ footer .addr { font-style: normal; }
 .tag-beta {
   background: rgba(245,166,35,.14); border-color: rgba(245,166,35,.55); color: #F3C078;
 }
+
+/* ── logo grid ─────────────────────────────────────────────────────────────────────────────────
+   A dense wall of vendor tiles, one connector per tile, for pages that reference a large number
+   of third-party systems. Denser than .card (which is built for prose) — the logo carries the
+   identification, so the tile itself stays small. Logos are third-party marks reproduced only to
+   identify the system being connected to (nominative use), the same purpose the platform's own
+   connector picker uses them for. A vendor with no available mark falls back to a text badge
+   rather than leaving a blank tile. */
+.logo-group { margin-bottom: 34px; }
+.logo-group:last-child { margin-bottom: 0; }
+.logo-group-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 13px;
+  letter-spacing: var(--tracking-heading); color: var(--fuuz-white); margin: 0 0 14px;
+}
+.logo-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); }
+.logo-tile {
+  background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; min-height: 88px;
+  transition: background var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard);
+}
+.logo-tile:hover { background: var(--surface-brand-muted); border-color: var(--border-default); }
+.logo-tile .mark {
+  height: 22px; display: flex; align-items: center;
+}
+.logo-tile .mark img {
+  height: 100%; max-width: 100%; width: auto; object-fit: contain;
+  /* Marks arrive in their own brand colour on a small white plate so no logo's colourway
+     disappears or clashes against Midnight — the same treatment a native connector's own detail
+     page gives it. */
+  background: #fff; padding: 3px 7px; border-radius: 4px;
+}
+.logo-tile .mark .badge-mark {
+  font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: .04em;
+  color: var(--fuuz-neutral-100); background: var(--surface-brand-muted);
+  border: 1px solid var(--border-default); border-radius: 4px; padding: 4px 8px;
+}
+.logo-tile .name { font-family: var(--font-display); font-weight: 500; font-size: 13.5px; color: var(--fuuz-white); line-height: 1.3; }
+.logo-tile .note { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin-top: -4px; }

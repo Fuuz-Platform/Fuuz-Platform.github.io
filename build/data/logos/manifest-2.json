@@ -1,0 +1,42 @@
+{
+  "GitHub": {
+    "file": "github.svg",
+    "source": "File:Free and open-source software logo (2009).svg",
+    "mime": "image/svg+xml"
+  },
+  "GitLab": {
+    "file": "gitlab.svg",
+    "source": "File:GitLab logo (2).svg",
+    "mime": "image/svg+xml"
+  },
+  "Datadog": {
+    "file": "datadog.svg",
+    "source": "File:Datadog logo.svg",
+    "mime": "image/svg+xml"
+  },
+  "Splunk": {
+    "file": "splunk.svg",
+    "source": "File:Splunk logo.svg",
+    "mime": "image/svg+xml"
+  },
+  "Grafana": {
+    "file": "grafana.svg",
+    "source": "File:Grafana logo.svg",
+    "mime": "image/svg+xml"
+  },
+  "New Relic": {
+    "file": "new-relic.png",
+    "source": "File:New Relic logo.png",
+    "mime": "image/png"
+  },
+  "MongoDB": {
+    "file": "mongodb.svg",
+    "source": "File:Free and open-source software logo (2009).svg",
+    "mime": "image/svg+xml"
+  },
+  "BambooHR": {
+    "file": "bamboohr.svg",
+    "source": "File:BambooHR logo.svg",
+    "mime": "image/svg+xml"
+  }
+}

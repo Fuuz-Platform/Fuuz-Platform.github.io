@@ -1,0 +1,42 @@
+{
+  "SugarCRM": {
+    "file": "sugarcrm.jpg",
+    "source": "File:Sugarcrm-logo-blk.jpg",
+    "mime": "image/jpeg"
+  },
+  "Epicor": {
+    "file": "epicor.svg",
+    "source": "File:Epicor-logo.svg",
+    "mime": "image/svg+xml"
+  },
+  "Acumatica": {
+    "file": "acumatica.svg",
+    "source": "File:Acumatica 2016 Corporate Logo.svg",
+    "mime": "image/svg+xml"
+  },
+  "Sage X3": {
+    "file": "sage-x3.svg",
+    "source": "File:Sage-logo svg.svg",
+    "mime": "image/svg+xml"
+  },
+  "Shopify": {
+    "file": "shopify.svg",
+    "source": "File:Shopify logo 2018.svg",
+    "mime": "image/svg+xml"
+  },
+  "Stripe": {
+    "file": "stripe.svg",
+    "source": "File:Stripe Logo, revised 2016.svg",
+    "mime": "image/svg+xml"
+  },
+  "DHL": {
+    "file": "dhl.svg",
+    "source": "File:DHL Logo.svg",
+    "mime": "image/svg+xml"
+  },
+  "Veeva Vault": {
+    "file": "veeva-vault.svg",
+    "source": "File:Veeva Systems logo.svg",
+    "mime": "image/svg+xml"
+  }
+}
