@@ -521,14 +521,23 @@ footer .addr { font-style: normal; }
 .schema-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
 
 /* ── search (site/assets/search.js + Pagefind) ────────────────────────────────────────────── */
+/* Styled as a nav link, not a button-with-a-box — every sibling in .topbar nav is bare text, and a
+   bordered pill among them would read as a different kind of control instead of a fifth link that
+   happens to open something. The icon is the same glyph Pagefind's own search field uses, as a
+   background-color mask so it always matches currentColor (nav grey, then white on hover). */
 .nav-search-btn {
-  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
   font: inherit; font-size: 14px; color: var(--text-secondary);
-  background: transparent; border: 1px solid var(--border-default); border-radius: var(--radius-sm);
-  padding: 6px 10px; cursor: pointer;
-  transition: color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+  background: none; border: none; padding: 0; cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-standard);
 }
-.nav-search-btn:hover { color: var(--fuuz-white); border-color: var(--fuuz-electric-violet); }
+.nav-search-btn:hover { color: var(--fuuz-white); }
+.nav-search-btn::before {
+  content: ''; width: 14px; height: 14px; flex: none; display: block;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7549 11.255H11.9649L11.6849 10.985C12.6649 9.845 13.2549 8.365 13.2549 6.755C13.2549 3.165 10.3449 0.255005 6.75488 0.255005C3.16488 0.255005 0.254883 3.165 0.254883 6.755C0.254883 10.345 3.16488 13.255 6.75488 13.255C8.36488 13.255 9.84488 12.665 10.9849 11.685L11.2549 11.965V12.755L16.2549 17.745L17.7449 16.255L12.7549 11.255ZM6.75488 11.255C4.26488 11.255 2.25488 9.245 2.25488 6.755C2.25488 4.26501 4.26488 2.255 6.75488 2.255C9.24488 2.255 11.2549 4.26501 11.2549 6.755C11.2549 9.245 9.24488 11.255 6.75488 11.255Z' fill='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7549 11.255H11.9649L11.6849 10.985C12.6649 9.845 13.2549 8.365 13.2549 6.755C13.2549 3.165 10.3449 0.255005 6.75488 0.255005C3.16488 0.255005 0.254883 3.165 0.254883 6.755C0.254883 10.345 3.16488 13.255 6.75488 13.255C8.36488 13.255 9.84488 12.665 10.9849 11.685L11.2549 11.965V12.755L16.2549 17.745L17.7449 16.255L12.7549 11.255ZM6.75488 11.255C4.26488 11.255 2.25488 9.245 2.25488 6.755C2.25488 4.26501 4.26488 2.255 6.75488 2.255C9.24488 2.255 11.2549 4.26501 11.2549 6.755C11.2549 9.245 9.24488 11.255 6.75488 11.255Z' fill='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .nav-search-btn kbd {
   font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted);
   background: var(--surface-brand-muted); border: 1px solid var(--border-default);
@@ -538,31 +547,46 @@ footer .addr { font-style: normal; }
 
 /* No backdrop-filter: WebKit has long-standing bugs rendering it (and its descendants) as solid
    white on iOS, which is exactly the "white input, white text" failure this once produced on
-   mobile Safari while looking correct everywhere else tested. The plain rgba backdrop below is
-   less fancy but renders identically on every engine. */
+   mobile Safari while looking correct everywhere else tested. It is also, independently, not part
+   of the brand language at all — the guide is explicit that blur isn't used. The plain rgba
+   backdrop below renders identically on every engine.
+   The open/close state is opacity + a small rise rather than display:none, so it gets the same
+   restrained fade-and-short-translation the rest of the site uses for state changes (200ms,
+   --ease-standard) instead of an instant snap — and it's free under prefers-reduced-motion, since
+   that media query already zeroes --duration-base site-wide. */
 .search-overlay {
-  display: none; position: fixed; inset: 0; z-index: 100;
+  position: fixed; inset: 0; z-index: 100;
   background: rgba(5,5,13,.86);
   padding: 10vh 20px 20px;
+  opacity: 0; visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-standard), visibility 0s linear var(--duration-base);
 }
-.search-overlay.open { display: block; }
+.search-overlay.open {
+  opacity: 1; visibility: visible;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
 body.search-open { overflow: hidden; }
 .search-panel {
   position: relative; max-width: 640px; margin: 0 auto;
   background: var(--surface-raised); border: 1px solid var(--border-default);
   border-radius: var(--radius-lg); padding: 20px;
   max-height: 74vh; overflow: auto;
+  transform: translateY(8px);
+  transition: transform var(--duration-base) var(--ease-standard);
   /* iOS Safari can require a second tap on the first element touched right after inertial
      scrolling ends; this is the standard fix, since the result list scrolls inside this panel. */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 }
+.search-overlay.open .search-panel { transform: translateY(0); }
 .search-close {
-  position: absolute; top: 10px; right: 12px; z-index: 1;
-  font-size: 22px; line-height: 1; color: var(--text-muted);
-  background: none; border: none; cursor: pointer; padding: 4px;
+  position: absolute; top: 8px; right: 8px; z-index: 1;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; line-height: 1; color: var(--text-muted);
+  background: none; border: none; border-radius: var(--radius-sm); cursor: pointer; padding: 0;
+  transition: color var(--duration-fast) var(--ease-standard), background var(--duration-fast) var(--ease-standard);
 }
-.search-close:hover { color: var(--fuuz-white); }
+.search-close:hover { color: var(--fuuz-white); background: var(--surface-brand-muted); }
 
 /* Pagefind ships its own UI; these custom properties are its documented theming hooks, kept to
    the brand palette instead of overriding its markup. --pagefind-ui-background is a real solid
