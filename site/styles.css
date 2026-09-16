@@ -444,3 +444,26 @@ footer .addr { font-style: normal; }
 }
 .logo-tile .name { font-family: var(--font-display); font-weight: 500; font-size: 13.5px; color: var(--fuuz-white); line-height: 1.3; }
 .logo-tile .note { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin-top: -4px; }
+
+/* Real per-connector API documentation (credentials fields + request shape), queried live from
+   the platform's own Connector model. Collapsed by default to keep the grid dense; opening one
+   widens that tile to the full row via :has() so the detail has room, rather than cramming a
+   credentials list into a 168px tile. */
+.logo-tile:has(details[open]) { grid-column: 1 / -1; }
+.logo-tile details { margin-top: auto; padding-top: 4px; }
+.logo-tile summary {
+  cursor: pointer; list-style: none; font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); letter-spacing: .02em; user-select: none;
+}
+.logo-tile summary::-webkit-details-marker { display: none; }
+.logo-tile summary::before { content: '+ API details'; }
+.logo-tile details[open] summary::before { content: '\2212 API details'; }
+.logo-tile summary:hover { color: var(--text-brand-on-dark); }
+.logo-tile .doc-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-default); }
+.logo-tile .doc-notes { margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: var(--text-secondary); max-width: 70ch; }
+.logo-tile .doc-creds-label { font-family: var(--font-display); font-weight: 700; font-size: 10.5px; letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--text-muted); margin: 0 0 8px; }
+.logo-tile .doc-creds { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.logo-tile .doc-creds li { font-family: var(--font-mono); font-size: 12px; color: var(--fuuz-neutral-100); line-height: 1.5; }
+.logo-tile .doc-creds .req-flag { color: var(--text-muted); font-size: 10.5px; }
+.logo-tile .doc-creds .secret-flag { color: #F3C078; font-size: 10.5px; }
+.logo-tile .doc-creds .field-note { display: block; color: var(--text-muted); font-family: var(--font-body); font-size: 11.5px; margin-top: 1px; }

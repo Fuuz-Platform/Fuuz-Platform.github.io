@@ -46,7 +46,7 @@ export const NAMED = [
   { name: 'Google API', category: 'Cloud, Data & Observability', logo: s3('2ab3d71a-2b81-4253-8428-8c359a26f082') },
   { name: 'HTTP', category: 'Technology Connectors', logo: null },
   { name: 'Infor', category: 'ERP', logo: s3('07ba704-0eef-11eb-adc1-0242ac120002') },
-  { name: 'Körber PAS-X MSI', category: 'Manufacturing & Industry-Specific', logo: null },
+  { name: 'Körber PAS-X MSI', category: 'Manufacturing & Industry-Specific', logo: s3('60af4e81-6a6c-4f06-b19e-846fe2de9e02') },
   { name: 'Magento', category: 'eCommerce & POS', logo: s3('3d3b20ea-f261-40c1-9094-a556e60ce5e9') },
   { name: 'MFGx', category: 'Platform & Cross-Tenant', logo: s3('970ae55b-7ad0-497e-a77e-f9eb63aff73d') },
   { name: 'Microsoft SQL Server', category: 'Technology Connectors', logo: s3('bb612514-2129-4fa9-849d-f9f8f6ec1c8e') },
@@ -166,7 +166,7 @@ export const LLMS = [
 ];
 
 export const RECENT = [
-  { id: 'pas-x', name: 'Körber PAS-X MSI', tag: 'New', logo: null,
+  { id: 'pas-x', name: 'Körber PAS-X MSI', tag: 'New', logo: s3('60af4e81-6a6c-4f06-b19e-846fe2de9e02'),
     desc: 'A purpose-built named connector: publishes MSI messages (SF_TO_MES) to Körber PAS-X over its MSI Web Service. Outbound publish only, matching how PAS-X expects to receive shop-floor instructions — this is not a generic HTTP adaptation.' },
   { id: 'lm-studio', name: 'LM Studio', tag: 'New', logo: null,
     desc: 'A self-hosted local model server with an OpenAI-compatible REST API. Reaches Fuuz over the same standard HTTP connector as any cloud LLM — point it at the LM Studio host\'s endpoint (typically on the local network, so no special auth is usually needed) and it\'s a drop-in swap for a cloud provider in a data flow.' },

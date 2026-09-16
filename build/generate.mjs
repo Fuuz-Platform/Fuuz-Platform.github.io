@@ -38,6 +38,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { NAMED, CATEGORY_FOOTNOTES, HTTP_ONLY, OTHER_HTTP_OPTIONS, LLMS, RECENT } from './data/it-connectors.mjs';
+import { CONNECTOR_DOCS } from './data/connector-docs.mjs';
 import {
   IGNITION_FEATURES, DRIVER_COLUMNS, DRIVERS, PLATFORM_COLUMNS, PLATFORMS,
   PLC_COLUMNS, PLC_MFRS, ROBOTS_COLUMNS, ROBOTS_BRIDGES, BRIDGE_COLUMNS, UNSUPPORTED,
@@ -541,7 +542,7 @@ mkdirSync(join(SITE, 'demos'), { recursive: true });
 writeFileSync(join(SITE, 'demos', 'index.html'), demoHtml);
 
 const cloudHtml = readFileSync(join(HERE, 'template-connectors-cloud.html'), 'utf8')
-  .replace('<!--{{NAMED}}-->', renderLogoGrid(NAMED, { depth: '../../', skipCategories: ['AI'], footnotes: CATEGORY_FOOTNOTES }))
+  .replace('<!--{{NAMED}}-->', renderLogoGrid(NAMED, { depth: '../../', skipCategories: ['AI'], footnotes: CATEGORY_FOOTNOTES, docs: CONNECTOR_DOCS }))
   .replace('<!--{{HTTP}}-->', renderLogoGrid(HTTP_ONLY, { depth: '../../' }))
   .replace('<!--{{OTHER_HTTP}}-->', OTHER_HTTP_OPTIONS)
   .replace('<!--{{LLMS}}-->', renderFeatureCards(LLMS, { depth: '../../' }))

@@ -18,11 +18,33 @@ function mark(name, logo, depth) {
   return `<img src="${src}" alt="${name} logo" loading="lazy">`;
 }
 
+// Renders one connector's real API documentation (queried live from the platform's Connector
+// model — see build/data/connector-docs.mjs) as a collapsed <details> disclosure. `doc` is
+// {credentials: [{label, secret, required, note}], notes}; required defaults to true.
+function renderDoc(doc) {
+  if (!doc) return '';
+  const creds = (doc.credentials || []).map(c => {
+    const req = c.required === false ? '<span class="req-flag">optional</span>' : '<span class="req-flag">required</span>';
+    const secret = c.secret ? ' <span class="secret-flag">&#9679; secret</span>' : '';
+    const note = c.note ? `<span class="field-note">${c.note}</span>` : '';
+    return `            <li>${c.label} ${req}${secret}${note}</li>`;
+  }).join('\n');
+  return `
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            ${doc.notes ? `<p class="doc-notes">${doc.notes}</p>` : ''}
+            ${creds ? `<p class="doc-creds-label">Credentials</p>\n            <ul class="doc-creds">\n${creds}\n            </ul>` : ''}
+          </div>
+        </details>`;
+}
+
 // Groups a flat list of {name, category, logo, note} into named .logo-group sections, each a
 // dense grid of one tile per connector. `footnotes[category]` appends a callout under that
 // group. `skipCategories` carries data (e.g. the 'AI' entries, cross-referenced from LLMS)
-// without ever giving it its own group.
-export function renderLogoGrid(items, { depth, skipCategories = [], footnotes = {} } = {}) {
+// without ever giving it its own group. `docs` (name -> {credentials, notes}) adds a real,
+// live-queried API-details disclosure to any tile whose name matches.
+export function renderLogoGrid(items, { depth, skipCategories = [], footnotes = {}, docs = {} } = {}) {
   const groups = new Map();
   for (const item of items) {
     if (skipCategories.includes(item.category)) continue;
@@ -33,7 +55,7 @@ export function renderLogoGrid(items, { depth, skipCategories = [], footnotes = 
     const tiles = entries.map(e => `        <div class="logo-tile">
           <div class="mark">${mark(e.name, e.logo, depth)}</div>
           <div class="name">${e.name}</div>
-          ${e.note ? `<div class="note">${e.note}</div>` : ''}
+          ${e.note ? `<div class="note">${e.note}</div>` : ''}${renderDoc(docs[e.name])}
         </div>`).join('\n');
     const footnote = footnotes[category] ? `\n      <div class="callout">${footnotes[category]}</div>` : '';
     return `      <div class="logo-group">

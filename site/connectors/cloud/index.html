@@ -74,16 +74,56 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/6a6da1f8-b69c-11e8-96f8-529269fb1459.webp" alt="ADP logo" loading="lazy"></div>
           <div class="name">ADP</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of ADP Workforce Now API requests. Options include a `roleCode` header controlling the caller's visibility scope, and a `masked` flag (default true) that has ADP mask sensitive fields like SSN in the response.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/5b2ed01a-628e-413e-8baf-f6d4c01fb53b.webp" alt="ADP Vista logo" loading="lazy"></div>
           <div class="name">ADP Vista</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of ADP Vista API requests (get/post only). Connection options (country, paymentUnit, legalEntity) are sent as request headers.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client Id <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Company Code <span class="req-flag">required</span></li>
+            <li>Login ID <span class="req-flag">required</span></li>
+            <li>Scope <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/165219c4-830b-49af-828f-7964d4e4bd08.webp" alt="SAP Success Factors logo" loading="lazy"></div>
           <div class="name">SAP Success Factors</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">SAP SuccessFactors REST API requests (uppercase HTTP methods).</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>API Key <span class="req-flag">required</span></li>
+            <li>Company Id <span class="req-flag">required</span></li>
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Private Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Certificate <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Issuer / Audiences / User Type <span class="req-flag">optional</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -94,21 +134,67 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/a2f4d8c6-1e3b-4a7d-9c5f-8b6e2d1a4c9f.webp" alt="Amazon Data Firehose logo" loading="lazy"></div>
           <div class="name">Amazon Data Firehose</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">PutRecord / PutRecordBatch calls to a named delivery stream. Batch mode caps at 500 records per call.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Access Key ID <span class="req-flag">required</span></li>
+            <li>Secret Access Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Session Token <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">temporary credentials only</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/37766115-8263-4d3c-bae1-984d97372221.webp" alt="AWS Lambda logo" loading="lazy"></div>
           <div class="name">AWS Lambda</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Direct AWS SDK command invocations (InvokeCommand, ListFunctionsCommand, etc.) by name.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Access Key ID <span class="req-flag">required</span></li>
+            <li>Secret Access Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Session Token <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">temporary credentials only</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/d7ca2d1a-cc71-47fb-8b26-d316bfaedaf9.webp" alt="Confluence logo" loading="lazy"></div>
           <div class="name">Confluence</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Confluence REST API requests. Authenticated via Basic auth with email:apiKey.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Email <span class="req-flag">required</span></li>
+            <li>API Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/2ab3d71a-2b81-4253-8428-8c359a26f082.webp" alt="Google API logo" loading="lazy"></div>
           <div class="name">Google API</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Calls dispatched via the googleapis client — google[api]({version,auth})[resource][action](...). One connector reaches the entire Google Cloud and Workspace API surface.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client Email <span class="req-flag">required</span></li>
+            <li>Private Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -119,36 +205,119 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/085c0e1b-e0f2-47ae-a81f-1af51f90aeea.webp" alt="Amazon SPAPI logo" loading="lazy"></div>
           <div class="name">Amazon SPAPI</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">callAPI / download / upload actions covering the Selling Partner API, report documents, and feed submission.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>AWS Access Key ID <span class="req-flag">required</span></li>
+            <li>AWS Secret Access Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Selling Partner Role <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/1bbd8c15-601e-43f5-b584-e898ba58bfd2.webp" alt="Channel Advisor logo" loading="lazy"></div>
           <div class="name">Channel Advisor</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of ChannelAdvisor REST API requests.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Application ID <span class="req-flag">required</span></li>
+            <li>Shared Secret <span class="req-flag">required</span></li>
+            <li>Grant Type <span class="req-flag">required</span></li>
+            <li>Refresh Token <span class="req-flag">required</span></li>
+            <li>Redirect URL <span class="req-flag">optional</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/2d259032-b9ea-4904-afbf-d30d4fc142a9.webp" alt="Clover logo" loading="lazy"></div>
           <div class="name">Clover</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Clover REST API requests. `filters`, `expand`, `limit` and `orderBy` are serialized into Clover query parameters.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Authorization Token <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/3d3b20ea-f261-40c1-9094-a556e60ce5e9.webp" alt="Magento logo" loading="lazy"></div>
           <div class="name">Magento</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Magento REST API requests. `filters` and `pagination` are serialized into Magento searchCriteria[...] query parameters.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Token <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">Token, or Username + Password</span></li>
+            <li>Username <span class="req-flag">optional</span></li>
+            <li>Password <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/88c548f7-4944-4eed-a948-9ce683e02a6f.webp" alt="QuickBooks logo" loading="lazy"></div>
           <div class="name">QuickBooks</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">QuickBooks Online REST API requests.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Refresh Token <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">rotates periodically</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/c125d58f-41f5-41f5-b42e-3a63e3441526.webp" alt="Square logo" loading="lazy"></div>
           <div class="name">Square</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Square REST API requests, with cursor-based pagination auto-followed by default.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Personal Access Token <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/09fb753b-6b94-48b6-b70e-31ce7acdddac.webp" alt="WooCommerce logo" loading="lazy"></div>
           <div class="name">WooCommerce</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">WooCommerce REST API requests (v2 or v3) against a WordPress site.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Consumer Key <span class="req-flag">required</span></li>
+            <li>Consumer Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -159,6 +328,18 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/c6a47b3d-5740-4cec-a9d1-dfba96249d03.webp" alt="Arena logo" loading="lazy"></div>
           <div class="name">Arena</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Arena PLM REST API requests. Session token from credentials is sent as the `arena_session_id` header.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Client ID <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -169,41 +350,131 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/3c751b02-b23c-4615-9eba-c7a5dc33c507.webp" alt="C. H. Robinson logo" loading="lazy"></div>
           <div class="name">C. H. Robinson</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of C.H. Robinson (Navisphere) REST API requests.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Audience <span class="req-flag">optional</span><span class="field-note">defaulted</span></li>
+            <li>Grant Type <span class="req-flag">optional</span><span class="field-note">defaulted to client_credentials</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><span class="badge-mark">EDIN</span></div>
           <div class="name">EDI Nation</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">read / write / ack / validate actions over X12 or EDIFACT EDI data.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>OCP APIM Subscription Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/d16be6b2-ad5e-4b32-8e54-03f168b947f4.webp" alt="FedEx logo" loading="lazy"></div>
           <div class="name">FedEx</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Legacy FedEx SOAP API — Address Validation, Rates, Shipping Validation, Shipment Create/Delete, or a raw POST. Requests are XML, responses are parsed to JSON.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client Detail — Account Number, Meter Number <span class="req-flag">required</span></li>
+            <li>User Credentials — Login Key, Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Parent Credentials — Login Key, Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/1f919318-5b52-4bf9-b7ee-21fb7a561fd9.webp" alt="FedEx REST logo" loading="lazy"></div>
           <div class="name">FedEx REST</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Modern FedEx REST API requests.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>API Key (Client ID) <span class="req-flag">required</span></li>
+            <li>Secret Key (Client Secret) <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/906f591e-0cac-41f7-9fc3-bdbae5d6117a.webp" alt="Fuuz UPS logo" loading="lazy"></div>
           <div class="name">Fuuz UPS</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Fuuz-managed UPS requests plus license-management actions (License Agreement, License Request) alongside generic HTTP.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Access License Number <span class="req-flag">optional</span><span class="field-note">Fuuz-managed UPS credentials — most fields are sourced from server config</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/920e8e71-1de6-4160-8129-f16612c0d694.webp" alt="UPS logo" loading="lazy"></div>
           <div class="name">UPS</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Legacy UPS API. Action-based routing selects generic HTTP or pre-built flows (Address Validation, Create Shipment).</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username Token — Username, Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Transaction Source <span class="req-flag">required</span></li>
+            <li>Service Access Token — Access License Number <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/c13ebe14-08f3-4c6a-bb1d-c717d8430ab9.webp" alt="UPS OAuth logo" loading="lazy"></div>
           <div class="name">UPS OAuth</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Modern UPS OAuth REST API requests — uses `action` (uppercase HTTP method) in place of `method`.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client Id <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Account Number <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/c1ce6d2d-0e76-4683-9b06-00812f5514f4.webp" alt="USPS logo" loading="lazy"></div>
           <div class="name">USPS</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">USPS XML API calls (Verify, RateV4, etc.) — data is sent as an XML query parameter, not a request body; responses are parsed from XML to JSON.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>User ID <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -214,46 +485,155 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/808fce4c-6e38-4db8-b4b4-5c45a5a6f1cb.webp" alt="Dynamics 365 logo" loading="lazy"></div>
           <div class="name">Dynamics 365</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Dynamics 365 REST API requests (uppercase HTTP methods). Covers F&O, Business Central, CRM and Dataverse under one connector.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Scope <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/07ba704-0eef-11eb-adc1-0242ac120002.webp" alt="Infor logo" loading="lazy"></div>
           <div class="name">Infor</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Infor ION API requests. Responses are inspected for Infor-specific error fields.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Grant Type <span class="req-flag">required</span></li>
+            <li>Access Token URL <span class="req-flag">required</span></li>
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Scope <span class="req-flag">optional</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/ac61106b-72c6-4fca-8bc7-0ba3d54fb574.webp" alt="NetSuite REST logo" loading="lazy"></div>
           <div class="name">NetSuite REST</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">NetSuite REST/SuiteQL requests — uses `endpoint`/`action` in place of the common `path`/`method`.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Account ID <span class="req-flag">required</span></li>
+            <li>Consumer Key <span class="req-flag">required</span></li>
+            <li>Consumer Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Token ID <span class="req-flag">required</span></li>
+            <li>Token Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/3c94fb0e-0767-11ec-9a03-0242ac130003.webp" alt="NetSuite SOAP logo" loading="lazy"></div>
           <div class="name">NetSuite SOAP</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">NetSuite SuiteTalk SOAP operations by name (add, search, upsert, getList, async* variants, etc.).</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Account ID <span class="req-flag">required</span></li>
+            <li>Consumer Key <span class="req-flag">required</span></li>
+            <li>Consumer Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Token ID <span class="req-flag">required</span></li>
+            <li>Token Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/1cc8888c-bc12-4545-b354-d26f9493f0ac.webp" alt="Plex API logo" loading="lazy"></div>
           <div class="name">Plex API</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Plex Connect API requests; tenant ID is sent as the X-Plex-Connect-Tenant-Id header.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Consumer Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/464e9c3f-dd6c-47af-8078-cda1ff25e966.webp" alt="Plex Classic logo" loading="lazy"></div>
           <div class="name">Plex Classic</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Plex Classic datasource executions via SOAP, with key-based or offset-based pagination.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/9db652bf-9f99-472e-ada2-71f8e92f973f.webp" alt="Plex IAM API logo" loading="lazy"></div>
           <div class="name">Plex IAM API</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Plex IAM API requests.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/72974b11-897f-47bd-896d-133962ef7bbb.webp" alt="Plex UX logo" loading="lazy"></div>
           <div class="name">Plex UX</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Plex UX (JSON REST) datasource execution or GET-mode metadata/search, with the same pagination options as Plex Classic.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/34e36d24-64f3-4d59-a764-bab5b851f72d.webp" alt="SAP Cloud (S/4HANA) logo" loading="lazy"></div>
           <div class="name">SAP Cloud (S/4HANA)</div>
           <div class="note">Public or private cloud SAP deployments.</div>
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">SAP Cloud OData requests — top/skip/filter/orderby/select/expand map to the OData $-prefixed query parameters.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Authorization Token <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       <div class="callout">SAP RFC — direct on-premise BAPI calls, no middleware — is a Device Gateway driver for on-prem ECC/S&#8203;4HANA, not a cloud connector. See <a href="../edge/#drivers">Edge &amp; OT</a>.</div>
@@ -265,21 +645,65 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/6084f831-a31a-4dce-b0f2-a6ab012333d5.webp" alt="Fanuc ZDT Data API logo" loading="lazy"></div>
           <div class="name">Fanuc ZDT Data API</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Generic REST requests against the FANUC Zero Down Time Data API (typically dataapi.fanuczdt.com).</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>API Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
-          <div class="mark"><span class="badge-mark">KRBE</span></div>
+          <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/60af4e81-6a6c-4f06-b19e-846fe2de9e02.webp" alt="Körber PAS-X MSI logo" loading="lazy"></div>
           <div class="name">Körber PAS-X MSI</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Publishes MSI messages (SF_TO_MES) to Körber PAS-X over its MSI Web Service — outbound publish only.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">OAuth password-grant token request</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/e2c23250-2da3-41af-8ea5-abe14a4aa77c.webp" alt="TecCom File Upload logo" loading="lazy"></div>
           <div class="name">TecCom File Upload</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Batches of typed rows converted to CSV, zipped and uploaded — REPLACE overwrites the dataset, MODIFY applies incremental changes.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client Id <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>TecCom Id <span class="req-flag">required</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/395ab4e2-2ef4-471c-ad42-5fdad7f22d6f.webp" alt="TecCom Web Services logo" loading="lazy"></div>
           <div class="name">TecCom Web Services</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">TecCom SOAP web service calls selected by function identifier.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>User Name <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -290,26 +714,85 @@
           <div class="mark"><span class="badge-mark">FTP</span></div>
           <div class="name">FTP</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">FTP/FTPS/SFTP file operations — get, getAllInDir, post, put, delete, move, list. Required fields per operation are enforced by the connector.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">one of Password or SSH Key is required</span></li>
+            <li>SSH Key <span class="req-flag">optional</span><span class="field-note">one of Password or SSH Key is required</span></li>
+            <li>Passphrase <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Host Key / Host Key Hash <span class="req-flag">optional</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><span class="badge-mark">HTTP</span></div>
           <div class="name">HTTP</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Generic REST calls — method, path, headers, body — against whatever endpoint the connection URL points at. Basic auth is optional; a bearer token or API key is sent as a header instead.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">optional</span></li>
+            <li>Password <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/bb612514-2129-4fa9-849d-f9f8f6ec1c8e.webp" alt="Microsoft SQL Server logo" loading="lazy"></div>
           <div class="name">Microsoft SQL Server</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Sequential SQL queries or stored procedure calls against a pooled connection, with typed parameter binding.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><span class="badge-mark">ODBC</span></div>
           <div class="name">ODBC</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">SQL queries with `?` bind variables, executed in a worker pool against whatever ODBC driver the connection configures (Plex, NetSuite, etc.).</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>NetSuite OAuth block <span class="req-flag">optional</span><span class="field-note">OAuth URL, Account/Role/Client/Key ID, Private Key, signing algorithm — only when connecting to NetSuite over ODBC</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><span class="badge-mark">SMTP</span></div>
           <div class="name">SMTP</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Sends email via nodemailer — from/to/subject plus text or html, with attachments by inline content or URL reference.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -320,11 +803,32 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/43b90e5f-48a5-437c-b968-6f35a1663257.webp" alt="Fuuz logo" loading="lazy"></div>
           <div class="name">Fuuz</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Cross-tenant calls to another Fuuz instance — GraphQL query/mutation, run a data flow, a saved query, a saved script, or publish to a topic. Max 100 items per request.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Fuuz API Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/970ae55b-7ad0-497e-a77e-f9eb63aff73d.webp" alt="MFGx logo" loading="lazy"></div>
           <div class="name">MFGx</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">GraphQL calls to a legacy MFGx instance.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>API Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -335,16 +839,51 @@
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/44ff6253-ca43-4429-955a-2907803178b8.webp" alt="Salesforce logo" loading="lazy"></div>
           <div class="name">Salesforce</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Array of Salesforce REST API requests, with `pagination: true` to auto-follow nextRecordsUrl across pages.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/fa98a8d9-74f3-4ce1-8ef9-4455c31d3ce4.webp" alt="Spiro logo" loading="lazy"></div>
           <div class="name">Spiro</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Spiro REST API requests using JSON:API content type, with page-range pagination.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Authorization Token <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         <div class="logo-tile">
           <div class="mark"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/4ff8769a-bdea-11e8-a355-529269fb1459.webp" alt="Zoho logo" loading="lazy"></div>
           <div class="name">Zoho</div>
           
+        <details>
+          <summary></summary>
+          <div class="doc-body">
+            <p class="doc-notes">Zoho REST API requests, with `modifiedSince` and page-range pagination options.</p>
+            <p class="doc-creds-label">Credentials</p>
+            <ul class="doc-creds">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Authorization Token <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            </ul>
+          </div>
+        </details>
         </div>
         </div>
       </div>
@@ -722,7 +1261,7 @@ Not every IT integration is an outbound REST call: <strong>FTP</strong> is its o
     <h2>Two New <span class="accent">Connectors</span></h2>
     <div class="grid">
       <div class="card" id="pas-x">
-        <h3>Körber PAS-X MSI<span class="tag">New</span></h3>
+        <div class="mark" style="margin-bottom:10px"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/60af4e81-6a6c-4f06-b19e-846fe2de9e02.webp" alt="Körber PAS-X MSI logo" loading="lazy"></div><h3>Körber PAS-X MSI<span class="tag">New</span></h3>
         <p>A purpose-built named connector: publishes MSI messages (SF_TO_MES) to Körber PAS-X over its MSI Web Service. Outbound publish only, matching how PAS-X expects to receive shop-floor instructions — this is not a generic HTTP adaptation.</p>
       </div>
       <div class="card" id="lm-studio">
