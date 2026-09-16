@@ -536,9 +536,13 @@ footer .addr { font-style: normal; }
 }
 @media (max-width: 560px) { .nav-search-btn kbd { display: none; } }
 
+/* No backdrop-filter: WebKit has long-standing bugs rendering it (and its descendants) as solid
+   white on iOS, which is exactly the "white input, white text" failure this once produced on
+   mobile Safari while looking correct everywhere else tested. The plain rgba backdrop below is
+   less fancy but renders identically on every engine. */
 .search-overlay {
   display: none; position: fixed; inset: 0; z-index: 100;
-  background: rgba(5,5,13,.72); backdrop-filter: blur(2px);
+  background: rgba(5,5,13,.86);
   padding: 10vh 20px 20px;
 }
 .search-overlay.open { display: block; }
@@ -548,6 +552,10 @@ body.search-open { overflow: hidden; }
   background: var(--surface-raised); border: 1px solid var(--border-default);
   border-radius: var(--radius-lg); padding: 20px;
   max-height: 74vh; overflow: auto;
+  /* iOS Safari can require a second tap on the first element touched right after inertial
+     scrolling ends; this is the standard fix, since the result list scrolls inside this panel. */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 .search-close {
   position: absolute; top: 10px; right: 12px; z-index: 1;
@@ -557,11 +565,13 @@ body.search-open { overflow: hidden; }
 .search-close:hover { color: var(--fuuz-white); }
 
 /* Pagefind ships its own UI; these custom properties are its documented theming hooks, kept to
-   the brand palette instead of overriding its markup. */
+   the brand palette instead of overriding its markup. --pagefind-ui-background is a real solid
+   colour, not transparent-relying-on-what's-behind-it, so the input can't end up matching its own
+   (white, by default) text colour if an ancestor's background ever fails to paint. */
 .search-panel {
   --pagefind-ui-primary: var(--fuuz-spring-green);
   --pagefind-ui-text: var(--text-primary);
-  --pagefind-ui-background: transparent;
+  --pagefind-ui-background: var(--surface-page);
   --pagefind-ui-border: var(--border-default);
   --pagefind-ui-tag: var(--surface-brand-muted);
   --pagefind-ui-border-width: 1px;
@@ -570,7 +580,14 @@ body.search-open { overflow: hidden; }
   --pagefind-ui-image-box-ratio: 3 / 2;
   --pagefind-ui-font: var(--font-body);
 }
-.search-panel .pagefind-ui__search-input { color: var(--text-primary); background: var(--surface-page); }
+/* Belt and suspenders over the custom properties above: pinned directly, !important, so this
+   can't lose a cascade tie to Pagefind's own same-specificity rule based on which stylesheet
+   happened to load second (pagefind-ui.css is injected by search.js, after this file). */
+.search-panel .pagefind-ui__search-input,
+.search-panel .pagefind-ui__search-clear {
+  color: var(--text-primary) !important;
+  background-color: var(--surface-page) !important;
+}
 .search-panel .pagefind-ui__result-link { color: var(--fuuz-white); }
 .search-panel .pagefind-ui__result-link:hover { color: var(--text-brand-on-dark); }
 .search-panel .pagefind-ui__result-excerpt mark { background: rgba(75,244,134,.28); color: inherit; }
