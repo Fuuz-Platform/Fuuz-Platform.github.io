@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft SQL Server Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/microsoft-sql-server/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/bb612514-2129-4fa9-849d-f9f8f6ec1c8e.webp" alt="Microsoft SQL Server logo" style="height:100%"></span>
+    Microsoft SQL Server
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">Sequential SQL queries or stored procedure calls against a pooled connection, with typed parameter binding.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of SQL Server queries or stored procedure calls. Executed sequentially against a pooled connection. Each item returns `{ resultSets, output, rowsAffected }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single SQL Server query or stored procedure execution.","children":[{"path":"$$[].query","required":true,"type":"string","description":"SQL query text, or stored procedure name when `procedure: true`."},{"path":"$$[].parameters","required":false,"type":"array","description":"Typed SQL parameters bound to the query or procedure. Each parameter picks one of four variants based on its `dataType` sizing requirements.","children":[{"path":"$$[].parameters[]","required":false,"type":"oneOf — 4 variants","children":[{"path":"$$[].parameters[] (variant 1)","required":false,"type":"object","description":"Parameter for data types that take no sizing.","children":[{"path":"$$[].parameters[] (variant 1).name","required":true,"type":"string","description":"Parameter name (referenced in the SQL as `@name`)."},{"path":"$$[].parameters[] (variant 1).dataType","required":true,"type":"string","description":"SQL Server data type (no sizing required).","enum":["BigInt","Bit","Date","DateTime","Int","Float","Money","NText","Real","SmallDateTime","SmallInt","SmallMoney","Text","TinyInt","UniqueIdentifier","Xml"]},{"path":"$$[].parameters[] (variant 1).value","required":false,"type":"any","description":"Parameter value. Null when omitted."},{"path":"$$[].parameters[] (variant 1).output","required":false,"type":"boolean","description":"When true, register this as an output parameter (returned in `output`)."}]},{"path":"$$[].parameters[] (variant 2)","required":false,"type":"object","description":"Parameter for character data types (takes `length`).","children":[{"path":"$$[].parameters[] (variant 2).name","required":true,"type":"string","description":"Parameter name."},{"path":"$$[].parameters[] (variant 2).dataType","required":true,"type":"string","description":"Character data type. Requires `length`.","enum":["Char","NChar","NVarChar","VarChar"]},{"path":"$$[].parameters[] (variant 2).value","required":false,"type":"any","description":"Parameter value."},{"path":"$$[].parameters[] (variant 2).output","required":false,"type":"boolean","description":"When true, register as an output parameter."},{"path":"$$[].parameters[] (variant 2).length","required":false,"type":"integer","description":"Character length for the column."}]},{"path":"$$[].parameters[] (variant 3)","required":false,"type":"object","description":"Parameter for time-based data types (takes `scale`).","children":[{"path":"$$[].parameters[] (variant 3).name","required":true,"type":"string","description":"Parameter name."},{"path":"$$[].parameters[] (variant 3).dataType","required":true,"type":"string","description":"Time-based data type. Requires `scale`.","enum":["DateTime2","DateTimeOffset","Time"]},{"path":"$$[].parameters[] (variant 3).value","required":false,"type":"any","description":"Parameter value."},{"path":"$$[].parameters[] (variant 3).output","required":false,"type":"boolean","description":"When true, register as an output parameter."},{"path":"$$[].parameters[] (variant 3).scale","required":false,"type":"integer","description":"Fractional-second precision (0–7)."}]},{"path":"$$[].parameters[] (variant 4)","required":false,"type":"object","description":"Parameter for fixed-point numeric data types (takes `precision` + `scale`).","children":[{"path":"$$[].parameters[] (variant 4).name","required":true,"type":"string","description":"Parameter name."},{"path":"$$[].parameters[] (variant 4).dataType","required":true,"type":"string","description":"Fixed-point numeric data type. Requires `precision` and `scale`.","enum":["Decimal","Numeric"]},{"path":"$$[].parameters[] (variant 4).value","required":false,"type":"any","description":"Parameter value."},{"path":"$$[].parameters[] (variant 4).output","required":false,"type":"boolean","description":"When true, register as an output parameter."},{"path":"$$[].parameters[] (variant 4).scale","required":false,"type":"integer","description":"Number of digits to the right of the decimal point."},{"path":"$$[].parameters[] (variant 4).precision","required":false,"type":"integer","description":"Total number of digits stored."}]}]}]},{"path":"$$[].options","required":false,"type":"object","description":"Per-request options.","children":[{"path":"$$[].options.retry","required":false,"type":"object","description":"Retry config for transient errors. Non-retryable errors (containing \"syntax\", \"invalid\", \"permission\") abort immediately.","children":[{"path":"$$[].options.retry.retries","required":false,"type":"integer","description":"Maximum retry attempts. Defaults to 0 (no retry)."},{"path":"$$[].options.retry.factor","required":false,"type":"integer","description":"Exponential backoff factor. Defaults to 2."},{"path":"$$[].options.retry.minTimeout","required":false,"type":"integer","description":"Minimum delay between retries in milliseconds. Defaults to 100."}]}]},{"path":"$$[].procedure","required":false,"type":"boolean","description":"When true, execute `query` as a stored procedure via `request.execute()` instead of a raw SQL query."}]}]},"sample":[{"query":"<string>","parameters":[{"name":"<string>","dataType":"BigInt","value":null,"output":false}],"options":{"retry":{"retries":0,"factor":0,"minTimeout":0}},"procedure":false}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object"}]},"sample":[{}]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

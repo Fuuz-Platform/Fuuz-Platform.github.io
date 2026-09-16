@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMTP Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/smtp/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><span class="badge-mark" style="font-size:14px;padding:8px 14px">SMTP</span></span>
+    SMTP
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">Sends email via nodemailer — from/to/subject plus text or html, with attachments by inline content or URL reference.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of emails to send over SMTP (via nodemailer). Each message must include either `text` or `html`.","children":[{"path":"$$[]","required":false,"type":"oneOf — 2 variants","description":"A single email message.","children":[{"path":"$$[] (variant 1)","required":false,"type":"any"},{"path":"$$[] (variant 2)","required":false,"type":"any"}]}]},"sample":[null]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object"}]},"sample":[{}]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

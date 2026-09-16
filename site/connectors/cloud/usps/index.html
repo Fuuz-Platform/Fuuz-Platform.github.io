@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>USPS Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/usps/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/c1ce6d2d-0e76-4683-9b06-00812f5514f4.webp" alt="USPS logo" style="height:100%"></span>
+    USPS
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">USPS XML API calls (Verify, RateV4, etc.) — data is sent as an XML query parameter, not a request body; responses are parsed from XML to JSON.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>User ID <span class="req-flag">required</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of USPS XML API calls. Data is sent as the `XML=...` query parameter (not request body); the connector injects the configured `USERID`. Responses are parsed from XML to JSON.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single USPS request.","children":[{"path":"$$[].action","required":true,"type":"string","description":"Always `POST`. Reserved for future USPS actions.","enum":["POST"]},{"path":"$$[].path","required":false,"type":"string","description":"URL path appended to the connection URL."},{"path":"$$[].api","required":false,"type":"string","description":"USPS API name sent as the `API` query parameter (e.g. `Verify`, `RateV4`)."},{"path":"$$[].data","required":false,"type":"string | object","description":"XML data. Must contain `USERID=''`; the connector injects the configured UserId."}]}]},"sample":[{"action":"POST","path":"<string>","api":"<string>","data":"<string>"}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

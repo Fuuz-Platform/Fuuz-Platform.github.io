@@ -30,7 +30,8 @@ function credentialsHtml(doc) {
 }
 
 export function slugify(name) {
-  return name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return name.normalize('NFD').replace(/[̀-ͯ]/g, '') // ö -> o, é -> e, etc.
+    .toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
 export function renderConnectorDetail({ name, description, logo, doc, schemas }) {

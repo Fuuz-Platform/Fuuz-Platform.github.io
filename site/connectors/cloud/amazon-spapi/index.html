@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon SPAPI Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/amazon-spapi/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/085c0e1b-e0f2-47ae-a81f-1af51f90aeea.webp" alt="Amazon SPAPI logo" style="height:100%"></span>
+    Amazon SPAPI
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">callAPI / download / upload actions covering the Selling Partner API, report documents, and feed submission.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>Client ID <span class="req-flag">required</span></li>
+            <li>Client Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>AWS Access Key ID <span class="req-flag">required</span></li>
+            <li>AWS Secret Access Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Selling Partner Role <span class="req-flag">required</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of Amazon Selling Partner API operations. Each item returns `{ Results, Errors }`.","children":[{"path":"$$[]","required":false,"type":"oneOf — 3 variants","description":"A single SP-API operation. `data` shape depends on `action`.","children":[{"path":"$$[] (variant 1)","required":false,"type":"object","description":"`callAPI` branch: `data` is passed through to `AWSClient.callAPI(data)`.","children":[{"path":"$$[] (variant 1).action","required":false,"type":"any","enum":["callAPI"]}]},{"path":"$$[] (variant 2)","required":false,"type":"object","description":"`download` branch: fetches a report document.","children":[{"path":"$$[] (variant 2).action","required":false,"type":"any","enum":["download"]},{"path":"$$[] (variant 2).data","required":true,"type":"object","description":"Download payload: `{ report_document, options? }`.","children":[{"path":"$$[] (variant 2).data.report_document","required":true,"type":"object","description":"Report document descriptor returned by SP-API (contains URL and compression info)."}]}]},{"path":"$$[] (variant 3)","required":false,"type":"object","description":"`upload` branch: submits a feed.","children":[{"path":"$$[] (variant 3).action","required":false,"type":"any","enum":["upload"]},{"path":"$$[] (variant 3).data","required":true,"type":"object","description":"Upload payload: `{ feed_upload_details, feed }`.","children":[{"path":"$$[] (variant 3).data.feed_upload_details","required":true,"type":"object","description":"Upload destination returned by SP-API `createFeedDocument`."},{"path":"$$[] (variant 3).data.feed","required":true,"type":"object","description":"Feed content to upload."}]}]}]}]},"sample":[{"action":"callAPI"}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"object | array | string | number | null"},"sample":{}}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

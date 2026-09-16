@@ -25,7 +25,7 @@ export function schemaToTree(schema, path, required) {
   }
   const node = {
     path, required: !!required,
-    type: typeLabel(schema.type) + (schema.properties && !schema.type ? 'object' : ''),
+    type: schema.type ? typeLabel(schema.type) : (schema.properties ? 'object' : (schema.items ? 'array' : 'any')),
     description: schema.description,
     enum: schema.enum,
   };

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FTP Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/ftp/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><span class="badge-mark" style="font-size:14px;padding:8px 14px">FTP</span></span>
+    FTP
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">FTP/FTPS/SFTP file operations — get, getAllInDir, post, put, delete, move, list. Required fields per operation are enforced by the connector.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>Username <span class="req-flag">required</span></li>
+            <li>Password <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">one of Password or SSH Key is required</span></li>
+            <li>SSH Key <span class="req-flag">optional</span><span class="field-note">one of Password or SSH Key is required</span></li>
+            <li>Passphrase <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Host Key / Host Key Hash <span class="req-flag">optional</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of FTP/FTPS/SFTP file operations. Protocol is chosen from the connection options. Required fields depend on `action` (enforced via `oneOf`).","children":[{"path":"$$[]","required":false,"type":"oneOf — 7 variants","description":"A single file operation.","children":[{"path":"$$[] (variant 1)","required":false,"type":"object","children":[{"path":"$$[] (variant 1).action","required":false,"type":"any","enum":["put"]}]},{"path":"$$[] (variant 2)","required":false,"type":"object","children":[{"path":"$$[] (variant 2).action","required":false,"type":"any","enum":["post"]}]},{"path":"$$[] (variant 3)","required":false,"type":"object","children":[{"path":"$$[] (variant 3).action","required":false,"type":"any","enum":["get"]}]},{"path":"$$[] (variant 4)","required":false,"type":"object","children":[{"path":"$$[] (variant 4).action","required":false,"type":"any","enum":["getAllInDir"]}]},{"path":"$$[] (variant 5)","required":false,"type":"object","children":[{"path":"$$[] (variant 5).action","required":false,"type":"any","enum":["move"]}]},{"path":"$$[] (variant 6)","required":false,"type":"object","children":[{"path":"$$[] (variant 6).action","required":false,"type":"any","enum":["delete"]}]},{"path":"$$[] (variant 7)","required":false,"type":"object","children":[{"path":"$$[] (variant 7).action","required":false,"type":"any","enum":["list"]}]}]}]},"sample":[{"action":"put"}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object"}]},"sample":[{}]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

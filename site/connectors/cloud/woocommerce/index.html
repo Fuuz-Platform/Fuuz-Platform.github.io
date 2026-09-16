@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WooCommerce Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/woocommerce/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/09fb753b-6b94-48b6-b70e-31ce7acdddac.webp" alt="WooCommerce logo" style="height:100%"></span>
+    WooCommerce
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">WooCommerce REST API requests (v2 or v3) against a WordPress site.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>Consumer Key <span class="req-flag">required</span></li>
+            <li>Consumer Secret <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of WooCommerce REST API requests. Each item returns `{ data }` or `{ error }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single WooCommerce API request.","children":[{"path":"$$[].path","required":true,"type":"string","description":"WooCommerce API path (prepended with `/wp-json/wc/{version}/`)."},{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (UPPERCASE).","enum":["GET","PUT","POST","DELETE"]},{"path":"$$[].version","required":false,"type":"string","description":"WooCommerce API version. Defaults to `v3`.","enum":["v2","v3"]},{"path":"$$[].parameters","required":false,"type":"object","description":"Query string parameters."},{"path":"$$[].data","required":false,"type":"object","description":"Request body."}]}]},"sample":[{"path":"<string>","method":"GET","version":"v2","parameters":{},"data":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWS Lambda Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/aws-lambda/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/37766115-8263-4d3c-bae1-984d97372221.webp" alt="AWS Lambda logo" style="height:100%"></span>
+    AWS Lambda
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">Direct AWS SDK command invocations (InvokeCommand, ListFunctionsCommand, etc.) by name.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>Access Key ID <span class="req-flag">required</span></li>
+            <li>Secret Access Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+            <li>Session Token <span class="req-flag">optional</span> <span class="secret-flag">&#9679; secret</span><span class="field-note">temporary credentials only</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of AWS Lambda SDK command invocations. Each item returns `{ results, errors }`. For `InvokeCommand`, the response `Payload` is decoded from Uint8Array back to JSON.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single Lambda SDK command execution.","children":[{"path":"$$[].action","required":true,"type":"string","description":"Lambda SDK command name (e.g. `InvokeCommand`, `ListFunctionsCommand`)."},{"path":"$$[].region","required":false,"type":"string","description":"AWS region for this call. Defaults to `us-east-1`."},{"path":"$$[].body","required":false,"type":"object","description":"Input passed to the SDK command constructor. Fields shown here apply to `InvokeCommand`.","children":[{"path":"$$[].body.FunctionName","required":false,"type":"string","description":"Lambda function name, qualified ARN, or partial ARN."},{"path":"$$[].body.Payload","required":false,"type":"any","description":"Payload passed to the function. Automatically JSON-stringified and encoded to binary."},{"path":"$$[].body.InvocationType","required":false,"type":"string","description":"`RequestResponse` (default), `Event` (async fire-and-forget), or `DryRun`."},{"path":"$$[].body.LogType","required":false,"type":"string","description":"`None` or `Tail`. `Tail` returns the last 4 KB of log output in the response."},{"path":"$$[].body.ClientContext","required":false,"type":"string","description":"Base64-encoded client context data provided to the function."},{"path":"$$[].body.Qualifier","required":false,"type":"string","description":"Function version or alias to invoke."}]}]}]},"sample":[{"action":"<string>","region":"<string>","body":{"FunctionName":"<string>","Payload":null,"InvocationType":"<string>","LogType":"<string>","ClientContext":"<string>","Qualifier":"<string>"}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object","children":[{"path":"$$[].results","required":true,"type":"object | array | string | number | null"},{"path":"$$[].errors","required":true,"type":"array","children":[{"path":"$$[].errors[]","required":false,"type":"object"}]}]}]},"sample":[{"results":{},"errors":[{}]}]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

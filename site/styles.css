@@ -466,7 +466,12 @@ footer .addr { font-style: normal; }
 .logo-tile .doc-creds li { font-family: var(--font-mono); font-size: 12px; color: var(--fuuz-neutral-100); line-height: 1.5; }
 .logo-tile .doc-creds .req-flag { color: var(--text-muted); font-size: 10.5px; }
 .logo-tile .doc-creds .secret-flag { color: #F3C078; font-size: 10.5px; }
-.logo-tile .doc-creds .field-note { display: block; color: var(--text-muted); font-family: var(--font-body); font-size: 11.5px; margin-top: 1px; }
+.logo-tile .doc-creds .field-note, .doc-creds .field-note { display: block; color: var(--text-muted); font-family: var(--font-body); font-size: 11.5px; margin-top: 1px; }
+/* Same list, used bare (not inside a .logo-tile) on a connector's own detail page. */
+.doc-creds { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.doc-creds li { font-family: var(--font-mono); font-size: 13px; color: var(--fuuz-neutral-100); line-height: 1.5; }
+.doc-creds .req-flag { color: var(--text-muted); font-size: 11px; }
+.doc-creds .secret-flag { color: #F3C078; font-size: 11px; }
 
 /* ── connector schema viewer (individual connector pages) ─────────────────────────────────────
    Interaction ported from the private connector-catalog accelerator's in-platform screen

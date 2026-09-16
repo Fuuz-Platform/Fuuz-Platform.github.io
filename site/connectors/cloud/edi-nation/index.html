@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDI Nation Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content=" Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/edi-nation/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><span class="badge-mark" style="font-size:14px;padding:8px 14px">EDIN</span></span>
+    EDI Nation
+  </h1>
+  <p class="lede"></p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">read / write / ack / validate actions over X12 or EDIFACT EDI data.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>OCP APIM Subscription Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of EDI Nation operations. `read` parses EDI file contents; `write`/`ack`/`validate` act on EDI data objects.","children":[{"path":"$$[]","required":false,"type":"anyOf — 2 variants","children":[{"path":"$$[] (variant 1)","required":false,"type":"object","description":"Read branch: parse raw EDI file contents into a structured object.","children":[{"path":"$$[] (variant 1).format","required":true,"type":"string","description":"EDI standard.","enum":["x12","edifact"]},{"path":"$$[] (variant 1).action","required":true,"type":"string","description":"Must be `read`.","enum":["read"]},{"path":"$$[] (variant 1).data","required":true,"type":"object","description":"File payload to parse.","children":[{"path":"$$[] (variant 1).data.fileName","required":false,"type":"string","description":"Optional original file name (informational)."},{"path":"$$[] (variant 1).data.fileContents","required":true,"type":"string","description":"Raw EDI file contents to parse."}]},{"path":"$$[] (variant 1).options","required":false,"type":"object","description":"Per-request options.","children":[{"path":"$$[] (variant 1).options.apiOptions","required":false,"type":"object","description":"Additional options forwarded to the EDI Nation API."}]}]},{"path":"$$[] (variant 2)","required":false,"type":"object","description":"Write / acknowledge / validate branch: acts on a structured EDI data object.","children":[{"path":"$$[] (variant 2).format","required":true,"type":"string","description":"EDI standard.","enum":["x12","edifact"]},{"path":"$$[] (variant 2).action","required":true,"type":"string","description":"`write` serializes to EDI; `ack` generates a functional acknowledgement; `validate` checks EDI validity.","enum":["write","ack","validate"]},{"path":"$$[] (variant 2).data","required":true,"type":"any","description":"Structured EDI data object. Shape depends on the transaction set."},{"path":"$$[] (variant 2).options","required":false,"type":"object","description":"Per-request options.","children":[{"path":"$$[] (variant 2).options.apiOptions","required":false,"type":"object","description":"Additional options forwarded to the EDI Nation API."}]}]}]}]},"sample":[{"format":"x12","action":"read","data":{"fileName":"<string>","fileContents":"<string>"},"options":{"apiOptions":{}}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>
