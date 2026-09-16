@@ -182,6 +182,14 @@ const betaTag = a =>
     ? ''
     : '<span class="tag tag-beta">Beta</span>';
 
+/* build/build-explorer.mjs indexes every accelerator into something browsable — real modules and
+   screens and flows where the repo has them, otherwise at least its seed data or raw files — so
+   this link is unconditional rather than gated on a flag generate.mjs would have no way to know
+   yet (the two build steps run as separate processes; see .github/workflows/pages.yml). */
+function exploreLink(a) {
+  return `<a href="/explore/view/?repo=${esc(a.name)}">Browse code</a>`;
+}
+
 function card(a) {
   const { href, tag } = linkFor(a);
   /* The version, not the repository slug. It is the more useful fact once everything is released,
@@ -193,7 +201,7 @@ function card(a) {
   return `        <div class="card">
           <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}${betaTag(a)}</h3>
           <p>${esc(a.summary)}</p>
-          <div class="meta">${meta}</div>
+          <div class="meta">${meta} &middot; ${exploreLink(a)}</div>
         </div>`;
 }
 
@@ -309,7 +317,7 @@ ${latest.map(a => {
   return `        <div class="card">
           <h3><a href="${esc(href)}">${esc(a.title)}</a>${tag}${betaTag(a)}</h3>
           <p>${esc(a.summary)}</p>
-          <div class="meta">${ver}${esc(fmt(a.released))}</div>
+          <div class="meta">${ver}${esc(fmt(a.released))} &middot; ${exploreLink(a)}</div>
         </div>`;
 }).join('\n')}
     </div>

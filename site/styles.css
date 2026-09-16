@@ -616,3 +616,47 @@ body.search-open { overflow: hidden; }
 .search-panel .pagefind-ui__result-link:hover { color: var(--text-brand-on-dark); }
 .search-panel .pagefind-ui__result-excerpt mark { background: rgba(75,244,134,.28); color: inherit; }
 .schema-table tr:last-child td { border-bottom: none; }
+
+/* ── code explorer (site/explore/, site/assets/explorer.js) ──────────────────────────────────
+   Reuses .tree-row/.tree-name/.tree-type/.schema-code from the connector schema explorer above —
+   same interaction (click a row, view its content on the right) on the same visual language,
+   rather than inventing a second tree component for what is the same pattern. */
+/* min-width: 0 on both tracks: a grid item's default min-width is auto, which lets a wide child —
+   here, a <pre> whose longest JSON line has no wrap point — grow the track (and the whole page)
+   instead of scrolling inside its own box. */
+.explorer-cols { display: grid; grid-template-columns: minmax(260px, 320px) 1fr; gap: 20px; align-items: start; margin-top: 8px; }
+.explorer-cols > * { min-width: 0; }
+@media (max-width: 860px) { .explorer-cols { grid-template-columns: 1fr; } }
+.explorer-tree {
+  background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+  padding: 14px; font-size: 13px; max-height: 74vh; overflow: auto; position: sticky; top: 80px;
+}
+@media (max-width: 860px) { .explorer-tree { position: static; max-height: 420px; } }
+.explorer-group { margin: 0 0 4px; }
+.explorer-group > summary {
+  font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase; color: var(--text-secondary); cursor: pointer; padding: 8px 6px; list-style: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.explorer-group > summary::-webkit-details-marker { display: none; }
+.explorer-group > summary::before { content: '\25B8'; color: var(--text-muted); transition: transform var(--duration-fast) var(--ease-standard); }
+.explorer-group[open] > summary::before { transform: rotate(90deg); }
+.explorer-module { margin: 2px 0 10px 8px; }
+.explorer-module-name {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); padding: 4px 6px 2px;
+}
+.explorer-section-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase; color: var(--text-secondary); padding: 10px 6px 6px; border-top: 1px solid var(--border-subtle); margin-top: 6px;
+}
+.explorer-tree > .explorer-section-title:first-child { border-top: none; margin-top: 0; }
+.explorer-seed-row { display: flex; justify-content: space-between; gap: 8px; padding: 4px 6px; font-size: 12.5px; color: var(--text-secondary); }
+.explorer-seed-row .count { font-family: var(--font-mono); color: var(--text-muted); font-size: 11px; }
+.explorer-breadcrumb { font-size: 12px; color: var(--text-muted); margin: 0 0 10px; }
+.explorer-breadcrumb .sep { margin: 0 6px; }
+.explorer-code { max-height: none; }
+.explorer-empty {
+  background: var(--surface-card); border: 1px dashed var(--border-default); border-radius: var(--radius-lg);
+  padding: 32px; text-align: center; color: var(--text-muted); font-size: 13.5px;
+}
+.explorer-desc { font-size: 13px; color: var(--text-secondary); margin: 0 0 12px; line-height: 1.55; }

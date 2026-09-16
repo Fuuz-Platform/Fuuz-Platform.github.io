@@ -10,3 +10,10 @@ site/pagefind/
 # Handoff file from build/generate.mjs to build/build-search-index.mjs (the accelerator list, for
 # addCustomRecord). Same reasoning as site/pagefind/ above: reproducible, not a source file.
 build/search-records.json
+
+# build/build-explorer.mjs output — per-accelerator metadata and, for repos that ship a .fuuz
+# bundle rather than loose files, their extracted per-item content. site/explore/index.html and
+# site/explore/view/index.html (the two page shells that read this) are hand-written and ARE
+# committed; only the data these fetch at runtime is regenerated every run.
+site/explore/data/
+site/explore/content/

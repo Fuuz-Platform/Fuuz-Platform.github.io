@@ -61,6 +61,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node build/generate.mjs
 
+      # Downloads every accelerator's actual content (loose files, or a .fuuz bundle — see the
+      # comment at the top of the script) and writes it back out as site/explore/data/*.json plus,
+      # for bundled repos, site/explore/content/**, so explore/view/ can render a moduleGroup >
+      # module > screen/flow/model tree with no install. Runs before the search index step so the
+      # two explore/ page shells get crawled too; the per-repo JSON itself isn't HTML, so Pagefind
+      # never sees it regardless of order.
+      - name: Build accelerator code explorer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node build/build-explorer.mjs
+
       # Indexes the HTML that generate.mjs just produced and drops a static search runtime into
       # site/pagefind/. Runs AFTER generate.mjs so newly-enrolled accelerators and connector pages
       # are searchable the same day they appear; never committed (see .gitignore) because it is

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Browse The Code &mdash; Fuuz Accelerators</title>
+<meta name="description" content="Browse an accelerator's actual moduleGroups, modules, screens, flows and data models.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../prose.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../"><img src="../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Browse The Code</span>
+    <nav>
+      <a href="../">All accelerators</a>
+      <a href="https://github.com/Fuuz-Platform">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero" style="padding-bottom: 24px">
+  <p class="eyebrow" id="explore-eyebrow">Loading&hellip;</p>
+  <h1 id="explore-title">&nbsp;</h1>
+  <p class="explorer-desc" id="explore-desc"></p>
+  <div class="ctas">
+    <a class="cta cta-secondary" id="explore-github-link" href="https://github.com/Fuuz-Platform" target="_blank" rel="noopener">View repository on GitHub</a>
+    <a class="cta cta-secondary" href="../">Browse a different accelerator</a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-bottom: 64px">
+  <div class="explorer-cols">
+    <nav class="explorer-tree" id="explore-tree" aria-label="Contents">
+      <p class="explorer-empty">Loading&hellip;</p>
+    </nav>
+    <div class="explorer-panel">
+      <p class="explorer-breadcrumb" id="explore-breadcrumb">Select an item from the list to view its source.</p>
+      <pre class="schema-code explorer-code"><code id="explore-code"></code></pre>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+<script defer src="/assets/explorer.js"></script>
+<script defer src="/assets/search.js"></script>
+</body>
+</html>
