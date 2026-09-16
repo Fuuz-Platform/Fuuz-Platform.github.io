@@ -72,5 +72,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of Arena PLM REST API requests. Session token is obtained from connection credentials and sent as the `arena_session_id` header.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single Arena API request.","children":[{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (lowercase).","enum":["get","put","post","delete"]},{"path":"$$[].path","required":true,"type":"string","description":"Arena API path appended to the connection URL."},{"path":"$$[].data","required":false,"type":"object","description":"Request body."}]}]},"sample":[{"method":"get","path":"<string>","data":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object"}]},"sample":[{}]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

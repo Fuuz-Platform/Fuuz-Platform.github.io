@@ -71,5 +71,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of TecCom SOAP web service calls. Each item returns `{ Timestamp, Reference, OriginatingFunction, Status }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single TecCom SOAP call.","children":[{"path":"$$[].functionId","required":true,"type":"string","description":"TecCom function identifier (selects the SOAP operation)."},{"path":"$$[].parameters","required":true,"type":"object","description":"Function parameters. Each key/value becomes a SOAP parameter element."}]}]},"sample":[{"functionId":"<string>","parameters":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object","children":[{"path":"$$[].Timestamp","required":false,"type":"object"},{"path":"$$[].Reference","required":false,"type":"object"},{"path":"$$[].OriginatingFunction","required":false,"type":"object"},{"path":"$$[].Status","required":false,"type":"object"}]}]},"sample":[{"Timestamp":{},"Reference":{},"OriginatingFunction":{},"Status":{}}]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

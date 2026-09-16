@@ -519,4 +519,59 @@ footer .addr { font-style: normal; }
 .schema-copybtn:hover { color: var(--fuuz-white); border-color: var(--fuuz-electric-violet); }
 .schema-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .schema-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
+
+/* ── search (site/assets/search.js + Pagefind) ────────────────────────────────────────────── */
+.nav-search-btn {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  font: inherit; font-size: 14px; color: var(--text-secondary);
+  background: transparent; border: 1px solid var(--border-default); border-radius: var(--radius-sm);
+  padding: 6px 10px; cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+}
+.nav-search-btn:hover { color: var(--fuuz-white); border-color: var(--fuuz-electric-violet); }
+.nav-search-btn kbd {
+  font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted);
+  background: var(--surface-brand-muted); border: 1px solid var(--border-default);
+  border-radius: 4px; padding: 1px 5px;
+}
+@media (max-width: 560px) { .nav-search-btn kbd { display: none; } }
+
+.search-overlay {
+  display: none; position: fixed; inset: 0; z-index: 100;
+  background: rgba(5,5,13,.72); backdrop-filter: blur(2px);
+  padding: 10vh 20px 20px;
+}
+.search-overlay.open { display: block; }
+body.search-open { overflow: hidden; }
+.search-panel {
+  position: relative; max-width: 640px; margin: 0 auto;
+  background: var(--surface-raised); border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg); padding: 20px;
+  max-height: 74vh; overflow: auto;
+}
+.search-close {
+  position: absolute; top: 10px; right: 12px; z-index: 1;
+  font-size: 22px; line-height: 1; color: var(--text-muted);
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.search-close:hover { color: var(--fuuz-white); }
+
+/* Pagefind ships its own UI; these custom properties are its documented theming hooks, kept to
+   the brand palette instead of overriding its markup. */
+.search-panel {
+  --pagefind-ui-primary: var(--fuuz-spring-green);
+  --pagefind-ui-text: var(--text-primary);
+  --pagefind-ui-background: transparent;
+  --pagefind-ui-border: var(--border-default);
+  --pagefind-ui-tag: var(--surface-brand-muted);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 9px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--font-body);
+}
+.search-panel .pagefind-ui__search-input { color: var(--text-primary); background: var(--surface-page); }
+.search-panel .pagefind-ui__result-link { color: var(--fuuz-white); }
+.search-panel .pagefind-ui__result-link:hover { color: var(--text-brand-on-dark); }
+.search-panel .pagefind-ui__result-excerpt mark { background: rgba(75,244,134,.28); color: inherit; }
 .schema-table tr:last-child td { border-bottom: none; }

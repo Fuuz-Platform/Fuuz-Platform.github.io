@@ -71,5 +71,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of GraphQL calls to a legacy MFGx instance.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single GraphQL call dispatched through `MFGxAPIKeyClient.graphQL`.","children":[{"path":"$$[].query","required":true,"type":"string","description":"GraphQL query or mutation document."},{"path":"$$[].api","required":true,"type":"string","description":"Target API name (e.g. `application`, `system`). Resolved to the API constant via `APIS[api.toUpperCase()]`."},{"path":"$$[].variables","required":false,"type":"object","description":"GraphQL variables."}]}]},"sample":[{"query":"<string>","api":"<string>","variables":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object"}]},"sample":[{}]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

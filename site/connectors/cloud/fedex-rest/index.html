@@ -71,5 +71,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of FedEx REST API requests. Each item returns `{ body, errors }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single FedEx REST API request.","children":[{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (lowercase).","enum":["get","post","put","delete"]},{"path":"$$[].path","required":true,"type":"string","description":"FedEx API path appended to the connection URL."},{"path":"$$[].data","required":false,"type":"object","description":"Request body for POST/PUT requests."},{"path":"$$[].headers","required":false,"type":"object","description":"Additional request headers merged over the default `Content-Type` and `Authorization`."}]}]},"sample":[{"method":"get","path":"<string>","data":{},"headers":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

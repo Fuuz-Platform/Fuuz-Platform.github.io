@@ -70,5 +70,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of Fuuz-managed UPS requests. Credentials are sourced from server config. Includes license-management actions in addition to generic HTTP.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single UPS request.","children":[{"path":"$$[].version","required":false,"type":"string","description":"UPS API version. Only `v1` is supported.","enum":["v1"]},{"path":"$$[].action","required":true,"type":"string","description":"Generic HTTP method or a license-management action (`License Agreement`, `License Request`).","enum":["GET","POST","DELETE","License Agreement","License Request"]},{"path":"$$[].path","required":false,"type":"string","description":"UPS API path. Used for generic HTTP actions."},{"path":"$$[].data","required":false,"type":"object","description":"Request body."}]}]},"sample":[{"version":"v1","action":"GET","path":"<string>","data":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

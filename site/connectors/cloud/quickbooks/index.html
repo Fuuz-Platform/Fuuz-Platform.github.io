@@ -72,5 +72,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of QuickBooks Online REST API requests.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single QuickBooks Online API request.","children":[{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (lowercase).","enum":["get","put","post","patch","delete"]},{"path":"$$[].headers","required":false,"type":"object","description":"Additional request headers."},{"path":"$$[].path","required":true,"type":"string","description":"QuickBooks API path (e.g. `/v3/company/{realmId}/query`)."},{"path":"$$[].params","required":false,"type":"object","description":"Query string parameters."},{"path":"$$[].body","required":false,"type":"object | array | string | number | null","description":"Request body."}]}]},"sample":[{"method":"get","headers":{},"path":"<string>","params":{},"body":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

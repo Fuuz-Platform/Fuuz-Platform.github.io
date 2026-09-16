@@ -111,6 +111,7 @@ export function renderConnectorDetail({ name, description, logo, doc, schemas })
 
 <script>window.__SCHEMA_BLOCKS__ = ${JSON.stringify(blocks)};</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>
 `;

@@ -56,6 +56,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node build/generate.mjs
 
+      # Indexes the HTML that generate.mjs just produced and drops a static search runtime into
+      # site/pagefind/. Runs AFTER generate.mjs so newly-enrolled accelerators and connector pages
+      # are searchable the same day they appear; never committed (see .gitignore) because it is
+      # reproducible build output, same as the rest of what this job assembles into site/.
+      - name: Build search index
+        run: npx --yes pagefind@1 --site site
+
       # enablement: true turns Pages on if it is not already. Without it, the FIRST push to a new
       # accelerator repo fails — the workflow runs before anyone has visited Settings -> Pages —
       # and the failure reads as a broken workflow rather than a missing setting.

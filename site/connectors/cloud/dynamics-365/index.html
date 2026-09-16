@@ -72,5 +72,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of Dynamics 365 REST API requests. Each item returns `{ body, errors }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single Dynamics 365 API request.","children":[{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (UPPERCASE).","enum":["GET","POST","DELETE","PUT","PATCH"]},{"path":"$$[].headers","required":false,"type":"object","description":"Additional request headers."},{"path":"$$[].path","required":true,"type":"string","description":"Dynamics 365 API path appended to the connection URL."},{"path":"$$[].body","required":false,"type":"object | array | boolean | null | string | number","description":"Request body. Accepts any JSON type."}]}]},"sample":[{"method":"GET","headers":{},"path":"<string>","body":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

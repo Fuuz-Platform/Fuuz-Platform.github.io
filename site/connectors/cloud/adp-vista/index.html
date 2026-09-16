@@ -74,5 +74,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of ADP Vista API requests. Connection options (country, paymentUnit, legalEntity) are sent as request headers. `data` is always required and must be an array of objects.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single ADP Vista API request.","children":[{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (lowercase). Only `get` and `post` are supported.","enum":["get","post"]},{"path":"$$[].path","required":true,"type":"string","description":"ADP Vista API path."},{"path":"$$[].data","required":true,"type":"array","description":"Request body. Always required, always an array of objects.","children":[{"path":"$$[].data[]","required":false,"type":"object"}]}]}]},"sample":[{"method":"get","path":"<string>","data":[{}]}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object"}]},"sample":[{}]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

@@ -71,5 +71,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of WooCommerce REST API requests. Each item returns `{ data }` or `{ error }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single WooCommerce API request.","children":[{"path":"$$[].path","required":true,"type":"string","description":"WooCommerce API path (prepended with `/wp-json/wc/{version}/`)."},{"path":"$$[].method","required":true,"type":"string","description":"HTTP method (UPPERCASE).","enum":["GET","PUT","POST","DELETE"]},{"path":"$$[].version","required":false,"type":"string","description":"WooCommerce API version. Defaults to `v3`.","enum":["v2","v3"]},{"path":"$$[].parameters","required":false,"type":"object","description":"Query string parameters."},{"path":"$$[].data","required":false,"type":"object","description":"Request body."}]}]},"sample":[{"path":"<string>","method":"GET","version":"v2","parameters":{},"data":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

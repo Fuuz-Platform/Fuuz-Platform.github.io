@@ -72,5 +72,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of FedEx SOAP API calls. Each call is posted as `Content-Type: text/xml` and the response is parsed from XML to JSON.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single FedEx SOAP call.","children":[{"path":"$$[].action","required":true,"type":"string","description":"FedEx action. Selects the SOAP template and endpoint. `POST` sends `data` as-is without wrapping.","enum":["Address Validation","Rates","Shipping Validation","Shipment Create","Shipment Delete","POST"]},{"path":"$$[].data","required":false,"type":"string | object","description":"XML body (string) or data object merged into the SOAP template. For `POST`, raw data is sent unchanged."}]}]},"sample":[{"action":"Address Validation","data":"<string>"}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

@@ -72,5 +72,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of UPS OAuth REST API requests. Uses `action` instead of the common `method`. Each item returns `{ body, errors }`.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single UPS API request.","children":[{"path":"$$[].action","required":true,"type":"string","description":"HTTP method (UPPERCASE). Used in place of `method`.","enum":["GET","POST","DELETE","PUT","PATCH"]},{"path":"$$[].path","required":false,"type":"string","description":"UPS API path appended to the connection URL."},{"path":"$$[].data","required":false,"type":"object","description":"Request body."}]}]},"sample":[{"action":"GET","path":"<string>","data":{}}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>

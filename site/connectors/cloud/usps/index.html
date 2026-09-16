@@ -70,5 +70,6 @@
 
 <script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of USPS XML API calls. Data is sent as the `XML=...` query parameter (not request body); the connector injects the configured `USERID`. Responses are parsed from XML to JSON.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single USPS request.","children":[{"path":"$$[].action","required":true,"type":"string","description":"Always `POST`. Reserved for future USPS actions.","enum":["POST"]},{"path":"$$[].path","required":false,"type":"string","description":"URL path appended to the connection URL."},{"path":"$$[].api","required":false,"type":"string","description":"USPS API name sent as the `API` query parameter (e.g. `Verify`, `RateV4`)."},{"path":"$$[].data","required":false,"type":"string | object","description":"XML data. Must contain `USERID=''`; the connector injects the configured UserId."}]}]},"sample":[{"action":"POST","path":"<string>","api":"<string>","data":"<string>"}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array"},"sample":[]}];</script>
 <script src="../../../assets/schema-viewer.js"></script>
+<script defer src="/assets/search.js"></script>
 </body>
 </html>
