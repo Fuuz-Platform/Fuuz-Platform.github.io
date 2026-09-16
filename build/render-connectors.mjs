@@ -21,7 +21,7 @@ function mark(name, logo, depth) {
 // Renders one connector's real API documentation (queried live from the platform's Connector
 // model — see build/data/connector-docs.mjs) as a collapsed <details> disclosure. `doc` is
 // {credentials: [{label, secret, required, note}], notes}; required defaults to true.
-function renderDoc(doc) {
+function renderDoc(doc, detailHref) {
   if (!doc) return '';
   const creds = (doc.credentials || []).map(c => {
     const req = c.required === false ? '<span class="req-flag">optional</span>' : '<span class="req-flag">required</span>';
@@ -29,12 +29,13 @@ function renderDoc(doc) {
     const note = c.note ? `<span class="field-note">${c.note}</span>` : '';
     return `            <li>${c.label} ${req}${secret}${note}</li>`;
   }).join('\n');
+  const link = detailHref ? `\n            <p style="margin:12px 0 0"><a href="${detailHref}">Full API reference &amp; schema explorer &rarr;</a></p>` : '';
   return `
         <details>
           <summary></summary>
           <div class="doc-body">
             ${doc.notes ? `<p class="doc-notes">${doc.notes}</p>` : ''}
-            ${creds ? `<p class="doc-creds-label">Credentials</p>\n            <ul class="doc-creds">\n${creds}\n            </ul>` : ''}
+            ${creds ? `<p class="doc-creds-label">Credentials</p>\n            <ul class="doc-creds">\n${creds}\n            </ul>` : ''}${link}
           </div>
         </details>`;
 }
@@ -44,7 +45,7 @@ function renderDoc(doc) {
 // group. `skipCategories` carries data (e.g. the 'AI' entries, cross-referenced from LLMS)
 // without ever giving it its own group. `docs` (name -> {credentials, notes}) adds a real,
 // live-queried API-details disclosure to any tile whose name matches.
-export function renderLogoGrid(items, { depth, skipCategories = [], footnotes = {}, docs = {} } = {}) {
+export function renderLogoGrid(items, { depth, skipCategories = [], footnotes = {}, docs = {}, detailSlugs = {} } = {}) {
   const groups = new Map();
   for (const item of items) {
     if (skipCategories.includes(item.category)) continue;
@@ -55,7 +56,7 @@ export function renderLogoGrid(items, { depth, skipCategories = [], footnotes = 
     const tiles = entries.map(e => `        <div class="logo-tile">
           <div class="mark">${mark(e.name, e.logo, depth)}</div>
           <div class="name">${e.name}</div>
-          ${e.note ? `<div class="note">${e.note}</div>` : ''}${renderDoc(docs[e.name])}
+          ${e.note ? `<div class="note">${e.note}</div>` : ''}${renderDoc(docs[e.name], detailSlugs[e.name] ? `./${detailSlugs[e.name]}/` : null)}
         </div>`).join('\n');
     const footnote = footnotes[category] ? `\n      <div class="callout">${footnotes[category]}</div>` : '';
     return `      <div class="logo-group">

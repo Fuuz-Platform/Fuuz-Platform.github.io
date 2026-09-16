@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAI Chat Connector &mdash; Fuuz Accelerators</title>
+<meta name="description" content="A connector to interact with OpenAI Chat GPT models via the OpenAI API. Real credentials and input/output schema, queried live from the Fuuz platform.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/connectors/cloud/openai-chat/">
+<link rel="icon" href="../../../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../prose.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../../../"><img src="../../../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Connectivity</span>
+    <nav>
+      <a href="../#named">Named connectors</a>
+      <a href="../">IT &amp; Cloud</a>
+      <a href="../../edge/">Edge &amp; OT</a>
+      <a href="../../">Connectivity</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <p class="eyebrow"><a href="../#named" style="color:inherit">IT &amp; Cloud Connectors</a> / Named Connector</p>
+  <h1 style="display:flex;align-items:center;gap:20px;font-size:clamp(30px,4.5vw,52px)">
+    <span class="mark" style="height:48px;display:inline-flex"><img src="https://mfgx-public.s3.us-east-1.amazonaws.com/integration-connector-images/e86501cd-80b4-46ea-97c8-33d31cfef632.webp" alt="OpenAI Chat logo" style="height:100%"></span>
+    OpenAI Chat
+  </h1>
+  <p class="lede">A connector to interact with OpenAI Chat GPT models via the OpenAI API.</p>
+</div>
+
+<section id="credentials">
+  <div class="wrap">
+    <p class="sec-eyebrow">Setup</p>
+    <h2>Real <span class="accent">Credentials</span></h2>
+    <p class="sec-lede">ChatCompletion requests forwarded to client.chat.completions.create. Connection options deep-merge with each request — useful for a default system message.</p>
+    <ul class="doc-creds" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <li>API Key <span class="req-flag">required</span> <span class="secret-flag">&#9679; secret</span></li>
+          </ul>
+  </div>
+</section>
+
+<section id="schema">
+  <div class="wrap">
+    <p class="sec-eyebrow">Real API documentation</p>
+    <h2>Input &amp; Output <span class="accent">Schema</span></h2>
+    <p class="sec-lede">Queried live from the platform. Sample values are shape-accurate
+      placeholders (<code>&lt;string&gt;</code>, <code>0</code>, an enum's first value) generated
+      from the real schema, not invented example data.</p>
+    <div id="schema-blocks"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Nothing published here carries a <strong>service level agreement</strong>. An accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+
+<script>window.__SCHEMA_BLOCKS__ = [{"title":"Input Schema","tree":{"path":"$$","required":true,"type":"array","description":"Array of OpenAI ChatCompletion requests. Connection options are deep-merged with each request (useful for default system messages). Additional OpenAI parameters (temperature, max_tokens, etc.) may be passed as extra properties.","children":[{"path":"$$[]","required":false,"type":"object","description":"A single ChatCompletion request forwarded to `client.chat.completions.create`.","children":[{"path":"$$[].model","required":true,"type":"string","description":"OpenAI model name (e.g. `gpt-4`, `gpt-3.5-turbo`)."},{"path":"$$[].messages","required":true,"type":"array","description":"Ordered conversation history. Each message matches one of the role-specific variants below.","children":[{"path":"$$[].messages[]","required":false,"type":"anyOf — 3 variants","children":[{"path":"$$[].messages[] (variant 1)","required":false,"type":"object","children":[{"path":"$$[].messages[] (variant 1).content","required":true,"type":"string | array","description":"The contents of the message.","children":[{"path":"$$[].messages[] (variant 1).content[]","required":false,"type":"string"}]},{"path":"$$[].messages[] (variant 1).role","required":true,"type":"string","description":"The role of the message's author.","enum":["system","user"]},{"path":"$$[].messages[] (variant 1).name","required":false,"type":"string","description":"An optional name for the participant."}]},{"path":"$$[].messages[] (variant 2)","required":false,"type":"object","children":[{"path":"$$[].messages[] (variant 2).content","required":false,"type":"string | null","description":"The contents of the assistant message."},{"path":"$$[].messages[] (variant 2).role","required":true,"type":"string","description":"The role of the message's author, in this case 'assistant'.","enum":["assistant"]},{"path":"$$[].messages[] (variant 2).tool_calls","required":false,"type":"array","description":"The tool calls generated by the model, such as function calls.","children":[{"path":"$$[].messages[] (variant 2).tool_calls[]","required":false,"type":"object","children":[{"path":"$$[].messages[] (variant 2).tool_calls[].id","required":true,"type":"string","description":"The ID of the tool call."},{"path":"$$[].messages[] (variant 2).tool_calls[].type","required":true,"type":"string","description":"The type of the tool. Currently, only 'function' is supported.","enum":["function"]},{"path":"$$[].messages[] (variant 2).tool_calls[].function","required":true,"type":"object","description":"The function that the model called.","children":[{"path":"$$[].messages[] (variant 2).tool_calls[].function.name","required":false,"type":"string","description":"The name of the function to call."},{"path":"$$[].messages[] (variant 2).tool_calls[].function.arguments","required":false,"type":"string","description":"The arguments to call the function with, as generated by the model in JSON format."}]}]}]}]},{"path":"$$[].messages[] (variant 3)","required":false,"type":"object","children":[{"path":"$$[].messages[] (variant 3).role","required":true,"type":"string","description":"The role of the message's author, in this case 'tool'.","enum":["tool"]},{"path":"$$[].messages[] (variant 3).content","required":true,"type":"string | array","description":"The contents of the tool message.","children":[{"path":"$$[].messages[] (variant 3).content[]","required":false,"type":"string"}]},{"path":"$$[].messages[] (variant 3).tool_call_id","required":true,"type":"string","description":"Tool call that this message is responding to."}]}]}]}]}]},"sample":[{"model":"<string>","messages":[{"content":["<string>"],"role":"system","name":"<string>"}]}]},{"title":"Output Schema","tree":{"path":"$$","required":true,"type":"array","children":[{"path":"$$[]","required":false,"type":"object","description":"Represents a chat completion response returned by model, based on the provided input.","children":[{"path":"$$[].id","required":true,"type":"string","description":"A unique identifier for the chat completion."},{"path":"$$[].created","required":true,"type":"integer","description":"The Unix timestamp (in seconds) of when the chat completion was created."},{"path":"$$[].model","required":true,"type":"string","description":"The model used for the chat completion."},{"path":"$$[].object","required":true,"type":"string","description":"The object type, which is always `chat.completion`.","enum":["chat.completion"]},{"path":"$$[].service_tier","required":false,"type":"string | null","description":"The service tier used for processing the request, when specified in the request.","enum":["scale","default",null]},{"path":"$$[].system_fingerprint","required":false,"type":"string","description":"Represents the backend configuration that the model runs with."},{"path":"$$[].choices","required":true,"type":"array","description":"A list of chat completion choices. Can be more than one if `n` is greater than 1.","children":[{"path":"$$[].choices[]","required":false,"type":"object","children":[{"path":"$$[].choices[].finish_reason","required":true,"type":"string","description":"The reason the model stopped generating tokens.","enum":["stop","length","tool_calls","content_filter","function_call"]},{"path":"$$[].choices[].index","required":true,"type":"integer","description":"The index of the choice in the list of choices."},{"path":"$$[].choices[].message","required":true,"type":"object","description":"A chat completion message generated by the model.","children":[{"path":"$$[].choices[].message.content","required":true,"type":"string | null","description":"The contents of the message."},{"path":"$$[].choices[].message.refusal","required":true,"type":"string | null","description":"The refusal message generated by the model."},{"path":"$$[].choices[].message.role","required":true,"type":"string","description":"The role of the author of this message.","enum":["assistant"]}]},{"path":"$$[].choices[].logprobs","required":true,"type":"object | null","description":"Log probability information for the choice."}]}]},{"path":"$$[].usage","required":false,"type":"object","description":"Usage statistics for the completion request.","children":[{"path":"$$[].usage.prompt_tokens","required":true,"type":"integer","description":"Number of tokens in the prompt."},{"path":"$$[].usage.completion_tokens","required":true,"type":"integer","description":"Number of tokens in the generated completion."},{"path":"$$[].usage.total_tokens","required":true,"type":"integer","description":"Total number of tokens used in the request (prompt + completion)."}]}]}]},"sample":[{"id":"<string>","created":0,"model":"<string>","object":"chat.completion","service_tier":"scale","system_fingerprint":"<string>","choices":[{"finish_reason":"stop","index":0,"message":{"content":"<string>","refusal":"<string>","role":"assistant"},"logprobs":{}}],"usage":{"prompt_tokens":0,"completion_tokens":0,"total_tokens":0}}]}];</script>
+<script src="../../../assets/schema-viewer.js"></script>
+</body>
+</html>

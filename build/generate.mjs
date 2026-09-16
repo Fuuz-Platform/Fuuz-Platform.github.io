@@ -39,6 +39,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { NAMED, CATEGORY_FOOTNOTES, HTTP_ONLY, OTHER_HTTP_OPTIONS, LLMS, RECENT } from './data/it-connectors.mjs';
 import { CONNECTOR_DOCS } from './data/connector-docs.mjs';
+import { CONNECTOR_SCHEMAS } from './data/connector-schemas.mjs';
+import { renderConnectorDetail, slugify } from './render-connector-detail.mjs';
 import {
   IGNITION_FEATURES, DRIVER_COLUMNS, DRIVERS, PLATFORM_COLUMNS, PLATFORMS,
   PLC_COLUMNS, PLC_MFRS, ROBOTS_COLUMNS, ROBOTS_BRIDGES, BRIDGE_COLUMNS, UNSUPPORTED,
@@ -541,8 +543,12 @@ const demoHtml = readFileSync(join(HERE, 'demos-template.html'), 'utf8')
 mkdirSync(join(SITE, 'demos'), { recursive: true });
 writeFileSync(join(SITE, 'demos', 'index.html'), demoHtml);
 
+const DETAIL_SLUGS = Object.fromEntries(
+  NAMED.filter(n => CONNECTOR_SCHEMAS[n.name]).map(n => [n.name, slugify(n.name)])
+);
+
 const cloudHtml = readFileSync(join(HERE, 'template-connectors-cloud.html'), 'utf8')
-  .replace('<!--{{NAMED}}-->', renderLogoGrid(NAMED, { depth: '../../', skipCategories: ['AI'], footnotes: CATEGORY_FOOTNOTES, docs: CONNECTOR_DOCS }))
+  .replace('<!--{{NAMED}}-->', renderLogoGrid(NAMED, { depth: '../../', skipCategories: ['AI'], footnotes: CATEGORY_FOOTNOTES, docs: CONNECTOR_DOCS, detailSlugs: DETAIL_SLUGS }))
   .replace('<!--{{HTTP}}-->', renderLogoGrid(HTTP_ONLY, { depth: '../../' }))
   .replace('<!--{{OTHER_HTTP}}-->', OTHER_HTTP_OPTIONS)
   .replace('<!--{{LLMS}}-->', renderFeatureCards(LLMS, { depth: '../../' }))
@@ -559,6 +565,20 @@ const edgeHtml = readFileSync(join(HERE, 'template-connectors-edge.html'), 'utf8
   .replace('<!--{{BRIDGES}}-->', renderTable(UNSUPPORTED, BRIDGE_COLUMNS));
 mkdirSync(join(SITE, 'connectors', 'edge'), { recursive: true });
 writeFileSync(join(SITE, 'connectors', 'edge', 'index.html'), edgeHtml);
+
+/* PROTOTYPE — 3 connectors only (see build/data/connector-schemas.mjs). Extend that file with
+   the rest once this is approved; nothing else here needs to change. */
+for (const named of NAMED) {
+  const schemas = CONNECTOR_SCHEMAS[named.name];
+  if (!schemas) continue;
+  const slug = slugify(named.name);
+  const html = renderConnectorDetail({
+    name: named.name, description: named.description || '', logo: named.logo,
+    doc: CONNECTOR_DOCS[named.name], schemas,
+  });
+  mkdirSync(join(SITE, 'connectors', 'cloud', slug), { recursive: true });
+  writeFileSync(join(SITE, 'connectors', 'cloud', slug, 'index.html'), html);
+}
 
 writeFileSync(join(SITE, 'sitemap.xml'), sitemap(accelerators));
 
