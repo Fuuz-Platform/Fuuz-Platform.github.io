@@ -47,7 +47,8 @@
 <header class="topbar">
   <div class="wrap">
     <a class="logo" href="./"><img src="assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
-    <span class="section">Accelerators</span>
+    <!-- No .section badge here (unlike the subpages) — the nav's own first link, "Accelerators",
+         already says what this site is; a breadcrumb-style badge next to it just repeated it. -->
     <!-- Kept deliberately short: five destinations, nothing more. Everything that used to live
          here (What is an accelerator?, Run it now, Latest, Watch, GitHub) is still reachable —
          from a hero CTA, from the footer nav, or by scrolling to the in-page section itself. -->
@@ -79,6 +80,40 @@
 </div>
 
 <!--{{LATEST}}-->
+
+<section id="in-house">
+  <div class="wrap">
+    <p class="sec-eyebrow">Free trial</p>
+    <h2>Run The Whole Platform, <span class="accent">Free</span></h2>
+    <p class="sec-lede">Not just one accelerator &mdash; the Fuuz platform itself, on your own machine.
+      <strong>Fuuz In-House</strong> is a slimmed-down deployment that runs entirely in Docker, so you
+      can try Fuuz for yourself before it touches any infrastructure of yours.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>One container, the whole platform</h3>
+        <p>The launcher pulls and runs roughly 32 containers &mdash; three RabbitMQ brokers, a MongoDB
+          replica set, Redis, object storage, an nginx reverse proxy, and the Fuuz platform services
+          themselves &mdash; then hands you a local web UI to configure and start it.</p>
+      </div>
+      <div class="card">
+        <h3>What it needs</h3>
+        <p>Docker on 64-bit x86 (<code>amd64</code>), 12&nbsp;GB memory minimum (16&nbsp;GB
+          recommended), 4+ CPUs, ports 80/443 free, and outbound Docker Hub access for the initial
+          pull. A license key is required to start it.</p>
+      </div>
+      <div class="card">
+        <h3>Getting a license</h3>
+        <p>Request a trial license through the official form, or use the key you were supplied with
+          if you're already a subscription customer. The license key is what unlocks the launcher's
+          local UI at <code>localhost:9000</code>.</p>
+      </div>
+    </div>
+    <div class="ctas" style="margin-top:26px">
+      <a class="cta cta-primary" href="https://hub.docker.com/r/mfgx/native-app-launcher">Get it on Docker Hub</a>
+      <a class="cta cta-secondary" href="https://forms.zohopublic.com/mfgxonlinesaas/form/SASSProductOnPremiseTrialLicenseForm/formperma/9wqLG0aoAvBqSDeErrpuau-_oIll7hbSIaHzyU-IXgM">Request a trial license</a>
+    </div>
+  </div>
+</section>
 
 <!--{{SECTIONS}}-->
 
@@ -119,6 +154,7 @@
     <address class="addr">715 South Boulevard East, Rochester Hills, MI 48307 &middot; 1-877-801-FUUZ</address>
     <nav>
       <a href="what-is-an-accelerator/">What is an accelerator?</a>
+      <a href="#in-house">Fuuz In-House (free trial)</a>
       <a href="#run">Run it now</a>
       <a href="#latest">Latest</a>
       <a href="#watch">Watch</a>
