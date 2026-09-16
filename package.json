@@ -1,0 +1,8 @@
+{
+  "name": "fuuz-platform-github-io",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "pagefind": "^1.5.2"
+  }
+}

@@ -197,6 +197,13 @@ function card(a) {
         </div>`;
 }
 
+/* data-pagefind-ignore on both card grids below: each card links out to its OWN destination (a
+   separate published site, or a GitHub repo/release), but Pagefind indexes one physical HTML file
+   as one result. Left to crawl this page normally, a match on "MES" inside the grid would be
+   attributed to this whole homepage, not to the MES accelerator's own link — which is exactly
+   backwards. build/build-search-index.mjs gives every accelerator its own search record instead
+   (see accelSearchRecords below), each pointing straight at linkFor(a)'s real destination, so the
+   grids themselves are excluded from the ordinary page-by-page index. */
 function renderSections(accelerators) {
   const used = new Set();
   const blocks = [];
@@ -213,13 +220,35 @@ function renderSections(accelerators) {
     <p class="sec-eyebrow">${esc(sec.eyebrow)}</p>
     <h2>${esc(sec.heading[0])} <span class="accent">${esc(sec.heading[1])}</span></h2>
     <p class="sec-lede">${esc(sec.lede)}</p>
-    <div class="grid" data-collapse="${COLLAPSE_AFTER}">
+    <div class="grid" data-collapse="${COLLAPSE_AFTER}" data-pagefind-ignore>
 ${items.map(card).join('\n')}
       </div>
   </div>
 </section>`);
   }
   return blocks.join('\n\n');
+}
+
+/* One search record per accelerator, mirroring renderSections' own section-assignment traversal
+   (same SECTIONS order, same `used` de-duplication) so every card gets exactly the section context
+   it's actually shown under. Consumed by build/build-search-index.mjs via search-records.json. */
+function accelSearchRecords(accelerators) {
+  const used = new Set();
+  const records = [];
+  for (const sec of SECTIONS) {
+    const items = accelerators.filter(a =>
+      sec.topic ? a.topics.includes(sec.topic) : !used.has(a.name));
+    if (sec.topic) items.forEach(a => used.add(a.name));
+    for (const a of items) {
+      const { href } = linkFor(a);
+      records.push({
+        url: href.startsWith('http') ? href : `${DOMAIN}/${href}`,
+        title: a.title,
+        content: `${a.title}. ${sec.eyebrow}. ${a.summary}`
+      });
+    }
+  }
+  return records;
 }
 
 /* Collapse runs in the browser, not in the generator, and it runs AFTER the cards are in the DOM.
@@ -273,7 +302,7 @@ function renderLatest(accelerators) {
     <p class="sec-eyebrow">Latest releases</p>
     <h2>Newest From The Fuuz <span class="accent">Team</span></h2>
     <p class="sec-lede">The most recent accelerators to land. Everything else is below, by category.</p>
-    <div class="grid">
+    <div class="grid" data-pagefind-ignore>
 ${latest.map(a => {
   const { href, tag } = linkFor(a);
   const ver = a.release ? `${esc(a.release.tag)} &middot; ` : '';
@@ -581,6 +610,7 @@ for (const named of NAMED) {
 }
 
 writeFileSync(join(SITE, 'sitemap.xml'), sitemap(accelerators));
+writeFileSync(join(HERE, 'search-records.json'), JSON.stringify(accelSearchRecords(accelerators), null, 2));
 
 console.log(`Generated ${accelerators.length} accelerators and ${DEMOS.collections.reduce((n,c)=>n+c.videos.length,0)} demos:`);
 for (const a of accelerators) console.log(`  ${a.hasSite ? 'site' : 'repo'}  ${a.accelerator ? 'accel' : 'BETA '}  ${a.name}  -> ${a.title}`);
