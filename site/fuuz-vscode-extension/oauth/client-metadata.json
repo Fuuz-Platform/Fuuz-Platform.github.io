@@ -1,15 +1,1 @@
-{
-  "client_id": "https://accelerators.fuuz.com/fuuz-vscode-extension/oauth/client-metadata.json",
-  "client_name": "Fuuz for VS Code",
-  "client_uri": "https://accelerators.fuuz.com/",
-  "logo_uri": "https://accelerators.fuuz.com/fuuz-vscode-extension/oauth/icon.png",
-  "application_type": "native",
-  "grant_types": ["authorization_code", "refresh_token"],
-  "response_types": ["code"],
-  "token_endpoint_auth_method": "none",
-  "redirect_uris": [
-    "vscode://cscott.fuuz-vscode-extension/oauth-callback",
-    "vscode-insiders://cscott.fuuz-vscode-extension/oauth-callback",
-    "cursor://cscott.fuuz-vscode-extension/oauth-callback"
-  ]
-}
+{"client_id":"https://accelerators.fuuz.com/fuuz-vscode-extension/oauth/client-metadata.json","client_name":"Fuuz for VS Code","client_uri":"https://accelerators.fuuz.com","redirect_uris":["http://localhost/callback","http://127.0.0.1/callback"],"grant_types":["authorization_code","refresh_token"],"response_types":["code"],"token_endpoint_auth_method":"none"}
