@@ -186,6 +186,17 @@ whole domain root and lock every other accelerator out of it. Don't. **No DNS ch
 needed for a new accelerator** — the record is `CNAME accelerators -> fuuz-platform.github.io.`
 and it is already in place.
 
+## The VS Code extension's OAuth client document
+
+`site/fuuz-vscode-extension/oauth/client-metadata.json` is the one hand-placed file here. Fuuz's
+authorization server fetches it, from
+https://accelerators.fuuz.com/fuuz-vscode-extension/oauth/client-metadata.json, to identify the
+**Fuuz for VS Code** extension when someone signs in with OAuth (its `client_id` is that URL).
+It used to be published by the extension's own repository, which is now private (`fuuz-sdk`),
+so it lives here. It holds no secrets: the client name, icon and the editor callback addresses.
+Keep the URL stable: every installed copy of the extension uses it. If a public repository named
+`fuuz-vscode-extension` ever publishes a Pages site, it takes over this path; move the file there.
+
 ## Brand
 
 The site uses the **brand** palette from the Fuuz design system, not the platform's UI palette —
