@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuuz for VS Code &mdash; Open Beta, Free to Use</title>
+<meta name="description" content="Fuuz for VS Code (open beta, free to use): build Fuuz apps with your AI assistant. Connect tenants over MCP, explore and query data, run specs with agents, test flows locally, and check screens in a real browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/fuuz-vscode-extension/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://accelerators.fuuz.com/fuuz-vscode-extension/">
+<meta property="og:site_name" content="Fuuz Accelerators">
+<meta property="og:title" content="Fuuz for VS Code &mdash; Open Beta, Free to Use">
+<meta property="og:description" content="Build Fuuz apps with your AI assistant, from VS Code. Open beta, free to use.">
+<link rel="icon" href="../assets/appicon-violet.svg">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../prose.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Fuuz for VS Code",
+  "url": "https://accelerators.fuuz.com/fuuz-vscode-extension/",
+  "description": "Build Fuuz apps with your AI assistant, from VS Code: connect tenants over MCP, explore and query data, run specs with agents, test flows locally, and check screens in a real browser. Open beta, free to use.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux (VS Code 1.101+)",
+  "softwareVersion": "beta",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Fuuz", "url": "https://fuuz.com" }
+}
+</script>
+</head>
+<body>
+<!--
+  Source: Fuuz-Platform/fuuz-sdk, site/index.html. Published by copying it to
+  Fuuz-Platform/Fuuz-Platform.github.io at site/fuuz-vscode-extension/index.html (paths here are
+  relative to that location). Keep it in step with the README when features change.
+-->
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Accelerators</span>
+    <nav>
+      <a href="#features">What it does</a>
+      <a href="#get-started">Get started</a>
+      <a href="#permissions">Permissions</a>
+      <a href="../">All accelerators</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="wrap hero">
+  <p class="eyebrow">Open beta &middot; Free to use</p>
+  <h1>Fuuz for VS <span class="accent">Code</span></h1>
+  <p class="lede">Build and run Fuuz apps from VS Code with your AI assistant. Connect your tenants
+    over MCP, explore and query their data, write specs and have agents build them, test flows
+    on your machine, and check screens in a real, signed-in browser.</p>
+  <div class="callout">
+    <h3>Open beta, free to use</h3>
+    <p>Fuuz for VS Code is in <strong>open beta</strong> while our Engineering team builds the
+      production version. It is <strong>free to use</strong>: install it, connect your tenants and
+      put it to work. Expect it to change between versions, and tell us what you find.</p>
+  </div>
+  <div class="ctas">
+    <a class="cta cta-primary" href="#get-started">Get started</a>
+    <a class="cta cta-secondary" href="#features">What it does</a>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <p class="sec-eyebrow">What it does</p>
+    <h2>From Connection To Checked <span class="accent">Screen</span></h2>
+    <p class="sec-lede">Everything below is in the extension today. Some of it depends on your
+      Fuuz subscription and on what your Fuuz user is allowed to do; see
+      <a href="#permissions">Permissions</a>.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Connect your tenants</h3>
+        <p>Sign in with your Fuuz account on environments running Fuuz MCP V2, or add a tenant
+          with an API key. The extension works with MCP V1 and V2 without configuration, and
+          <strong>Test endpoints</strong> shows which of MCP, flow execution and webhooks each
+          connection can reach.</p>
+      </div>
+      <div class="card">
+        <h3>Your AI assistant, connected</h3>
+        <p>Registers the Fuuz MCP server for GitHub Copilot in VS Code, Claude Code and Claude
+          Desktop, and for Codex and Gemini CLI accounts. Configs hold only a reference: keys
+          stay in the Fuuz Secrets service, and a local proxy adds them to each request.</p>
+      </div>
+      <div class="card">
+        <h3>Explore and query</h3>
+        <p>The Fuuz view lists each tenant's module groups, modules, screens, flows, data models,
+          documents, scripts and GraphQL. The Model Explorer shows a model with its neighbors;
+          the Data Query Console builds read-only queries and exports CSV or JSON. Ask
+          <code>@fuuz</code> in chat, or work in Fuuz notebooks.</p>
+      </div>
+      <div class="card">
+        <h3>Specs, built by agents</h3>
+        <p>Write a spec as requirements, design and tasks, approving each before the next. Start
+          one task, or run them all in waves across several AI accounts (Claude Code, Codex,
+          Gemini CLI, Copilot). Agents hand work off to each other, and the harness hook blocks
+          their writes to production tenants.</p>
+      </div>
+      <div class="card">
+        <h3>Fewer platform mistakes</h3>
+        <p>Every agent gets a guide to the mistakes agents make most on Fuuz, with the exact
+          errors and fixes, plus the Fuuz help docs (lms.fuuz.com) and the published apps on
+          marketplace.fuuz.com to start from. When a Fuuz call fails with a known error, the fix
+          appears next to it.</p>
+      </div>
+      <div class="card">
+        <h3>Test flows before deploying</h3>
+        <p>A local flow emulator runs a flow definition on your machine: JSONata and JavaScript
+          transforms run for real, platform nodes return stub results, and each node's input
+          and output is shown. Its lint catches mistakes that deploy fine but run wrong.</p>
+      </div>
+      <div class="card">
+        <h3>See screens for real</h3>
+        <p>Preview a screen locally before you push it. <strong>Start UI Session</strong> opens one
+          signed-in Chrome you log into once; your assistant drives it with Playwright or Chrome
+          DevTools to check that screens render, bind and save.</p>
+      </div>
+      <div class="card">
+        <h3>Compare, check and promote</h3>
+        <p>Compare 2 to 5 tenants, or a tenant and an exported package: components, setup data
+          and access. A compare lint separates harmful differences from expected ones. Compliance
+          checks cover models, flows and screens. Deploying and promoting stay off until you
+          turn them on.</p>
+      </div>
+      <div class="card">
+        <h3>Secrets and local services</h3>
+        <p>Named secrets live in an encrypted vault on your machine. Agents ask for them and use
+          them through a broker without ever seeing a value. Declare the local services your app
+          needs (Docker, npm, databases, gateways), then start, check and query them; databases
+          are read-only by default.</p>
+      </div>
+      <div class="card">
+        <h3>Team kits and spend</h3>
+        <p>Team kits give every developer's agents the same rules, skills and shared UI
+          components. <strong>Usage &amp; Spend</strong> shows tokens and cost by repo, spec and
+          task, read from session logs on your machine; nothing leaves it.</p>
+      </div>
+      <div class="card">
+        <h3>Claude Code plugin</h3>
+        <p>Using Claude Code without VS Code? The <code>fuuz-sdk</code> plugin, from the same
+          repository, connects Claude Code to a tenant and adds <code>/fuuz-sdk:doctor</code>,
+          <code>/fuuz-sdk:new-app</code> and <code>/fuuz-sdk:add-tenant</code>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="get-started">
+  <div class="wrap">
+    <p class="sec-eyebrow">Get started</p>
+    <h2>Connected In A Few <span class="accent">Minutes</span></h2>
+    <p class="sec-lede">You need:</p>
+    <div class="prose">
+      <ul>
+        <li><strong>VS Code 1.101</strong> or newer.</li>
+        <li><strong>A Fuuz tenant</strong>: an API key for it, or a Fuuz sign-in on an environment
+          running Fuuz MCP V2.</li>
+        <li>For the AI features, a <strong>Fuuz subscription that includes MCP</strong> and an AI
+          assistant: Claude Code, GitHub Copilot agent mode, Codex or Gemini CLI.</li>
+        <li>For browser checks, an installed Chrome, Chromium or Edge, and Node.js.</li>
+      </ul>
+    </div>
+    <p class="sec-lede" style="margin-top:28px">Install the <code>.vsix</code> from the latest release:</p>
+    <div class="cmd"><span class="prompt">$</span> code --install-extension fuuz-vscode-extension-&lt;version&gt;.vsix<span class="note">It doesn't update itself: install each new release the same way.</span></div>
+    <ol class="steps" style="margin-top:34px">
+      <li>
+        <h3>Connect a tenant</h3>
+        <p>Open the <strong>Fuuz</strong> view and choose <strong>Sign in with Fuuz</strong> or
+          <strong>Add Connection by API Key</strong>. The extension works out the tenant,
+          enterprise and environment, checks the connection, and loads the tenant.</p>
+      </li>
+      <li>
+        <h3>Restart your AI assistant</h3>
+        <p>The Fuuz MCP server is registered with Claude Code and Claude Desktop automatically,
+          and with VS Code for Copilot. Claude loads MCP servers when it starts, so restart it
+          once.</p>
+      </li>
+      <li>
+        <h3>Start building</h3>
+        <p>Ask your assistant about the tenant, or run <strong>Fuuz: New Spec&hellip;</strong> to plan
+          a feature and have agents build it task by task. <strong>Fuuz: Manage Fuuz</strong> holds
+          the rest of the setup: tenants, secrets, AI accounts, team kits and add-ons.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="permissions">
+  <div class="wrap prose">
+    <p class="sec-eyebrow">Permissions (important)</p>
+    <h2>What Your Fuuz User Must Be <span class="accent">Allowed</span></h2>
+    <p>Connecting and listing the MCP tools needs no special access. <strong>Using</strong> them
+      (loading the tenant, querying data, running flows) needs the Fuuz user behind your key or
+      sign-in to be authorized in that tenant. Assign it a policy, or policy group, with at least
+      the read and query actions for:</p>
+    <ul>
+      <li><code>accessControl</code>: environment and current-user info</li>
+      <li><code>configuration</code>: module groups, modules, screens, the model catalog</li>
+      <li><code>dataModeling</code>: data models</li>
+      <li><code>orchestration</code>: data flows</li>
+      <li>any business modules whose data you want to query</li>
+    </ul>
+    <p>Running flows, sending webhooks or deploying also needs the matching write and execute
+      actions. Access is granted per tenant, in Fuuz, not in VS Code.</p>
+    <blockquote>
+      <p><strong>An API key keeps the permissions it was issued with.</strong> After changing a
+        policy, issue a new key and use <strong>Replace API Key</strong>.</p>
+    </blockquote>
+    <p>If the tools are listed but the tenant's application and data models stay empty, the
+      user is missing a read policy. The <strong>Couldn't load some resources</strong> entry in the
+      Fuuz view (and the <strong>Fuuz</strong> output channel) names the modules to grant.</p>
+    <h3>Subscription</h3>
+    <p>The Fuuz MCP server depends on your subscription. Without MCP, the AI features and loading
+      the tenant's resources are unavailable; you can still add connections, run flows and send
+      webhooks, as far as your key allows.</p>
+    <h3>Privacy</h3>
+    <ul>
+      <li>Keys and secrets are never written to settings or MCP configs; they are kept in VS Code
+        SecretStorage or the Fuuz Secrets service on your machine.</li>
+      <li>Telemetry is off unless you turn on <code>fuuz.telemetry.enabled</code> and VS Code's own
+        telemetry is on. It never includes secrets, names, file contents, prompts or record
+        data.</li>
+      <li>Usage &amp; Spend reads only token counts, on your machine.</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Operations Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+    <p class="terms">Fuuz for VS Code is an open beta: free to use, with no <strong>service level agreement</strong> while the production version is built. Nothing published here carries a service level agreement; an accelerator or a beta becomes a supported deliverable only once it has been implemented by a Fuuz services professional or an approved Fuuz partner.</p>
+  </div>
+</footer>
+<script defer src="/assets/search.js"></script>
+</body>
+</html>
